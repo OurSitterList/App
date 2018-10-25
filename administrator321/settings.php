@@ -1,4 +1,5 @@
-<?
+<?php
+
 	include("config/admin-includes.php");
 	include("templates/settings-tpl.php");
 	

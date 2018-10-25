@@ -1,4 +1,5 @@
-<?
+<?php
+
 	class Calendar
 	{
 		var $months;

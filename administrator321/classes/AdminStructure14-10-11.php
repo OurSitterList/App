@@ -1,4 +1,5 @@
-<?
+<?php
+
 	include("PageStructure.php");
 	//include_once("./fckeditor/fckeditor.php");
 	class AdminStructure extends PageStructure

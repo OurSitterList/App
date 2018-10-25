@@ -1,4 +1,5 @@
-<?
+<?php
+
 	class PageStructure
 	{
 		var $title;
