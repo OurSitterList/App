@@ -1,0 +1,65 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+html, body {
+    height: 100%;
+    min-height: 100%;
+    overflow: visible;
+}
+ol, ul {
+    list-style: none outside none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    outline: 0 none;
+}
+
+
+
+@font-face {
+  font-family: 'Papyrus-Regular';
+  src: url('../fonts/AndaleMono.eot') format('embedded-opentype'),
+       url('../fonts/AndaleMono.ttf')  format('truetype'), 
+	   url('../fonts/AndaleMono.svg#AndaleMono') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Papyrus-Regular';
+  src: url('../fonts/Papyrus-Regular.eot') format('embedded-opentype'),
+       url('../fonts/Papyrus-Regular.ttf')  format('truetype'), 
+	   url('../fonts/Papyrus-Regular.svg#Papyrus-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.lg-body										{ background:#0c4871 !important ; padding:15px 15px 20px 15px; margin:45px 0; border:#1c8abd 5px dashed!important ; -webkit-box-shadow: 0 0 15px #404040 !important; -moz-box-shadow: 0 0 15px #404040 !important; -o-box-shadow: 0 0 15px #404040 !important; box-shadow: 0 0 15px #404040 !important; height:auto !important;}
+.lg-body #lg-head								{ background:none !important; height:auto !important; text-align:center; }
+.lg-body #lg-head p								{ padding:0 0!important; }
+.lg-body #lg-head br, .lg-body #lg-head .separator	{ display:none; }
+
+#lg-head p										{ font-family: 'Papyrus-Regular'; font-size:18px!important; color:#fff!important; font-weight:bold; }
+#lg-head p span.font-bold						{ font-family: 'Papyrus-Regular'; font-size:20px!important; color:#fff!important; font-weight:bold;  }
+.lg-body .input									{ background:#ffffff !important; color:#333333 !important; text-shadow:none !important; }

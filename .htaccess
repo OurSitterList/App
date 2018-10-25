@@ -1,0 +1,11 @@
+#force https for certain pages
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+
+RewriteRule ^(dbbackup|dobackup\.php) - [F,L,NC]
+
+
+RewriteCond %{SERVER_PORT} !=443 [OR]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.oursitterlist.com/$1 [R,L]

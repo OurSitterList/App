@@ -1,0 +1,53 @@
+body {
+	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	background:url(../images/bg.jpg) repeat-x top left;
+}
+.container {width: 970px; margin: 30px auto; }
+
+
+
+ul#navi {
+	margin: 0; padding: 0;
+	float: left;
+	width: 970px;
+	list-style: none;
+	position: relative;
+	font-size: 1.2em;
+	background: url(../images/navi.gif) repeat-x;
+}
+ul#navi li {
+	float: left;
+	margin: 0; padding: 0;
+	border-right: 1px solid #555;
+}
+ul#navi li a {
+	padding: 10px 15px;
+	display: block;
+	color: #f0f0f0;
+	text-decoration: none;
+}
+ul#navi li:hover { background: #1376c9 url(../images/navi.gif) repeat-x; }
+ul#navi li span {
+	float: left;
+	padding: 15px 0;
+	position: absolute;
+	left: 0; top:35px;
+	display: none;
+	width: 970px;
+	background: #1376c9;
+	color: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+ul#navi li:hover span { display: block; }
+ul#navi li span a { display: inline; }
+ul#navi li span a:hover {text-decoration: underline;}
+
+/* CSS Document */
+

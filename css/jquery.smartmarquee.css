@@ -1,0 +1,7 @@
+.smartmarquee {
+	position: relative;
+	overflow: hidden;
+}
+.smartmarquee .container {
+	position: absolute;
+}

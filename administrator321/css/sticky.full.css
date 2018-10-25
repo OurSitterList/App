@@ -1,0 +1,54 @@
+
+div.sticky-queue {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #999999;
+    box-shadow: 0 0 5px #BBBBBB;
+    position: fixed;
+    width: 200px;
+}
+div.sticky-note {
+    padding-right: 20px;
+}
+div.sticky {
+    color: #292929;
+    display: none;
+    font-size: 12px;
+    padding: 10px;
+    position: relative;
+}
+img.sticky-close {
+    cursor: pointer;
+    height: 14px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 14px;
+}
+.top-right {
+    right: 20px;
+}
+.top-left {
+    left: 20px;
+}
+.top-right, .top-left {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    top: -2px;
+}
+.bottom-right {
+    right: 20px;
+}
+.bottom-left {
+    left: 20px;
+}
+.bottom-right, .bottom-left {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    bottom: -2px;
+}
+.border-top-right, .border-top-left {
+    border-top: 1px solid #999999;
+}
+.border-bottom-right, .border-bottom-left {
+    border-bottom: 1px solid #999999;
+}

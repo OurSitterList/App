@@ -1,0 +1,661 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media only screen and ( min-width:240px ) and ( max-width:320px )	{
+
+body											{ overflow-x:hidden; }		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:100px 0 10px 0; }
+.footer_inner ul li								{ display:block; padding:0 0; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+
+
+ul.inner-navmenu-list li						{ display:block; }
+ul.inner-navmenu-list li a						{ display:block; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:100% 100%; width:100%; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:16px; padding:8px 0; }					
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; margin-bottom:15px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0 50px 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+.login_sub_btn									{ width:100%; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:10px 0; }
+.sitter_list_leftarea							{ border-right:none; }
+.sitter_right_link								{ text-align:left; padding: 0 14px; }
+.sitter_right_link span							{ display:inline-block; }
+
+ul.cms-menu-list								{ text-align:center; padding:10px 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+#modal-post-job .sitter_form .left				{ width:100%; float:none; }
+#modal-post-job .sitter_form .right				{ width:100%; float:none; }
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+
+.input_outer .chkbox 							{ width: 100%; }
+
+
+}
+
+
+
+@media only screen and ( min-width:321px ) and ( max-width:360px )	{
+
+body											{ overflow-x:hidden; }		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:10px 0; }
+.footer_inner ul li								{ display:block; padding:0 0; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }
+
+
+ul.inner-navmenu-list li						{ display:block; }
+ul.inner-navmenu-list li a						{ display:block; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:100% 100%; width:100%; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:16px; padding:8px 0; }
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0 50px 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+.login_sub_btn									{ width:100%; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:10px 0; }
+.sitter_list_leftarea							{ border-right:none; }
+.sitter_right_link								{ text-align:left; padding: 0 14px; }
+.sitter_right_link span							{ display:inline-block; }
+
+ul.cms-menu-list								{ text-align:center; padding:10px 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+#modal-post-job .sitter_form .left				{ width:100%; float:none; }
+#modal-post-job .sitter_form .right				{ width:100%; float:none; }
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+
+.input_outer .chkbox 							{ width: 100%; }
+
+}
+
+
+
+@media only screen and ( min-width:361px ) and ( max-width:480px )	{		
+
+body											{ overflow-x:hidden; }
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:10px 0; }
+.footer_inner ul li								{ display:block; padding:0 0; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }	
+
+
+ul.inner-navmenu-list li						{ display:block; }
+ul.inner-navmenu-list li a						{ display:block; }
+.search-box1 									{ margin: 15px auto; position:relative; width:304px; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:16px; padding:8px 0; }
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0 50px 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+.login_sub_btn									{ width:100%; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:10px 0; }
+.sitter_list_leftarea							{ border-right:none; }
+.sitter_right_link								{ text-align:left; padding: 0 14px; }
+.sitter_right_link span							{ display:inline-block; }
+
+ul.cms-menu-list								{ text-align:center; padding:10px 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+#modal-post-job .sitter_form .left				{ width:100%; float:none; }
+#modal-post-job .sitter_form .right				{ width:100%; float:none; }
+
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+.input_outer .chkbox 							{ width: 100%; }
+}
+
+
+
+@media only screen and ( min-width:481px ) and ( max-width:600px )	{
+		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:10px 0; }
+.footer_inner ul li								{ display:block; padding:0 0; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }	
+
+
+ul.inner-navmenu-list li						{ display:block; }
+ul.inner-navmenu-list li a						{ display:block; }
+.search-box1 									{ margin: 15px auto; position:relative; width:304px; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:16px; padding:8px 0; }
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0 50px 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+.login_sub_btn									{ width:100%; }	
+
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:10px 0; }
+.sitter_list_leftarea							{ border-right:none; }
+.sitter_right_link								{ text-align:left; padding: 0 14px; }
+.sitter_right_link span							{ display:inline-block; }
+
+ul.cms-menu-list								{ text-align:center; padding:10px 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+#modal-post-job .sitter_form .left				{ width:100%; float:none; }
+#modal-post-job .sitter_form .right				{ width:100%; float:none; }
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+.input_outer .chkbox 							{ width: 100%; }
+}
+
+
+
+@media only screen and ( min-width:601px ) and ( max-width:640px )	{
+		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:10px 0; }
+.footer_inner ul li								{ display:inline-block; padding:0 15px; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }	
+
+
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; }
+.search-box1 									{ margin: 15px auto; position:relative; width:304px; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:16px; padding:8px 0; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+
+.sitter_app_cont								{ padding:0 0 50px 0; }
+.sitter_app_left								{ border-right:none; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:10px 0; }
+.sitter_list_leftarea							{ border-right:none; }
+.sitter_right_link								{ text-align:left; padding: 0 14px; }
+.sitter_right_link span							{ display:inline-block; }
+	
+ul.cms-menu-list								{ text-align:center; padding:10px 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+#modal-post-job .sitter_form .left				{ width:100%; float:none; }
+#modal-post-job .sitter_form .right				{ width:100%; float:none; }
+
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+.input_outer .chkbox 							{ width: 100%; }
+}
+
+
+
+@media only screen and ( min-width:641px ) and ( max-width:700px )	{
+		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:15px 0; }
+.footer_inner ul li								{ display:inline-block; padding:0 15px; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; }
+.search-box1 									{ margin: 15px auto; position:relative; width:304px; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:16px; padding:8px 0; }	
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:10px 0; }
+.sitter_list_leftarea							{ border-right:none; }
+.sitter_right_link								{ text-align:left; }
+.sitter_right_link span							{ display:inline-block; }
+
+ul.cms-menu-list								{ text-align:center; padding:10px 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+.input_outer .chkbox 							{ width: 100%; }
+}
+
+
+
+@media only screen and ( min-width:701px ) and ( max-width:768px )	{
+		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:15px 0; }
+.footer_inner ul li								{ display:inline-block; padding:0 15px; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }	
+.search-box1 									{ margin: 15px auto; position:relative; width:304px; }
+.search-box1 .search-subject					{ left:75px; top:38px; font-size:17px; }
+ul.inner-navmenu-list							{ padding:30px 0 0 0; }	
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; font-size:15px; font-weight:bold; padding:10px 0; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:20px; padding:5px 0; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+.login_sub_btn									{ width:100%; }	
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+.sitter_right_link								{ padding:15px 0; }
+.sitter_list_leftarea							{ /*border-right:none;*/ }
+.sitter_right_link								{ text-align:left; }
+.sitter_right_link span							{ display:inline-block; }
+
+ul.cms-menu-list								{ text-align:left; padding:35px 0 0 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+.ui-datepicker									{ width:auto !important; }
+
+
+.md-modal										{ max-width:100%; min-width:100%; position:absolute; }
+
+#book_details_area p							{ width:100%; margin-bottom: 10px;}
+#book_details_area p span						{ float: none; width:100%; display: block; }
+.input_outer .chkbox 							{ width: 100%; }
+}
+
+
+
+
+@media only screen and ( min-width:769px ) and ( max-width:800px )	{
+		
+.header_inner									{  }
+.social_top										{ text-align:center; }
+.social_top ul									{ float:none; text-align:center; display:inline-block; }
+.social_top ul li, .social_top ul li span		{ margin:0 0; }
+.social_top ul li a								{ line-height:80px; }
+.login											{ padding:10px 0 0 0; }
+.login ul										{ float:none; position:inherit; text-align:center; width:100%; }
+.img-box										{ margin-bottom:25px; }
+.footer_inner									{ padding:15px 0; }
+.footer_inner ul li								{ display:inline-block; padding:0 25px; text-align:left; margin-bottom:10px; }
+.footer_inner ul li .img-span					{ display:inline-block; width:100px; text-align:center; }
+.footer_inner ul li a span						{ font-size:23px; }
+
+.search-box1 .search-subject					{ left:60px; top:25px; font-size:17px; }
+ul.inner-navmenu-list							{ padding:30px 0 0 0; }	
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; font-size:15px; font-weight:bold; padding:4px 0; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:20px; padding:5px 0; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }	
+	
+.sitter_app_cont								{ padding:0 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+
+ul.cms-menu-list								{ text-align:left; padding:35px 0 0 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+
+#modal-search									{ 	max-width:100%; 
+													min-width:100%; 
+													left: 50%;
+													right: 0;
+													 }	
+#book_details_area p span						{ float: none; width:100%; display: block; }
+
+.input_outer .chkbox 							{ width: 100%; }
+}
+
+
+
+@media only screen and ( min-width:801px ) and ( max-width:900px )	{
+	
+
+
+.search-box1 .search-subject					{ left:60px; top:25px; font-size:17px; }
+ul.inner-navmenu-list							{ padding:30px 0 0 0; }	
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; font-size:15px; font-weight:bold; padding:4px 0; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:20px; padding:5px 0; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+
+ul.cms-menu-list								{ text-align:left; padding:35px 0 0 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+
+#modal-search									{ 	max-width:800px; 
+													min-width:800px; 
+													left: 50%;
+													right: 0;
+													 }	
+#book_details_area p span						{ float: none; width:100%; display: block; }
+
+}
+
+
+
+@media only screen and ( min-width:901px ) and ( max-width:990px )	{	
+
+
+.search-box1 .search-subject					{ left:60px; top:25px; font-size:17px; }
+ul.inner-navmenu-list							{ padding:30px 0 0 0; }	
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; font-size:15px; font-weight:bold; padding:4px 0; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:98% 100%; margin:15px auto; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display:block; width:100%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:20px; padding:5px 0; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+
+.sitter_app_cont								{ padding:0 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+
+.sitter_details									{ width:100%; display:block; margin-bottom:25px; }
+
+ul.cms-menu-list								{ text-align:left; padding:35px 0 0 0; }
+ul.cms-menu-list li								{ width:32%; height:auto; background:none; vertical-align:top; }
+ul.cms-menu-list li span						{ display:table; width:100%; }
+ul.cms-menu-list li a							{ display:table-cell; vertical-align:middle; padding:8px 0; font-size:13px; font-weight:bold; height:45px; line-height:15px; background:#f37354; text-align:center; color:#ffffff; }
+ul.cms-menu-list li a:hover, ul.cms-menu-list li.active a	{ background:#005982; color:#ffffff; }
+
+#modal-search									{ 	max-width:800px; 
+													min-width:800px; 
+													left: 50%;
+													right: 0;
+													 }	
+#book_details_area p span						{ float: none; width:100%; display: block; }
+
+}
+
+
+
+@media only screen and ( min-width:991px ) and ( max-width:1024px )	{
+	
+.search-box1 .search-subject					{ left:60px; top:25px; font-size:17px; }
+ul.inner-navmenu-list							{ padding:30px 0 0 0; }	
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; font-size:15px; font-weight:bold; padding:4px 0; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:100% 100%; margin:15px auto; width:100%; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display: inline-block; margin-bottom:11px; vertical-align:middle; width:33%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:17px; line-height:17px; padding:5px 15px; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+.calender_inner									{ padding:5px; }
+.cal_days p										{ font-size:15px; }
+.cal_days p	span								{ font-size:15px; }
+
+.sitter_app_cont								{ padding:0 0; }
+.input_outer label								{ display:block; width:100%; font-size:15px; }
+.input_area										{ display:block; width:100%; }
+.sub_cat .input_area							{ width:100%; }
+.sitter_app_left								{ border-right:none; }
+
+ul.cms-menu-list li								{ width:148px; }
+
+#modal-search									{ 	max-width:800px; 
+													min-width:800px; 
+													left: 50%;
+													right: 0;
+													 }	
+#book_details_area p span						{ float: none; width:100%; display: block; }
+
+}
+
+
+
+@media only screen and ( min-width:1025px ) and ( max-width:1100px )	{
+	
+.search-box1 .search-subject					{ left:60px; top:25px; font-size:17px; }
+ul.inner-navmenu-list							{ padding:30px 0 0 0; }	
+ul.inner-navmenu-list li						{ display:inline-block; width:48%; }
+ul.inner-navmenu-list li a						{ display:block; font-size:15px; font-weight:bold; padding:4px 0; }
+.sitter_left_pic 								{ display: block; vertical-align: middle; width: 100%; margin-bottom:20px; }
+.sitter_right_detl 								{ display: block; vertical-align: middle; width: 100%; }
+.calender_bg									{ background-size:100% 100%; margin:15px auto; width:100%; }
+.cal_head h3									{ font-size:17px; }	
+.sitter_details_bottom ul li					{ display: inline-block; margin-bottom:11px; vertical-align:middle; width:33%; }
+.sitter_details_bottom ul li a					{ display: block; font-size:17px; line-height:17px; padding:5px 15px; }
+
+.sitter_right_detl								{ border:#f37354 4px dashed; padding:10px; }
+.sitter_personal_detl h3						{ text-align:right; padding-right:10px; }
+.calender_inner									{ padding:5px; }
+.cal_days p										{ font-size:15px; }
+.cal_days p	span								{ font-size:15px; }
+
+ul.cms-menu-list li								{ width:148px; }
+	
+
+#modal-search									{ 	max-width:800px; 
+													min-width:800px; 
+													left: 50%;
+													right: 0;
+													 }	
+
+}
+
+@media only screen and ( min-width:1101px ) and ( max-width:1200px )	{
+	
+	
+.calender_bg									{ background-size:100% 100%; margin:15px auto; width:100%; }
+.calender_inner									{ padding:15px 5px; }
+.cal_head h3									{ font-size:15px; }
+.cal_days p										{ font-size:15px; }
+.cal_days p	span								{ font-size:15px; }	
+.search-box1 .search-subject					{ left:55px; top:34px; font-size:15px; }
+ul.inner-navmenu-list							{ padding:42px 0 0 0; }
+ul.inner-navmenu-list li a						{ padding:5px 8px; }
+.sitter_personal_detl h3						{ padding-left:15px; }
+.sitter_details_bottom ul li					{ display: inline-block; margin-bottom:11px; vertical-align:middle; width:48%; text-align:left; }
+.sitter_details_bottom ul li a					{ display: block; font-size:17px; line-height:17px; padding:5px 15px; }
+.footer_inner									{ padding:15px 0; }
+.footer_inner ul li								{ padding:0 15px; }
+.footer_inner ul li a span						{ font-size:22px; }
+
+ul.cms-menu-list li								{ width:148px; }
+
+#modal-search									{ 	max-width:800px; 
+													min-width:800px; 
+													left: 50%;
+													right: 0;
+													 }	
+}
+
+@media only screen and ( min-width:1200px )	{
+#modal-search									{ 	max-width:800px; 
+													min-width:800px; 
+													left: 50%;
+													right: 0;
+													 }	
+
+}

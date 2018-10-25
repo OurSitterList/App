@@ -1,0 +1,95 @@
+.grid_1 {
+    width: 66%;
+	display: inline;
+    float: left;
+    margin-right: 2%;
+}
+.grid_2 {
+    width: 23%;
+	display: inline;
+    float: left;
+}
+
+.grid_3 {
+    width: 23%;
+	display: inline;
+    float: left;
+    margin-right: 2%;
+}
+.grid_4 {
+    width: 32%;
+	display: inline;
+    float: left;
+    margin-right: 2%;
+}
+.grid_5 {
+    width: 32%;
+	display: inline;
+    float: left;
+}
+.grid_6 {
+    width: 28%;
+	display: inline;
+    float: left;
+	 margin-right: 2%;
+}
+.grid_7 {
+    width: 70%;
+	display: inline;
+    float: left;
+}
+
+.grid_8 {
+    width: 100%;
+	display: inline;
+    float: left;
+}
+.grid_9 {
+    width: 48%;
+	display: inline;
+    float: left;
+	 margin-right: 2%;
+}
+.grid_10 {
+    width: 50%;
+	display: inline;
+    float: left;
+}
+.grid_11 {
+    width: 65%;
+	display: inline;
+    float: left;
+	 margin-right: 2%;
+}
+.grid_13 {
+    width: 33%;
+	display: inline;
+    float: left;
+}
+.grid_14 {
+    width: 42%;
+	display: inline;
+    float: left;
+	 margin-right: 2%;
+}
+.grid_15 {
+    width: 55%;
+	display: inline;
+    float: left;
+}
+
+.container_12 .grid_12 {
+    width: 100%;
+}
+
+.alpha {
+    margin-left: 0;
+}
+.omega {
+    margin-right: 0;
+}
+.container_12 {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+}

@@ -1,0 +1,253 @@
+/* CSS Document */
+
+body
+{
+margin:0px auto;background:#d3d4d6 url(../images/bd-bg.jpg) repeat-x bottom;background-attachment:fixed;font:normal 12px Arial, Helvetica, sans-serif;
+}
+
+#page
+{
+width:98%;
+margin:0px auto;
+}
+/**********************HEADER**************/
+#header
+{
+/*background-color:#fff;*/
+background:#fff url(../images/banner1.png) no-repeat;
+background-repeat:no-repeat;
+background-position:left;
+height:150px;
+width:97%;
+padding:0 15px;
+margin:0 auto;
+box-shadow:#ccc 0px 2px 10px;
+/*margin:0 0 15px 0;*/
+}
+#logo
+{
+float:left;
+margin-top:10px;
+margin-left:5px;
+}
+#logo1
+{
+float:left;
+/*margin-top:55px;*/
+margin-left:20px; margin-top:70px;
+font-size:24px; text-transform:uppercase;
+font-family:Arial, Helvetica, sans-serif;
+color:#2ba1bb; /*background:#fff url(../images/login-bg.jpg) repeat-x 0 0; */
+padding:5px; border-radius:10px;border: #2ba1bb 2px solid;
+}
+/**********************Sub HEADER**************/
+#sub_header
+{
+background-color:#af0000;
+height:26px;
+width:99%; border-radius:6px;
+color:#FFFFFF; padding:5px 8px; background: url(../images/nav-bg.jpg) repeat-x 0 0; 
+}
+#Date
+{
+float:right;
+margin:5px 5px 0px 5px;
+}
+#Time
+{
+float:right;
+margin:5px 5px 0px 5px;
+}
+/**********************Menu**************/
+#menu
+{
+background-image:url(../image/NEW GRAD.jpg);
+height:75px;
+}
+#menu_list
+{
+margin-top:10px;
+margin-left:0px;
+float:left;
+background-color:#DCE7ED;
+width:48%; border:1px solid #2BA1BB;
+min-height:490px; border-radius:6px;
+}
+#menu_list table
+{
+
+font-size:14px;
+text-decoration:none;
+margin:0px auto;
+margin-top:15px;
+}
+#menu_list a
+{
+text-decoration:none;
+margin-left:10px;
+}
+#menu_list a:hover
+{
+text-decoration:underline;
+}
+
+/*ul#navi {
+	margin: 0; padding: 0;
+	float: left;
+	list-style: none;
+	position: relative;
+	font-size: 1.2em;
+	background: repeat-x;
+}
+ul#navi li {
+	float: left;
+	margin: 0; padding: 0;
+	border-right: 1px solid #555;
+	margin-right:2px;
+}
+ul#navi li a {
+	padding: 10px 15px;
+	display: block;
+	color:#FFFFFF;
+	text-decoration: none;
+	font-size:12px;
+	font-family:Arial;
+}
+ul#navi li:hover { background:#FFFFFF repeat-x; }
+ul#navi li span {
+	float: left;
+	padding: 15px 0;
+	position: absolute;
+	left: 0; top:35px;
+	display: none;
+	width: 970px;
+	background:none;
+	font-size:15px;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	color: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+ul#navi li:hover span { display: block; }
+ul#navi li span a { display: inline; color:#FFFFFF; }
+ul#navi li span a:hover {text-decoration: underline;  color:#FFFFFF;}
+
+/**********************Sub MENU*************
+#sub_menu
+{
+background-color:#C4BFA9;
+height:60px;
+width:100%;
+}
+
+#log_out
+{
+margin-top:2px;
+margin-right:7px;
+float:right;
+text-align:center;
+}
+
+
+/**********************Page  Body**************/
+#sub_header{font:normal 12px Arial, Helvetica, sans-serif;}
+#log_out{padding:5px 0 0 0;}
+#log_out a{background-color:#ffde00;padding:5px;border:none;outline:none;border-radius:6px;cursor:pointer;font:bold 12px Arial, Helvetica, sans-serif;color:#000;margin:0 5px 0 0;}
+#page_body
+{
+width:48%;
+float:right;border:1px solid #2BA1BB; margin-top:10px; padding:0 0px; padding-bottom:10px; border-radius:6px;
+}
+#page_body h1
+{
+font-size:15px; margin:0 auto;
+color:#fff; background:#fff url(../images/src-bg.jpg) repeat-x 0 0; /*padding:3px 10px;*/ border-top-left-radius:4px;border-top-right-radius:4px;
+}
+.headingrow span
+{
+float:left;
+margin:5px 0 0 10px;font-family:Arial, Helvetica, sans-serif;font-size:14px;
+}
+#page_body h2
+{
+font-size:16px;
+color:#666666;
+}
+#page_body td
+{
+
+
+}
+#page_body table
+{
+
+}
+.save_button
+{
+background-color:#666666;
+color:#FFFFFF;
+width:100px;
+}
+
+
+/**********************Side Bar**************/
+#side_bar
+{
+text-align:center;
+float:right;
+width:100px;
+height:100%;
+}
+.headingrow
+{
+background-color: #EEEEEE;
+    border-bottom: 1px dashed #CCCCCC;
+   /* border-top: 1px dashed #CCCCCC;*/
+    color: #297CCF;
+    font-size: 14px;
+    font-weight: bold;
+    height: 26px;
+    padding-left: 14px;
+    text-transform: uppercase;
+	}
+	.border {
+    border: 1px dashed #ccc; margin:10px; width:98%;
+}
+td.tablehead {
+    background:url(../image/tt_bg.jpg) repeat scroll 0 0 transparent;
+	background:#747474;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: bold;
+    height: 28px;
+}
+.border td{ border-bottom:1px solid #ccc; padding:3px 5px;}
+.innertable{color: #000000;font-family: Arial,Helvetica,sans-serif;font-size: 12px;font-style: normal;font-weight: normal;}
+.innertable img{height:50px;}
+.innertable textarea{width:170px;}
+.innertable input[type='text']{width:170px;}
+.border tr{ background:#f3f1f1;}
+.border tr:nth-child(even) {background-color:#fff;}
+.innertable2{background-color: #DCE3E9;color: #000000;font-family: Arial,Helvetica,sans-serif;font-size: 12px;font-style: normal;font-weight: normal;}
+td.explain, span.explain {background-color: #E4ECF3;font-size: 10px;}
+input, select {color: #333333;font-family:Arial, Helvetica, sans-serif;font-size: 11px;}
+#mandotory_mark{color:#FF0000;font-weight:bold;}
+.morebtn{background:url(../images/ahrefbg.jpg) repeat-x 0 0;line-height:21px;text-decoration:none;color:#fff;font-weight:bold;padding:3px 5px;border-radius:3px; border:none;}
+.morebtn:hover{background:url(../images/nav-bg.jpg) repeat-x center;}
+
+.lft-menu{padding:2px 10px; margin-top:10px;} 
+.lft-menu ul{margin:0;padding:0;list-style-type:none; border:1px solid #f2dddf;font-family:Arial, Helvetica, sans-serif}
+.lft-menu ul li{ background:#fff; line-height:24px;}
+.lft-menu ul li span{ color:#af0000; font-weight:bold;}
+.lft-menu ul li ul{ border:none;}
+.lft-menu ul li li a{background:url(../images/bullet.png) no-repeat 8px 8px;padding-left:20px;border-bottom:1px dashed #ccc;display:block;color:#d72a31;text-decoration:none;line-height:22px; color:#000; font-size:12px; line-height:26px;font-family:Arial, Helvetica, sans-serif}
+.lft-menu ul li li a:hover{background-color:#fff3f3;}
+
+a.link11{ color:#555555; background:url(../images/addnew.png) no-repeat 10px 8px; padding:10px 0; padding-left:45px; line-height:40px; text-decoration:none;}
+a.dell{ color:#f00; text-decoration:none; }
