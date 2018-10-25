@@ -1,4 +1,4 @@
-<?
+<?php
 	include("config/admin-includes.php");
 	include("classes/AdminStructure.php");
 	include_once("./fckeditor/fckeditor.php");

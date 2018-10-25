@@ -1,5 +1,4 @@
 <?php
-
 	include("PageStructure.php");
 	class SiteStructure extends PageStructure
 	{
