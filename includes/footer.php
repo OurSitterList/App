@@ -497,18 +497,6 @@ $('#job_calendar').multiDatesPicker({
     }
 });
 
-/*$('#booking_calender').multiDatesPicker({
-<? if($val!='')
-{?>
-	addDates: [<?=$val?>],
-<?php
-}
-?>
-minDate: 0,
-onSelect:function(a,b){}
-});*/
-
-});
 function open_part(type,to,from)
 {
 	
@@ -516,6 +504,8 @@ function open_part(type,to,from)
 	$('#'+type+'_form_'+from+'_part').css('display','none');
 	$('#'+type+'_form_'+to+'_part').css('display','block');
 }
+
+});
 </script>
 <style>
 

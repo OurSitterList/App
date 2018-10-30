@@ -42,11 +42,12 @@
 				$this->DBLink = $conn;
 				return $this->DBLink;*/
 		
-		
-			if($con=@mysql_connect($this->host,$this->uname,$this->pass))
+			$con=mysql_connect($this->host,$this->uname,$this->pass);
+			
+			if($con)
 			{
 				$this->DBLink=$con;
-				@mysql_select_db($this->db,$this->DBLink);
+				mysql_select_db($this->db,$this->DBLink);
 			}
 			return $this->DBLink;
 		

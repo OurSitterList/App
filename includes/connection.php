@@ -8,9 +8,9 @@ $conObj=$con->connectDB();
 mysql_query ("set character_set_results='utf8'");
 //$base_path=mysql_fetch_object(mysql_query("select * from setting where id = '3'"))->settingValue;
 
-$base_path = 	'https://www.oursitterlist.com';
+$base_path = 	'';
 
-$https_base_path = 'https://www.oursitterlist.com';
+$https_base_path = '';
 
 include("classes/Loader.php");
 ?>
