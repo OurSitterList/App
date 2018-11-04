@@ -14,15 +14,14 @@ if(base64_decode($_POST['user_info_submit'])=='submit_family_page')
 $search_query = mysql_query("select * from  user_information where user_id='".$_SESSION['user_id']."'");
 if(mysql_num_rows($search_query)>0)
 {
-
+//var_dump(is_uploaded_file($_FILES['user_image']['tmp_name'])); exit;
 				if(is_uploaded_file($_FILES['user_image']['tmp_name'])){
 					$old_img = mysql_fetch_object($search_query)->user_image;
 					if(is_file('images/user_images/'.$old_img)){
 						unlink('images/user_images/'.$old_img);
 					}
 					$user_image=time().str_replace(' ','_',$_FILES['user_image']['name']);
-					move_uploaded_file($_FILES['user_image']['tmp_name'],'images/user_images/'.$user_image);
-
+					$test = move_uploaded_file($_FILES['user_image']['tmp_name'],'images/user_images/'.$user_image);
 					}
 					else
 					{

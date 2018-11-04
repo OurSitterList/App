@@ -3,5 +3,5 @@
 <?php 
 session_destroy();
 
-header('Location:'.$base_path);
+header('Location:/');
 ?>
