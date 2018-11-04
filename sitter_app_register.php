@@ -4,7 +4,7 @@
 <?php if((!isset($_POST['sitter_email'])))
 			{
 				
-				header('Location:'.$base_path);
+				header('Location:/');
 				
 			}
 extract($_REQUEST);

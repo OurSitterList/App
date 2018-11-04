@@ -3,7 +3,7 @@
 <?php if((!isset($_SESSION['user_id_member_choose']) && $_SESSION['user_id_member_choose']=='') || $_SESSION['user_type_member_choose']!='family')
 			{
 				
-				header('Location:'.$base_path);
+				header('Location:/');
 				
 			}
 		

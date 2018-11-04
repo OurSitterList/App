@@ -14,7 +14,7 @@
                 }
                 else
                 {
-                    header('Location:'.$base_path);
+                    header('Location:/');
                 
                 }
                 ?>

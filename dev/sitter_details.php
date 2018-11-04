@@ -21,7 +21,7 @@ if($_POST['bookForm']=='yes' && $_POST['calender_val']!='')
 <?php if(!isset($_SESSION['user_id']) && $_SESSION['user_id']=='')
 			{
 				
-				header('Location:'.$base_path);
+				header('Location:/');
 				
 			}
 			$search_query = mysql_query("select * from  user_information where user_id='".base64_decode($_REQUEST['sitter_id'])."'");
@@ -32,7 +32,7 @@ if(mysql_num_rows($search_query)>0)
 }
 else
 {
-	header('Location:'.$base_path);
+	header('Location:/');
 }
 		?>
 <section class="sitter_details_outer">

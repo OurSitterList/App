@@ -9,7 +9,7 @@ require_once 'class.MailUtil.php';
 if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user_type']!='sitter')
 {
 	mail('sethcriedel@gmail.com', 'APPLY JOB INVALID USER', 'Someone applied to a job, but no user id specified. ' . print_r($_REQUEST, true), 'From: noreply@oursitterlistnashville.com');
-	header('Location:'.$base_path);
+	header('Location:/');
 	exit;
 }
 		

@@ -4,7 +4,7 @@
 <?php if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user_type']!='family')
 			{
 				
-			    header('Location:'.$base_path);
+			    header('Location:/');
                 exit;
 			}
 else if (isset($_SESSION['_sub_expired']) && $_SESSION['_sub_expired'] === true)

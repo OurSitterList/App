@@ -7,7 +7,7 @@ require_once 'class.MailUtil.php';
 if((!isset($_POST['contact_name']) && trim($_POST['contact_name'])==''))
 			{
 				
-			header('Location:'.$base_path);
+				header('Location:/');
 				
 			}
 			$admin_contact_email = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='1'"));

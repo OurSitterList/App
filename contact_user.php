@@ -5,7 +5,7 @@
 if (!isset($_SESSION['user_id']) && $_SESSION['user_id']=='')
 {
 //    die('not authorized..');
-    header('Location:'.$base_path);
+    header('Location:/');
     exit;
 }
 
@@ -21,7 +21,7 @@ if (mysql_num_rows($search_query) < 1)
 {
 //    die('FROM User not found. ' . $usql);
 //    mail('sethcriedel@gmail.com', 'Contact user issue', 'FROM User not found. ' . $usql, 'From: noreply@oursitterlistnashville.com');
-    header('Location:'.$base_path);
+    header('Location:/');
     exit;
 }
 
@@ -37,7 +37,7 @@ $search_query = mysql_query($usql);
 if (mysql_num_rows($search_query) < 1)
 {
     mail('sethcriedel@gmail.com', 'Contact user issue', 'User not found. ' . $usql, 'From: noreply@oursitterlistnashville.com');
-    header('Location:'.$base_path);
+    header('Location:/');
     exit;
 }
 

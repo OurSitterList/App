@@ -9,7 +9,7 @@ $debug = false;
 // authenticate
 if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user_type']!='family')
 {
-	header('Location:'.$base_path);
+	header('Location:/');
 	exit;
 }
 

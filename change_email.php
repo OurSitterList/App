@@ -2,7 +2,7 @@
 <?php include('includes/header.php');?>
 <?php
 if ((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='')) {
-	header('Location:'.$base_path);
+	header('Location:/');
   exit();
 }
 

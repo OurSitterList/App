@@ -3,7 +3,7 @@
 <?php if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user_type']!='sitter')
 			{
 
-				header('Location:'.$base_path);
+				header('Location:/');
 
 			}
 			$search_query = mysql_query("select * from  user_information where user_id='".$_SESSION['user_id']."'");
