@@ -19,8 +19,8 @@ class Notification {
 	protected static 	$_valid_sender	= array('F', 'S');
 	
 	
-	public function __construct() {
-		$this->user_id 			= Auth::_get_user_id();
+	public function __construct($user_id = null) {
+		$this->user_id 			= $user_id !== null ? $user_id : Auth::_get_user_id();
 		$this->template_path	= BASEPATH.'templates/notification/';
 
 		$setting 				= new Setting(array('id' => 1));
