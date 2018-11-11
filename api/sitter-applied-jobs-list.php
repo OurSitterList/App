@@ -1,14 +1,14 @@
 <?php
-
-  include('includes/connection.php');
-
+ 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+  
+  include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
   $user_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
-
   if (!$user_id) {
     $response = array('code' => 401, 'message' => 'User ID is required.');
-    return json_encode($response);
+    echo json_encode($response); exit;
   }
-
   $sql = "SELECT
     jm.job_id,
     jm.set_code,
@@ -86,10 +86,14 @@
   GROUP BY
     jm.set_code
   ORDER BY
-    jm.job_id DESC";
-    
-$results	= mysql_query($sql);
-$num 	= mysql_num_rows($query);
+    jm.job_id DESC;";
+$results = mysql_query($sql);
+$num = mysql_num_rows($results);
+$data = array();
 
-$response = array('code' => 200, 'message' => array('results' => $results, 'total' => $num));
-return json_encode($response);
+while ($job = mysql_fetch_object($results)) {
+    $data[] = $job;
+}
+
+$response = array('code' => 200, 'message' => array('results' => $data, 'total' => $num));
+echo json_encode($response); exit;
