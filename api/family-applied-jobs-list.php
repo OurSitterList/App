@@ -1,4 +1,4 @@
-<?php include('includes/connection.php');
+<?php include('../includes/connection.php');
 
   $user_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
 
