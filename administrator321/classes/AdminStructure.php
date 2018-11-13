@@ -131,7 +131,7 @@ ini_set("display_errors", 0);
 
 <!--*********************END HEADER***************************-->
 <div class="content container_12">
-<?
+<?php
 
 			//$con->closeConnection();
 
@@ -147,7 +147,7 @@ ini_set("display_errors", 0);
 
 <!--*********************END SUB HEADER***************************-->
 
-<?
+<?php
 
 		}
 

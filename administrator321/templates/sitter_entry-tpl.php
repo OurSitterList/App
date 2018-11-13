@@ -1,4 +1,4 @@
-<?
+<?php
 
 	include("classes/AdminStructure.php");
 
@@ -1157,7 +1157,7 @@ echo '<input type="button" class="button grey_add" value="Add New"  />';
 
   </div>
 
-<?
+<?php
 
 			
 
@@ -1203,7 +1203,7 @@ echo '<input type="button" class="button grey_add" value="Add New"  />';
 
 </table>-->
 
-<?
+<?php
 
 		}
 

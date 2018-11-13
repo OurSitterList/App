@@ -1,4 +1,4 @@
-<?
+<?php
 	include("PageStructure.php");
 	//include_once("./fckeditor/fckeditor.php");
 	class AdminStructure extends PageStructure
@@ -37,7 +37,7 @@
 </div>
 <!--*********************END HEADER***************************-->
 
-<?
+<?php
 			$con->closeConnection();
 		}
 		function toppanel()
@@ -53,7 +53,7 @@
 
 <!--*********************END SUB HEADER***************************-->
 
-<?
+<?php
 		}
 		function menu()
 		{?>
@@ -216,7 +216,7 @@
 </div>
 </body>
 </html>
-<?
+<?php
 			ob_flush();
 		}
 		function pageHeadTag()
@@ -268,7 +268,7 @@ else
 
 });*/
 </script>
-<?
+<?php
 		}
 	}
 ?>

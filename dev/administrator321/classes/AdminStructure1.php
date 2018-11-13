@@ -1,4 +1,4 @@
-<?
+<?php
 	include("PageStructure.php");
 	class AdminStructure extends PageStructure
 	{
@@ -23,7 +23,7 @@
 			$R=mysql_fetch_object($Rec);
 ?>
 
-<?
+<?php
 			$con->closeConnection();
 		}
 		function toppanel()
@@ -36,7 +36,7 @@
             <td align="right" valign="middle" class="separatorbar.jpg" style="padding-right:10px;">Logged in As: <?=$_SESSION['ANAME']?> <span class="mailto1">|</span> <a href="logout.php" class="separatorbar.jpg">Logout</a></td>
           </tr>
         </table>
-<?
+<?php
 		}
 		function leftpanel()
 		{
@@ -52,7 +52,7 @@
    <tr>
     <td height="1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"></td>
   </tr>
-  <?
+  <?php
 	foreach($leftLink0 as $title=>$link)
 	{
 	
@@ -65,18 +65,18 @@
     <td height="1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><img src="images/separatorbar.jpg"  /></td>
   </tr>
   
-<?
+<?php
 	}
 	
 ?>
-  <?
+  <?php
   	if($_SESSION['ATYPE']==1)
 	{
   ?>
    <tr>
     <td height="1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"></td>
   </tr>
-<?
+<?php
 	foreach($leftLink1 as $title=>$link)
 	{
 	
@@ -94,7 +94,7 @@
 	<tr>
     <td height="1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><img src="images/separatorbar.jpg"  /></td>
   </tr>
-<?
+<?php
 	}
 	}
 ?>
@@ -192,7 +192,7 @@
     <td height="1" colspan="2" align="center" valign="middle" bgcolor="#FFFFFF"><img src="images/separatorbar.jpg" alt=""  /></td>
   </tr>
 </table>
-<?
+<?php
 		}
 		function footer()
 		{
@@ -211,7 +211,7 @@
       </tr>
       
     </table>
-<?
+<?php
 			$con->closeConnection();
 		}
 		function pageAdmin()
@@ -234,7 +234,7 @@
 ?>
 </body>
 </html>
-<?
+<?php
 			ob_flush();
 		}
 		function pageHeadTag()
@@ -249,7 +249,7 @@
 <script language="javascript" type="text/javascript" src="js/ui.datepicker.js"></script>
 <script language="javascript" type="text/javascript" src="js/MyFunctions.js"></script>
 <script language="javascript" type="text/javascript" src="js/leftPanel.js"></script>
-<?
+<?php
 		}
 	}
 ?>

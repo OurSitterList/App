@@ -1,4 +1,4 @@
-<?
+<?php
 	include("classes/AdminStructure.php");
 	
 	class AdminMgmt extends AdminStructure
@@ -31,7 +31,7 @@
 		admin.toggleAdd();
 	});
 </script>
-<?
+<?php
 		}
 		function body()
 		{
@@ -61,7 +61,7 @@
 </tr>
 </thead>
 <tbody>
-<?
+<?php
 	while($R=mysql_fetch_object($Rec))
 	{
 ?>
@@ -79,12 +79,12 @@
         <td  align="center"><a href="#" id="changeP<?=$R->id?>" class="link1">Change Password</a></td>
         <td  align="center"><?=$R->lastlogin?date("M d, Y h:i:s A",$R->lastlogin):"N/A"?></td>
      </tr>
-<?
+<?php
 	}
 ?>
     </tbody></table>
     </div></div>
-<?
+<?php
 			$con->closeConnection();
 		}
 		function bodyAdmin()
@@ -107,7 +107,7 @@
     <td align="center" valign="middle" class="company"></td>
   </tr>
 </table>-->
-<?
+<?php
 		}
 	}
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 	include("classes/AdminStructure.php");
 	class Settings extends AdminStructure
 	{
@@ -40,7 +40,7 @@
 	var ob;
 	$(document).ready(function(){
 		ob=new Settings(<?=$_SESSION['ATYPE']?>);
-<?
+<?php
 	while($R=mysql_fetch_object($Rec))
 		echo 'ob.setInfo('.$R->id.',"'.addslashes($R->name).'","'.addslashes($R->value).'");'."\n";
 ?>
@@ -60,7 +60,7 @@
       </tr>
 </thead>
 <tbody>
-<?
+<?php
 	mysql_data_seek($Rec,0);
 	while($R=mysql_fetch_object($Rec))
 	{
@@ -129,12 +129,12 @@ $('#click'+id).html('<input  type="button" class="button green_edit"  name="edit
 	
 
 	  </tr>
-<?
+<?php
 	}
 ?>
    </tbody> </table></div>
 </div>
-<?
+<?php
 			$con->closeConnection();
 		}
 		function bodyAdmin()
@@ -157,7 +157,7 @@ $('#click'+id).html('<input  type="button" class="button green_edit"  name="edit
     <td align="center" valign="middle" class="company"></td>
   </tr>
 </table>-->
-<?
+<?php
 		}
 	}
 ?>
