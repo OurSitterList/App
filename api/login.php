@@ -84,3 +84,26 @@ function processSitterLogin() {
 function processFamilyLogin() {
   echo "family login"; exit;
 }
+
+
+function getUserLocation($userId, $zip, $locationId) {
+  if ((int)$locationId > 0){
+    return $locationId;
+  }
+
+  if (!$zip || strlen($zip) !== 5) {
+    return 1;
+  }
+
+  $searchSQL = "SELECT location_id FROM zip_code WHERE zip = '" . mysql_real_escape_string($zip) . "'";
+  $user_search = mysql_query($searchSQL);
+  if (mysql_num_rows($user_search) < 1) {
+    return 1;
+  }
+
+  $r = mysql_fetch_object($user_search);
+
+  $updateSQL = "UPDATE user_information SET location_id = '" . mysql_real_escape_string($r->location_id) . "' WHERE user_id = '" . mysql_real_escape_string($userId) . "'";
+  mysql_query($updateSQL);
+  return $r->location_id;
+}
