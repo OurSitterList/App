@@ -15,12 +15,12 @@ if ( ! function_exists('load_class'))
 		// then in the native system/libraries folder
 		foreach (array(BASEPATH) as $path)
 		{
-			if (file_exists($path.$directory.'/'.$class.'.php'))
+			if (file_exists($_SERVER["DOCUMENT_ROOT"].'/'.$directory.'/'.$class.'.php'))
 			{
 				$name = $class;
 				if (class_exists($name, FALSE) === FALSE)
 				{
-					require_once($path.$directory.'/'.$class.'.php');
+					require_once($_SERVER["DOCUMENT_ROOT"].'/'.$directory.'/'.$class.'.php');
 				}
 				break;
 			}

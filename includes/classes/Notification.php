@@ -1,8 +1,7 @@
 <?php
 
-require_once BASEPATH . 'tools/PHPMailer-master/PHPMailerAutoload.php';
-require_once BASEPATH . 'class.MailUtil.php';
-
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutoload.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
 class Notification {
 	public 				$debug			= FALSE;						
