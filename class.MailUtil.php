@@ -1,7 +1,7 @@
 <?php
 
 
-require_once 'tools/PHPMailer-master/PHPMailerAutoload.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutoload.php';
 
 class MailUtil
 {
@@ -17,7 +17,7 @@ class MailUtil
 
     public static function getMailer()
     {
-        $mail = new PHPMailer;
+        $mail = new PHPMailer();
 
 //        $mail->SMTPDebug  = 1;
         $mail->Host = "smtp.gmail.com";
@@ -34,7 +34,7 @@ class MailUtil
 
     public static function getMailerWhitney()
     {
-        $mail = new PHPMailer;
+        $mail = new PHPMailer();
 
 //        $mail->SMTPDebug  = 1;
         $mail->Host = "smtp.gmail.com";
@@ -53,7 +53,7 @@ class MailUtil
 
     public static function getMailerInquiry()
     {
-        $mail = new PHPMailer;
+        $mail = new PHPMailer();
 
         $mail->Host = "smtp.gmail.com";
         $mail->Port = 587;
