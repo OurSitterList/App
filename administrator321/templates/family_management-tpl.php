@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -1458,7 +1458,7 @@ $Q="SELECT * FROM `user_management` where user_type='family' order by join_date 
 
 
 
-<?		
+<?php	
 
 
 
@@ -1522,7 +1522,7 @@ $Q="SELECT * FROM `user_management` where user_type='family' order by join_date 
 
 <tbody>
 
-	<?
+	<?php
 
 
 
@@ -1636,7 +1636,7 @@ else
 
 
 
-<?php}?>
+<?php } ?>
 
 
 
@@ -1666,7 +1666,7 @@ else
 
 
 
-	<?
+	<?php
 
 
 
@@ -1702,7 +1702,7 @@ else
 
 
 
-	<?
+	<?php
 
 
 
@@ -1726,7 +1726,7 @@ else
 
 </div>
 
-<?		
+<?php
 
 
 
@@ -1748,7 +1748,7 @@ else
 
 
 
-<?
+<?php
 
 }
 
@@ -1830,7 +1830,7 @@ else
 
 
 
-<?
+<?php
 
 
 

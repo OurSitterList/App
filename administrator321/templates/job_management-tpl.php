@@ -1,4 +1,4 @@
-<?
+<?php
 	include("classes/AdminStructure.php");
 	include_once("./fckeditor/fckeditor.php");
 
@@ -119,7 +119,7 @@ date_default_timezone_set ( 'America/Chicago' );
 						</thead>
 
 
-						<?
+						<?php
 						$Rec = mysql_query($Q, $conObj) or die(mysql_error());
 						$paging = new Pagination('ui-state-disabled', 'fg-button ui-button ui-state-default', 'next fg-button ui-button ui-state-default');
 						$paging->numData = mysql_num_rows($Rec);
@@ -132,7 +132,7 @@ date_default_timezone_set ( 'America/Chicago' );
 
 						<tbody>
 
-						<?
+						<?php
 
 
 						$N = mysql_num_rows($Rec);
@@ -239,7 +239,7 @@ date_default_timezone_set ( 'America/Chicago' );
 								</tr>
 
 
-							<?php} ?>
+							<?php } ?>
 
 
 							<tr>
@@ -261,7 +261,7 @@ date_default_timezone_set ( 'America/Chicago' );
 							</tr>
 
 
-							<?
+							<?php
 
 
 						} else {
@@ -279,7 +279,7 @@ date_default_timezone_set ( 'America/Chicago' );
 							</tr>
 
 
-							<?
+							<?php
 
 
 						}
@@ -297,7 +297,7 @@ date_default_timezone_set ( 'America/Chicago' );
 			</div>
 
 
-			<?
+			<?php
 
 		}
 
