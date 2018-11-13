@@ -1171,15 +1171,15 @@ echo '<input type="button" class="button grey_add" value="Add New"  />';
 
 ?>
 
-<? $this->head(); ?>
+<?php$this->head(); ?>
 
- <? $this->toppanel(); ?>
+ <?php$this->toppanel(); ?>
 
-  <? $this->menu(); ?>
+  <?php$this->menu(); ?>
 
-  <? $this->body(); ?>
+  <?php$this->body(); ?>
 
-  <? //$this->side_bar(); ?><!--
+  <?php//$this->side_bar(); ?><!--
 
               <td width="175" height="450" align="left" valign="top" class="bg_leftpan"></td>
 

@@ -211,9 +211,9 @@ span.username{color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px
 		function bodyAdmin()
 		{
 ?>
-<? //$this->head(); ?>
+<?php//$this->head(); ?>
 
-<? $this->body(); ?>
+<?php$this->body(); ?>
 <?
 		}
 	}

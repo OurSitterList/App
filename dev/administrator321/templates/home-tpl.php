@@ -853,15 +853,15 @@ else
 
 ?>
 
-<? $this->head(); ?>
+<?php$this->head(); ?>
 
- <? $this->toppanel(); ?>
+ <?php$this->toppanel(); ?>
 
-  <? $this->menu(); ?>
+  <?php$this->menu(); ?>
 
-  <? $this->body(); ?>
+  <?php$this->body(); ?>
 
-  <? //$this->footer(); ?>
+  <?php//$this->footer(); ?>
  <!--
 
               <td width="175" height="450" align="left" valign="top" class="bg_leftpan"></td>

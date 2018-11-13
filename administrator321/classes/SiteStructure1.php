@@ -239,10 +239,10 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </table></td>
     <td align="left" valign="top" width="904"><table width="904" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td><? $this->Header();?></td>
+        <td><?php$this->Header();?></td>
       </tr>
       <tr>
-        <td align="left" valign="top"><? $this->bodytop();?></td>
+        <td align="left" valign="top"><?php$this->bodytop();?></td>
       </tr>
       <tr>
         <td align="left" valign="top"><table width="901" border="0" cellspacing="0" cellpadding="0">
@@ -252,8 +252,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
           <tr>
             <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="660" align="left" valign="top"><? $this->PageBody();?></td>
-                <td align="left" valign="top" ><? $this->Rightpanel();?></td>
+                <td width="660" align="left" valign="top"><?php$this->PageBody();?></td>
+                <td align="left" valign="top" ><?php$this->Rightpanel();?></td>
               </tr>
             </table></td>
           </tr>
@@ -266,7 +266,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         <td align="left" valign="top"><img src="images/blank.gif" alt="" width="1" height="64" /></td>
       </tr>
       <tr>
-        <td height="90" align="left" valign="top"><? $this->Footer();?></td>
+        <td height="90" align="left" valign="top"><?php$this->Footer();?></td>
       </tr>
     </table></td>
     <td align="center" valign="top" style="padding-top:190px;"><table width="160" border="0" cellspacing="0" style="display:none;" cellpadding="0" id="rIgHt">
