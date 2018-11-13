@@ -47,7 +47,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-include('../includes/connection.php');
+include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 // var_dump($_POST);
 // exit;
@@ -145,9 +145,9 @@ try {
     $response	= array('code' => 400, 'message' => $response->reason);
   }
 
-  return json_encode($response);
+  echo json_encode($response); exit;
 
 } catch (Exception $e) {
   $response	= array('code' => 400, 'message' => $e->getMessage());
-  return json_encode($response);
+  echo json_encode($response); exit;
 }
