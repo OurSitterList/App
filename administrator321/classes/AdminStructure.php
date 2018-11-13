@@ -277,7 +277,7 @@ ini_set("display_errors", 0);
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<? 
+<?php
 
 	$this->pageHeadTag();
 
@@ -291,7 +291,7 @@ ini_set("display_errors", 0);
 <body>
 <input type="hidden" name="a_value" id="a_value" />
 <div id="page">
-  <? 
+  <?php
 
 	$this->bodyAdmin();
 
@@ -341,7 +341,7 @@ ini_set("display_errors", 0);
 <link href="css/css_002.css" rel="stylesheet" type="text/css">
 <link href="css/icons.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
-<?
+<?php
 
 		}
 
