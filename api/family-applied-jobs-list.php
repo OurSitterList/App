@@ -4,7 +4,7 @@
   ini_set("display_errors", 1);
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
-  $ser_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
+  $user_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
 
   if (!$user_id) {
     $response = array('code' => 401, 'message' => 'User ID is required.');
