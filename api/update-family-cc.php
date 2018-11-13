@@ -16,12 +16,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-include('../includes/connection.php');
-
-// var_dump($_POST);
-// exit;
-
-require_once BASEPATH . 'class.MailUtil.php';
+include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
 extract($_POST);
 
@@ -29,9 +25,9 @@ if (!$user_id) {
   return array('code' => 401, 'message' => 'User ID is required.');
 }
 
-require_once("AuthnetARB.class.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/AuthnetARB.class.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . 'tools/PHPMailer-master/PHPMailerAutoload.php');
 
-require_once('tools/PHPMailer-master/PHPMailerAutoload.php');
 $login = mysql_fetch_object(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='8'"))->settingValue;
 $transkey = mysql_fetch_object(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='9'"))->settingValue;
 $test = FALSE;
@@ -42,7 +38,7 @@ WHERE user_id = '" . mysql_real_escape_string($user_id) . "'";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) < 1) {
   $response		= array('message' => 'An unexpected error has occurred.  Please try again later.');
-  return json_encode($response);
+  echo json_encode($response); exit;
 }
 $currentUser = mysql_fetch_object($result);
 
@@ -71,4 +67,4 @@ if ((int)$currentUser->user_subscriberid > 0) {
   $response	= array('code' => 400, 'message' => $arb->getResponse());
 }
 
-return json_encode($response);
+echo json_encode($response); exit;

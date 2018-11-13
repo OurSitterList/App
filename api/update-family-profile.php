@@ -12,7 +12,7 @@
  * $is_user_agree_to_houseplans
  */
 
-include('../includes/connection.php');
+include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 // var_dump($_POST);
 // var_dump($_FILES);
@@ -21,7 +21,7 @@ include('../includes/connection.php');
 extract($_POST);
 
 if (!$user_id) {
-  return array('code' => 401, 'message' => 'User ID is required.');
+  echo json_encode(array('code' => 401, 'message' => 'User ID is required.')); exit;
 }
 
 try {
@@ -76,9 +76,9 @@ try {
   mysql_query($update_query);
 
   $response	= array('code' => 200, 'message' => 'Success.');
-  return json_encode($response);
+  echo json_encode($response); exit;
 
 } catch (Exception $e) {
   $response	= array('code' => 400, 'message' => 'Error.');
-  return json_encode($response);
+  echo json_encode($response); exit;
 }

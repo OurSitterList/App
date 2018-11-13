@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-include('../includes/connection.php');
+include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 // var_dump($_POST);
 // exit;
@@ -113,4 +113,4 @@ if (!$response) {
   }
 }
 
-return json_encode($response);
+echo json_encode($response); exit;
