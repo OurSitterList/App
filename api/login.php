@@ -184,14 +184,8 @@ function processFamilyLogin() {
         }
       }
 
-      // redirect
-      if (isset($_REQUEST['redirect']) && $_REQUEST['redirect']) {
-        $redirect = urldecode($_REQUEST['redirect']);
-      } else  {
-        $redirect = '/family_dashboard.php';
-      }
-
-      dieJSONSuccess($base_path . $redirect);
+      $response	= array('code' => 200, 'message' => 'Login successful!');
+      echo json_encode($response); exit;
     }
   } else {
     $response	= array('code' => 400, 'message' => 'Invalid or incorrect username/password. Please check your login credentials and try again.');
