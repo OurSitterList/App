@@ -1776,27 +1776,27 @@ else
 
 
 
-<?php$this->head(); ?>
+<?php $this->head(); ?>
 
 
 
- <?php$this->toppanel(); ?>
+ <?php $this->toppanel(); ?>
 
 
 
-  <?php$this->menu(); ?>
+  <?php $this->menu(); ?>
 
 
 
-  <?php//$this->sub_menu(); ?>
+  <?php //$this->sub_menu(); ?>
 
 
 
-  <?php$this->body(); ?>
+  <?php $this->body(); ?>
 
 
 
-  <?php//$this->side_bar(); ?><!--
+  <?php //$this->side_bar(); ?><!--
 
 
 

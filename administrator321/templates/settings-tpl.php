@@ -140,12 +140,12 @@ $('#click'+id).html('<input  type="button" class="button green_edit"  name="edit
 		function bodyAdmin()
 		{
 ?>
-<?php$this->head(); ?>
- <?php$this->toppanel(); ?>
-  <?php$this->menu(); ?>
-  <?php//$this->sub_menu(); ?>
-  <?php$this->body(); ?>
-  <?php//$this->side_bar(); ?><!--
+<?php $this->head(); ?>
+ <?php $this->toppanel(); ?>
+  <?php $this->menu(); ?>
+  <?php //$this->sub_menu(); ?>
+  <?php $this->body(); ?>
+  <?php //$this->side_bar(); ?><!--
               <td width="175" height="450" align="left" valign="top" class="bg_leftpan"></td>
               <td width="100%" align="center" valign="middle"></td>
             </tr>
