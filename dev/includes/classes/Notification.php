@@ -383,6 +383,13 @@ class Notification {
 			$message = str_replace('%COMMENT%',$msg, $message);
 						
 			$mail = new PHPMailer;
+			$mail->Host = "smtp.gmail.com";
+			$mail->Port = 587;
+			$mail->SMTPSecure = 'tls';
+			$mail->SMTPAuth = true;
+			$mail->Username = 'OurSitterList@gmail.com';
+			$mail->Password = 'S3cur3P@55w0rd';
+			
 			$mail->Debugoutput = 'html';
 			$mail->setFrom($sender_email, $name);
 			$mail->addAddress($recipient_email, $recipient_name);
