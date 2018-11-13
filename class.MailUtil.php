@@ -21,10 +21,12 @@ class MailUtil
         $mail->IsSMTP();
 
 //        $mail->SMTPDebug  = 1;
-        $mail->Host = "secure179.sgcpanel.com";
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;
-        $mail->Username = 'noreply@oursitterlistnashville.com';
-        $mail->Password = 'r{*GhHhGUFaK';
+        $mail->Username = 'OurSitterList@gmail.com';
+        $mail->Password = 'S3cur3P@55w0rd';
 
         MailUtil::addBCCs($mail);
 
@@ -37,10 +39,12 @@ class MailUtil
         $mail->IsSMTP();
 
 //        $mail->SMTPDebug  = 1;
-        $mail->Host = "secure179.sgcpanel.com";
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;
-        $mail->Username = 'karlyandwhitney@oursitterlistnashville.com';
-        $mail->Password = 'r{*GhHhGUFaK';
+        $mail->Username = 'OurSitterList@gmail.com';
+        $mail->Password = 'S3cur3P@55w0rd';
 
         $mail->setFrom('karlyandwhitney@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
@@ -54,10 +58,12 @@ class MailUtil
         $mail = new PHPMailer;
         $mail->IsSMTP();
 
-        $mail->Host = "secure179.sgcpanel.com";
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;
-        $mail->Username = 'inquiry@oursitterlistnashville.com';
-        $mail->Password = 'r{*GhHhGUFaK';
+        $mail->Username = 'OurSitterList@gmail.com';
+        $mail->Password = 'S3cur3P@55w0rd';
 
         $mail->setFrom('inquiry@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
