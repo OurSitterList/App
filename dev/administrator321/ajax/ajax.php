@@ -1,4 +1,4 @@
-<?
+<?php
 	chdir("..");
 	include("config/admin-includes.php");
 	 require('../tools/PHPMailer-master/PHPMailerAutoload.php');

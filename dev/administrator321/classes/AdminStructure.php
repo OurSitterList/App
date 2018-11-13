@@ -1,4 +1,4 @@
-<?
+<?php
 error_reporting(0);
 ini_set("display_errors", 0);
 	include("PageStructure.php");
@@ -131,7 +131,7 @@ ini_set("display_errors", 0);
 
 <!--*********************END HEADER***************************-->
 <div class="content container_12">
-<?
+<?php
 
 			//$con->closeConnection();
 
@@ -147,7 +147,7 @@ ini_set("display_errors", 0);
 
 <!--*********************END SUB HEADER***************************-->
 
-<?
+<?php
 
 		}
 
@@ -301,7 +301,7 @@ ini_set("display_errors", 0);
 
 </body>
 </html>
-<?
+<?php
 
 			ob_flush();
 
@@ -341,7 +341,7 @@ ini_set("display_errors", 0);
 <link href="css/css_002.css" rel="stylesheet" type="text/css">
 <link href="css/icons.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
-<?
+<?php
 
 		}
 

@@ -1,4 +1,4 @@
-<?
+<?php
 	include("classes/AdminStructure.php");
 	class Index extends AdminStructure
 	{
@@ -21,7 +21,7 @@ var login;
 	$(document).ready(function(){
 		login=new Login();
 		$('#uid').focus();
-<?
+<?php
 	if(isset($_COOKIE['uid']))
 	{
 		echo '$("#uid").val("'.addslashes($_COOKIE['uid']).'");';
@@ -39,7 +39,7 @@ var login;
 		});
 	});
 </script>
-<?
+<?php
 		}
 		function body()
 		{
@@ -206,15 +206,15 @@ span.username{color:#fff;font-family:Arial, Helvetica, sans-serif;font-size:13px
      </div>
     </div>
 
-<?
+<?php
 		}
 		function bodyAdmin()
 		{
 ?>
-<?php//$this->head(); ?>
+<?php //$this->head(); ?>
 
-<?php$this->body(); ?>
-<?
+<?php $this->body(); ?>
+<?php
 		}
 	}
 ?>

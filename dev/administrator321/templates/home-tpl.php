@@ -1,4 +1,4 @@
-<?
+<?php
 
 	include("classes/AdminStructure.php");
 
@@ -843,7 +843,7 @@ else
 
 <!--************************EndPAGE BODY***************************-->
 
-<?
+<?php
 
 		}
 
@@ -853,15 +853,15 @@ else
 
 ?>
 
-<?php$this->head(); ?>
+<?php $this->head(); ?>
 
- <?php$this->toppanel(); ?>
+ <?php $this->toppanel(); ?>
 
-  <?php$this->menu(); ?>
+  <?php $this->menu(); ?>
 
-  <?php$this->body(); ?>
+  <?php $this->body(); ?>
 
-  <?php//$this->footer(); ?>
+  <?php //$this->footer(); ?>
  <!--
 
               <td width="175" height="450" align="left" valign="top" class="bg_leftpan"></td>
@@ -886,7 +886,7 @@ else
 
 </table>-->
 
-<?
+<?php
 
 		}
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 	include("classes/AdminStructure.php");
 
@@ -1148,7 +1148,7 @@ if($_REQUEST['success']==''){
 echo '<input type="button" class="button grey_add" value="Add New"  />';
 }
 ?></p>
-  <?php 
+  <?php
 } ?>
 
  
@@ -1157,7 +1157,7 @@ echo '<input type="button" class="button grey_add" value="Add New"  />';
 
   </div>
 
-<?
+<?php
 
 			
 
@@ -1171,15 +1171,15 @@ echo '<input type="button" class="button grey_add" value="Add New"  />';
 
 ?>
 
-<?php$this->head(); ?>
+<?php $this->head(); ?>
 
- <?php$this->toppanel(); ?>
+ <?php $this->toppanel(); ?>
 
-  <?php$this->menu(); ?>
+  <?php $this->menu(); ?>
 
-  <?php$this->body(); ?>
+  <?php $this->body(); ?>
 
-  <?php//$this->side_bar(); ?><!--
+  <?php //$this->side_bar(); ?><!--
 
               <td width="175" height="450" align="left" valign="top" class="bg_leftpan"></td>
 
@@ -1203,7 +1203,7 @@ echo '<input type="button" class="button grey_add" value="Add New"  />';
 
 </table>-->
 
-<?
+<?php
 
 		}
 

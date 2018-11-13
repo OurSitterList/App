@@ -1,4 +1,4 @@
-<?
+<?php
 	chdir("..");
 	include("config/admin-includes.php");
 	chdir("ajax");

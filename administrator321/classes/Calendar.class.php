@@ -116,7 +116,7 @@
           <tr>
             <td align="left" valign="middle" class="cal_month_header">Month</td>
           </tr>
-<?
+<?php
 	
 	for($i=$this->fmonthID;$i<=$this->lmonthID;$i++)
 	{
@@ -128,22 +128,22 @@
           <tr>
             <td align="left" valign="middle" class="<?=$css?>" style="cursor:pointer;" title="<?=$i?>"><?=$this->months[$i]?></td>
           </tr>
-<?
+<?php
 	}
 ?>
         </table></td>
         <td align="left" valign="top"><table border="0" align="left" cellpadding="3" cellspacing="1">
           <tr>
-<?
+<?php
 	foreach($this->days as $day)
 	{
 ?>
             <td width="100" align="center" valign="middle" class="cal_days"><?=$day?></td>
-<?
+<?php
 	}
 ?>
           </tr>
-<?
+<?php
 	$loop=ceil(($this->lDay-$this->fDay+1+$this->fDayofWeek)/7)*7;
 	$date=intval($this->fDay);
 	
@@ -165,7 +165,7 @@
 			$css='cal_weekday';
 ?>
             <td align="center" valign="top" class="<?=$css?>">
-<?
+<?php
 		$con=new DBConnection(host,user,pass,db);
 		$conObj=$con->connectDB();
 		
@@ -200,7 +200,7 @@
                 </tr>
                 <tr>
                   <td height="30" align="right" valign="top">
-<?
+<?php
 			for($k=1;$eR=mysql_fetch_object($eRec);$k++)
 			{
 				if($eR->totbookedticket=='')
@@ -212,14 +212,14 @@
 				</td>
               </tr>
               </table>
-<?
+<?php
 			$date++;
 		}
 		else
 			echo '&nbsp;';
 ?>
               </td>
-<?
+<?php
 		if($i%7==6)
 			echo '</tr>';
 	}
@@ -228,7 +228,7 @@
         </td>
       </tr>
     </table>
-<?
+<?php
 		}
 	}
 ?>

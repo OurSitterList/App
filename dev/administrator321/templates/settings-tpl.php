@@ -1,4 +1,4 @@
-<?
+<?php
 	include("classes/AdminStructure.php");
 	class Settings extends AdminStructure
 	{
@@ -40,7 +40,7 @@
 	var ob;
 	$(document).ready(function(){
 		ob=new Settings(<?=$_SESSION['ATYPE']?>);
-<?
+<?php
 	while($R=mysql_fetch_object($Rec))
 		echo 'ob.setInfo('.$R->id.',"'.addslashes($R->name).'","'.addslashes($R->value).'");'."\n";
 ?>
@@ -60,7 +60,7 @@
       </tr>
 </thead>
 <tbody>
-<?
+<?php
 	mysql_data_seek($Rec,0);
 	while($R=mysql_fetch_object($Rec))
 	{
@@ -129,23 +129,23 @@ $('#click'+id).html('<input  type="button" class="button green_edit"  name="edit
 	
 
 	  </tr>
-<?
+<?php
 	}
 ?>
    </tbody> </table></div>
 </div>
-<?
+<?php
 			$con->closeConnection();
 		}
 		function bodyAdmin()
 		{
 ?>
-<?php$this->head(); ?>
- <?php$this->toppanel(); ?>
-  <?php$this->menu(); ?>
-  <?php//$this->sub_menu(); ?>
-  <?php$this->body(); ?>
-  <?php//$this->side_bar(); ?><!--
+<?php $this->head(); ?>
+ <?php $this->toppanel(); ?>
+  <?php $this->menu(); ?>
+  <?php //$this->sub_menu(); ?>
+  <?php $this->body(); ?>
+  <?php //$this->side_bar(); ?><!--
               <td width="175" height="450" align="left" valign="top" class="bg_leftpan"></td>
               <td width="100%" align="center" valign="middle"></td>
             </tr>
@@ -157,7 +157,7 @@ $('#click'+id).html('<input  type="button" class="button green_edit"  name="edit
     <td align="center" valign="middle" class="company"></td>
   </tr>
 </table>-->
-<?
+<?php
 		}
 	}
 ?>

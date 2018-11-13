@@ -1,4 +1,4 @@
-<?
+<?php
 	class DBConnection
 	{
 		var $host;

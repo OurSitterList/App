@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -1466,7 +1466,7 @@ $Q="SELECT * FROM `user_management` where user_type='sitter' order by join_date 
 
 
 
-<?		
+<?php		
 
 
 
@@ -1530,7 +1530,7 @@ $Q="SELECT * FROM `user_management` where user_type='sitter' order by join_date 
 
 <tbody>
 
-	<?
+	<?php
 
 
 
@@ -1652,7 +1652,7 @@ else
 
 
 
-<?php}?>
+<?php } ?>
 
 
 
@@ -1682,7 +1682,7 @@ else
 
 
 
-	<?
+	<?php
 
 
 
@@ -1718,7 +1718,7 @@ else
 
 
 
-	<?
+	<?php
 
 
 
@@ -1742,7 +1742,7 @@ else
 
 </div>
 
-<?		
+<?php
 
 
 
@@ -1764,7 +1764,7 @@ else
 
 
 
-<?
+<?php
 
 }
 
@@ -1778,27 +1778,27 @@ else
 
 
 
-<?php$this->head(); ?>
+<?php $this->head(); ?>
 
 
 
- <?php$this->toppanel(); ?>
+ <?php $this->toppanel(); ?>
 
 
 
-  <?php$this->menu(); ?>
+  <?php $this->menu(); ?>
 
 
 
-  <?php//$this->sub_menu(); ?>
+  <?php //$this->sub_menu(); ?>
 
 
 
-  <?php$this->body(); ?>
+  <?php $this->body(); ?>
 
 
 
-  <?php//$this->side_bar(); ?><!--
+  <?php //$this->side_bar(); ?><!--
 
 
 
@@ -1846,7 +1846,7 @@ else
 
 
 
-<?
+<?php
 
 
 
