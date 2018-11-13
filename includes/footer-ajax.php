@@ -617,7 +617,7 @@ $('#job_calendar').multiDatesPicker({
 });
 
 /*$('#booking_calender').multiDatesPicker({
-<? if($val!='')
+<?php if($val!='')
 {?>
 	addDates: [<?=$val?>],
 <?php
