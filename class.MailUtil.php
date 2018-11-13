@@ -23,7 +23,8 @@ class MailUtil
 
 //        $mail->SMTPDebug  = 1;
         $mail->Host = "smtp.gmail.com";
-        $mail->Port = 587;
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
         $mail->Username = 'OurSitterList@gmail.com';
         $mail->Password = 'S3cur3P@55w0rd';
@@ -40,7 +41,8 @@ class MailUtil
 
 //        $mail->SMTPDebug  = 1;
         $mail->Host = "smtp.gmail.com";
-        $mail->Port = 587;
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
         $mail->Username = 'OurSitterList@gmail.com';
         $mail->Password = 'S3cur3P@55w0rd';
@@ -58,7 +60,8 @@ class MailUtil
         $mail->IsSMTP();
 
         $mail->Host = "smtp.gmail.com";
-        $mail->Port = 587;
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
         $mail->Username = 'OurSitterList@gmail.com';
         $mail->Password = 'S3cur3P@55w0rd';
