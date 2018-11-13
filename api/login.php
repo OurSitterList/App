@@ -7,7 +7,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/AuthnetARB.class.php");
 
 
 // process login
-  var_dump($_POST);
 $type = (isset($_POST['type'])) ? $_POST['type'] : null;
 switch ($type) {
   // sitter login
