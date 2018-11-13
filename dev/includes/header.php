@@ -143,7 +143,7 @@ function escapeString($val)
 
       </div>
 
-      <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a href="<?=$base_path?>"><img src="<?=$base_path?>/images/logo.png" alt="" /></a> </div>
+      <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a href="/"><img src="<?=$base_path?>/images/logo.png" alt="" /></a> </div>
 
       <div class="login col-lg-3 col-md-3 col-sm-3 col-xs-12">
 
