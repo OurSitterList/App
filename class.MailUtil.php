@@ -26,7 +26,7 @@ class MailUtil
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
         $mail->Username = 'OurSitterList@gmail.com';
-        $mail->Password = 'S3cur3P@55w0rd';
+        $mail->Password = 'OurS!tt3rL15t';
 
         MailUtil::addBCCs($mail);
 
@@ -44,7 +44,7 @@ class MailUtil
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
         $mail->Username = 'OurSitterList@gmail.com';
-        $mail->Password = 'S3cur3P@55w0rd';
+        $mail->Password = 'OurS!tt3rL15t';
 
         $mail->setFrom('karlyandwhitney@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
@@ -63,7 +63,7 @@ class MailUtil
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
         $mail->Username = 'OurSitterList@gmail.com';
-        $mail->Password = 'S3cur3P@55w0rd';
+        $mail->Password = 'OurS!tt3rL15t';
 
         $mail->setFrom('inquiry@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
