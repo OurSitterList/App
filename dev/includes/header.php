@@ -561,7 +561,7 @@ header('Location:'.$base_path.'/family_dashboard.php');
 
 				  $message = str_replace('%AS%', 'Sitter', $message);
 
-				  $message = str_replace('%COMMENT%','To Reset Your Password <a href ="'.$base_path.'/?reset_pass=1&reset_code='.$generate_code.'">Click Here</a> or copy this link in your browser http:'.$base_path.'/?reset_pass=1&reset_code='.$generate_code, $message);
+				  $message = str_replace('%COMMENT%','To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code='.$generate_code.'">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code='.$generate_code, $message);
 
 				 
 
@@ -653,7 +653,7 @@ header('Location:'.$base_path.'/family_dashboard.php');
 
 				  $message = str_replace('%AS%', 'Family', $message);
 
-				  $message = str_replace('%COMMENT%','To Reset Your Password <a href ="'.$base_path.'/?reset_pass=1&reset_code='.$generate_code.'">Click Here</a> or copy this link in your browser http:'.$base_path.'/?reset_pass=1&reset_code='.$generate_code, $message);
+				  $message = str_replace('%COMMENT%','To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code='.$generate_code.'">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code='.$generate_code, $message);
 
 				 
 
