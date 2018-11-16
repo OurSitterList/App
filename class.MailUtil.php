@@ -58,12 +58,12 @@ class MailUtil
         $mail = new PHPMailer;
         $mail->IsSMTP();
 
-        $mail->Host = "smtp.mailgun.org";
+        $mail->Host = "";
         $mail->Port = 465;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
-        $mail->Username = 'postmaster@sandbox171a1e1f0f3348578c11d851d232c1c6.mailgun.org';
-        $mail->Password = 'f1d8e134c582580ee0818298a4132e44-9525e19d-71480e0d';
+        $mail->Username = '';
+        $mail->Password = '';
 
         $mail->setFrom('inquiry@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
