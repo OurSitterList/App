@@ -20,13 +20,11 @@ class MailUtil
         $mail = new PHPMailer;
         $mail->IsSMTP();
 
-       $mail->SMTPDebug  = 1;
-        $mail->Host = "email-smtp.us-east-1.amazonaws.com";
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'ssl';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
-        $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
+//        $mail->SMTPDebug  = 1;
+        $mail->Host = "in-v3.mailjet.com";
+        $mail->Port = 587;
+        $mail->Username = '56b7456917499583f5cedd8d17e14821';
+        $mail->Password = 'f8be29bd2ca493039ad8dc0ed5abd227';
 
         MailUtil::addBCCs($mail);
 
@@ -38,13 +36,11 @@ class MailUtil
         $mail = new PHPMailer;
         $mail->IsSMTP();
 
-       $mail->SMTPDebug  = 1;
-        $mail->Host = "email-smtp.us-east-1.amazonaws.com";
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'ssl';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
-        $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
+//        $mail->SMTPDebug  = 1;
+        $mail->Host = "in-v3.mailjet.com";
+        $mail->Port = 587;
+        $mail->Username = '56b7456917499583f5cedd8d17e14821';
+        $mail->Password = 'f8be29bd2ca493039ad8dc0ed5abd227';
 
         $mail->setFrom('karlyandwhitney@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
@@ -58,12 +54,10 @@ class MailUtil
         $mail = new PHPMailer;
         $mail->IsSMTP();
 
-        $mail->Host = "email-smtp.us-east-1.amazonaws.com";
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'ssl';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
-        $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
+        $mail->Host = "in-v3.mailjet.com";
+        $mail->Port = 587;
+        $mail->Username = '56b7456917499583f5cedd8d17e14821';
+        $mail->Password = 'f8be29bd2ca493039ad8dc0ed5abd227';
 
         $mail->setFrom('inquiry@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
