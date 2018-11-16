@@ -34,7 +34,7 @@
 	//$mail->addAddress('pgurjar007@gmail.com');
 	$mail->addAddress('chrisperando@gmail.com');
 	$mail->addAddress('jon@thinkvaughn.com');
-	$mail->addAddress('oursitterlistnashville@gmail.com');
+	$mail->addAddress('oursitterlist@gmail.com');
 	$mail->Subject = 'Contact Request';
 	//Replace the plain text body with one created manually
 	//Read an HTML message body from an external file, convert referenced images to embedded,

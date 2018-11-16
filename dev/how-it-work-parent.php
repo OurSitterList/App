@@ -90,7 +90,7 @@
 
           <h3 class="title-6"><span>Package Options</span></h3>
 
-          <p> Parents pay a one-time application fee of $45. Parents will not be able to use the site until approved by the founders. Application processing will be completed with 36 hours. Please contact us at <a href="mailto:oursitterlistnashville@gmail.com">oursitterlistnashville@gmail.com</a> if you need your application expedited.</p>
+          <p> Parents pay a one-time application fee of $45. Parents will not be able to use the site until approved by the founders. Application processing will be completed with 36 hours. Please contact us at <a href="mailto:oursitterlist@gmail.com">oursitterlist@gmail.com</a> if you need your application expedited.</p>
 
           <ul class="list-1">
 
@@ -118,9 +118,9 @@
 
             <li>I  will do my best to reserve 24 hours in advance.&nbsp;(Last  minute sitters are available, but families are encouraged to book as far  in advance as possible.) </li>
 
-            <li>I will provide  positive and/or negative feedback to <a class="highlight" href="mailto:oursitterlistnashville@gmail.com" target="_blank">oursitterlistnashville@gmail.com</a>.</li>
+            <li>I will provide  positive and/or negative feedback to <a class="highlight" href="mailto:oursitterlist@gmail.com" target="_blank">oursitterlist@gmail.com</a>.</li>
 
-            <li>I will contact  Whitney or Karly immediately if any issues arise with a  sitter.&nbsp;Please contact as at oursitterlistnashville@gmail.com.        </li>
+            <li>I will contact  Whitney or Karly immediately if any issues arise with a  sitter.&nbsp;Please contact as at oursitterlist@gmail.com.        </li>
 
           </ul>
 

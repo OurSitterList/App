@@ -313,11 +313,11 @@ function escapeString($val)
 				  $mail->addAddress($R->user_email, $R->user_name);
 
 				  // Tried the following two lines on Nov 23, 2015 - no success
-				  //$mail->addAddress('oursitterlistnashville@gmail.com');	
+				  //$mail->addAddress('oursitterlist@gmail.com');	
 				  //$mail->addAddress('sf@snappeterson.com.com');				  
 
 				  // Tried the following line immediately after
-				  $mail->AddCC('oursitterlistnashville@gmail.com');
+				  $mail->AddCC('oursitterlist@gmail.com');
 				  $mail->AddCC('sf@snappeterson.com.com');
 					
 
@@ -452,11 +452,11 @@ header('Location:'.$base_path.'/sitter_dashboard.php');
 				  $mail->addAddress($R->user_email, $R->user_name);
 
 				  // Tried the following two lines on Nov 23, 2015 - no success
-				  //$mail->addAddress('oursitterlistnashville@gmail.com');	
+				  //$mail->addAddress('oursitterlist@gmail.com');	
 				  //$mail->addAddress('sf@snappeterson.com.com');				  
 
 				  // Tried the following line immediately after
-				  $mail->AddCC('oursitterlistnashville@gmail.com');
+				  $mail->AddCC('oursitterlist@gmail.com');
 				  $mail->AddCC('sf@snappeterson.com.com');
 
 				  //$mail->addAddress('chrisperando@gmail.com');
@@ -574,11 +574,11 @@ header('Location:'.$base_path.'/family_dashboard.php');
 				  $mail->addAddress($R->user_email, $R->user_name);
 
 				  // Tried the following two lines on Nov 23, 2015 - no success
-				  //$mail->addAddress('oursitterlistnashville@gmail.com');	
+				  //$mail->addAddress('oursitterlist@gmail.com');	
 				  //$mail->addAddress('sf@snappeterson.com.com');				  
 
 				  // Tried the following line immediately after
-				  $mail->AddCC('oursitterlistnashville@gmail.com');
+				  $mail->AddCC('oursitterlist@gmail.com');
 				  $mail->AddCC('sf@snappeterson.com.com');
 
 				  //$mail->addAddress('chrisperando@gmail.com');
@@ -666,11 +666,11 @@ header('Location:'.$base_path.'/family_dashboard.php');
 				  $mail->addAddress($R->user_email, $R->user_name);
 
 				  // Tried the following two lines on Nov 23, 2015 - no success
-				  //$mail->addAddress('oursitterlistnashville@gmail.com');	
+				  //$mail->addAddress('oursitterlist@gmail.com');	
 				  //$mail->addAddress('sf@snappeterson.com.com');				  
 
 				  // Tried the following line immediately after
-				  $mail->AddCC('oursitterlistnashville@gmail.com');
+				  $mail->AddCC('oursitterlist@gmail.com');
 				  $mail->AddCC('sf@snappeterson.com.com');
 				
 				  //$mail->addAddress('chrisperando@gmail.com');
