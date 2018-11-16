@@ -7,12 +7,13 @@ class MailUtil
 {
     public static function addBCCs($mail)
     {
-        $mail->addBCC('admin@oursitterlistnashville.com', 'Administrator');
-//        $mail->addBCC('sethcriedel@gmail.com', 'Webmaster');
-        $mail->addBCC('cjohnson@furiae-interactive.com', 'Chris Johnson');
-        $mail->addBCC('oursitterlistnashville@gmail.com', 'Webmaster');
-        $mail->addBCC('karlyhart0@gmail.com', 'Karly Hart');
-        $mail->addBCC('whitneyschickling@gmail.com', 'Whitney Schickling');
+        $mail->addBCC('oursitterlist@gmail.com', 'Admin');
+//         $mail->addBCC('admin@oursitterlistnashville.com', 'Administrator');
+// //        $mail->addBCC('sethcriedel@gmail.com', 'Webmaster');
+//         $mail->addBCC('cjohnson@furiae-interactive.com', 'Chris Johnson');
+//         $mail->addBCC('oursitterlistnashville@gmail.com', 'Webmaster');
+//         $mail->addBCC('karlyhart0@gmail.com', 'Karly Hart');
+//         $mail->addBCC('whitneyschickling@gmail.com', 'Whitney Schickling');
     }
 
     public static function getMailer()
