@@ -21,12 +21,12 @@ class MailUtil
         $mail->IsSMTP();
 
        $mail->SMTPDebug  = 1;
-        $mail->Host = "smtp.gmail.com";
+        $mail->Host = "email-smtp.us-east-1.amazonaws.com";
         $mail->Port = 465;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
-        $mail->Username = 'OurSitterList@gmail.com';
-        $mail->Password = 'OurS!tt3rL15t';
+        $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
+        $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
 
         MailUtil::addBCCs($mail);
 
@@ -39,12 +39,12 @@ class MailUtil
         $mail->IsSMTP();
 
        $mail->SMTPDebug  = 1;
-        $mail->Host = "smtp.gmail.com";
+        $mail->Host = "email-smtp.us-east-1.amazonaws.com";
         $mail->Port = 465;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
-        $mail->Username = 'OurSitterList@gmail.com';
-        $mail->Password = 'OurS!tt3rL15t';
+        $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
+        $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
 
         $mail->setFrom('karlyandwhitney@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
@@ -58,12 +58,12 @@ class MailUtil
         $mail = new PHPMailer;
         $mail->IsSMTP();
 
-        $mail->Host = "smtp.gmail.com";
+        $mail->Host = "email-smtp.us-east-1.amazonaws.com";
         $mail->Port = 465;
         $mail->SMTPSecure = 'ssl';
         $mail->SMTPAuth = true;
-        $mail->Username = 'OurSitterList@gmail.com';
-        $mail->Password = 'OurS!tt3rL15t';
+        $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
+        $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
 
         $mail->setFrom('inquiry@oursitterlistnashville.com', 'Our Sitter List - Nashville');
 
