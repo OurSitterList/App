@@ -64,7 +64,7 @@
           <li><a href="https://www.pinterest.com/whschickling08/" target="_blank"><span class="fa fa-pinterest pinta"></span></a></li>
         </ul>
       </div>
-      <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a href="<?=$base_path?>"><img src="<?=$base_path?>/images/logo.png" alt="" /></a> </div>
+      <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12"> <a href="/"><img src="<?=$base_path?>/images/logo.png" alt="" /></a> </div>
       <div class="login col-lg-3 col-md-3 col-sm-3 col-xs-12">
         <?php  if(isset($_SESSION['user_id']) && $_SESSION['user_id']!='')
 			{
