@@ -38,7 +38,7 @@
                     
                 	<h3 class="title-6"><span>Compromise of Personal Information</span></h3>
                     <p>In the event that personal information is compromised as a result of a breach of security, we will promptly notify those persons whose personal information has been compromised or as otherwise required by applicable law.</p>
-                    <p>Please direct any questions that you may have regarding our Privacy Statement at any time to <span class="highlight">oursitterlistnashville@gmail.com.</span></p>
+                    <p>Please direct any questions that you may have regarding our Privacy Statement at any time to <span class="highlight">oursitterlist@gmail.com.</span></p>
                 	<h3 class="title-6"><span>Sharing</span></h3>
                     <p>We will not sell or otherwise provide the information we collect to outside third parties for the purpose of direct or indirect mass email marketing.</p>
                     <p>We will disclose personal information and/or an IP address, when required by law or in the good-faith belief that such action is necessary to</p>

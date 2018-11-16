@@ -56,7 +56,7 @@
                         <li>All sitters found through <span class="highlight">www.oursitterlistnashville.com</span> should be booked through the website.</li>
                         <li>All sitters should be booked through <span class="highlight">www.oursitterlistnashville.com</span>.(not through calling or text messaging)</li>
                         <li>I will do my best to reserve 24 hours in advance. However, last minute sitters are available. We just encourage booking as far in advance as possible.</li>
-                        <li>I will provide positive and/or negative feedback to <span class="highlight">oursitterlistnashville@gmail.com</span>.</li>
+                        <li>I will provide positive and/or negative feedback to <span class="highlight">oursitterlist@gmail.com</span>.</li>
                         <li>I will contact Whitney or Karly immediately if any issues arise with a sitter.</li>
                     </ul>                                
                 </div>

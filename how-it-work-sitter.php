@@ -52,7 +52,7 @@
             <li>I  will support Our Sitter List LLC by reminding families to book all sitting jobs  through <a class="highlight" href="http://www.oursitterlistnashville.com">www.oursitterlistnashville.com</a>. </li>
             <li>If  a family contacts me for a sitting job and was referred by a member of <span class="highlight"><u>www.oursitterlistnashville.com</u></span> then I will  refer that family to the website. </li>
             <li>I  will keep the house where I am sitting tidy. </li>
-            <li>I  will contact Whitney or Karly immediately (at oursitterlistnashville@gmail.com)  if I need to cancel a sitting job. </li>
+            <li>I  will contact Whitney or Karly immediately (at oursitterlist@gmail.com)  if I need to cancel a sitting job. </li>
             <li>If  I am not 18 years of age then I will seek consent from a parent or guardian. </li>
             <li>I  have read and accept Our Sitter List LLC &ldquo;<a class="highlight" href="/House-Rules.php">House Rules</a>&rdquo;. </li>
           </ul>

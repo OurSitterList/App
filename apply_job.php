@@ -59,7 +59,7 @@ if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user
 //	$mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
 
 	$mail->addAddress($search_current_stat_family['user_email'], $search_current_stat_family['user_name']);
-	$mail->addAddress('oursitterlistnashville@gmail.com', 'Webmaster');
+	$mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
 	$mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
 //	$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
 

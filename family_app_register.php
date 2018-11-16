@@ -137,7 +137,7 @@ if(!filter_var($family_email, FILTER_VALIDATE_EMAIL) || 4 > strlen($family_usern
                 	<div class="row">
                     	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         	<h3 class="title-6">Our Sitter List Nashville Package Options</h3>
-                             <h3 class="title-7">Parents pay a one-time application fee of $45. Parents will not be able to use the site until approved by the founders. Application processing will be completed with 36 hours. Please contact us at <a target="new" href="contact-us.php">oursitterlistnashville@gmail.com</a> if you need your application expedited.</h3>
+                             <h3 class="title-7">Parents pay a one-time application fee of $45. Parents will not be able to use the site until approved by the founders. Application processing will be completed with 36 hours. Please contact us at <a target="new" href="contact-us.php">oursitterlist@gmail.com</a> if you need your application expedited.</h3>
                             <ul class="list-1">
                                 <li>12 month membership for $24 per month</li> 
                                 <li>6 month membership for $32 per month</li> 
@@ -171,7 +171,7 @@ if(!filter_var($family_email, FILTER_VALIDATE_EMAIL) || 4 > strlen($family_usern
                                 <li>All sitters found through www.oursitterlistnashville.com should be booked through the website.</li>
                                 <li>All sitters should be booked through www.oursitterlistnashville.com.(not through calling or text messaging)</li>
                                 <li>I will do my best to reserve 24 hours in advance. However, last minute sitters are available. We just encourage booking as far in advance as possible.</li>
-                                <li>I will provide positive and/or negative feedback to oursitterlistnashville@gmail.com.</li>
+                                <li>I will provide positive and/or negative feedback to oursitterlist@gmail.com.</li>
                                 <li>I will contact Whitney or Karly immediately if any issues arise with a sitter.</li>
                                 <li>I agree to Our Sitter List LLC "House Rules".</li>
                             </ul>

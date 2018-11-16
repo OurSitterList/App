@@ -10,7 +10,7 @@ class MailUtil
         // $mail->addBCC('admin@oursitterlistnashville.com', 'Administrator');
 //        $mail->addBCC('sethcriedel@gmail.com', 'Webmaster');
         // $mail->addBCC('cjohnson@furiae-interactive.com', 'Chris Johnson');
-        // $mail->addBCC('oursitterlistnashville@gmail.com', 'Webmaster');
+        // $mail->addBCC('oursitterlist@gmail.com', 'Webmaster');
         // $mail->addBCC('karlyhart0@gmail.com', 'Karly Hart');
         // $mail->addBCC('whitneyschickling@gmail.com', 'Whitney Schickling');
     }
