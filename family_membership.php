@@ -131,7 +131,7 @@ $arb->setParameter('subscrName', 'Family Subscription - '.$_SESSION['user_name_m
 	 "FROM user_management " .
 	 "WHERE user_id = '" . $_SESSION['user_id_member_choose'] . "' " .
  	"AND user_subscriberid != ''";
-	 mail('sethcriedel@gmail.com', 'New SQL for subscriberid', "SQL: \n\n<br />" . $logsql, 'From: noreply@oursitterlistnashville.com');
+	 mail('sethcriedel@gmail.com', 'New SQL for subscriberid', "SQL: \n\n<br />" . $logsql, 'From: oursitterlist@gmail.com');
  mysql_query($logsql);
 
 

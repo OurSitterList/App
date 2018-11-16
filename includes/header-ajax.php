@@ -340,7 +340,7 @@ header('Location:'.$base_path.'/family_app_member.php');
 
                                      if ($status === 'expired' || $status === 'canceled')
                                      {
-                                         mail('sethcriedel@gmail.com', 'EXPIRED OSL SUBSCRIPTION', print_r($R, true), 'From: noreply@oursitterlistnashville.com');
+                                         mail('sethcriedel@gmail.com', 'EXPIRED OSL SUBSCRIPTION', print_r($R, true), 'From: oursitterlist@gmail.com');
                                          $_SESSION['_sub_expired'] = true;
 
                                          $_SESSION['user_id_member_choose'] = $R->user_id;

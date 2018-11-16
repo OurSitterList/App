@@ -217,7 +217,7 @@ function getUserLocation($userId, $zip, $locationId) {
 }
 
 function redirectToFamilyError($R, $code=1) {
-  mail('sethcriedel@gmail.com', 'EXPIRED OSL SUBSCRIPTION', print_r($R, true), 'From: noreply@oursitterlistnashville.com');
+  mail('sethcriedel@gmail.com', 'EXPIRED OSL SUBSCRIPTION', print_r($R, true), 'From: oursitterlist@gmail.com');
   $_SESSION['_sub_expired'] = true;
   $_SESSION['user_id_member_choose'] = $R->user_id;
   $_SESSION['user_name_member_choose'] = $R->user_name;

@@ -118,8 +118,8 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 
-			$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
-//			$mail->setFrom('noreply@oursitterlistnashville.com');
+			$mail->setFrom('oursitterlist@gmail.com', $sender_name);
+//			$mail->setFrom('oursitterlist@gmail.com');
 			$mail->addAddress($sitter_user_email, $sitter_user_complete_name);
 			$mail->Subject = $subject;
 			$mail->msgHTML($message);
@@ -130,7 +130,7 @@ class Notification {
 			//die('ABOUT TO SEND POST EMAIL!');
 			if (!$mail->send()) {
 				// die('Could not send email. ' . print_r(error_get_last(), true));
-				mail('sethcriedel@gmail.com', 'Failed to send email', $mail->Debugoutput, 'From: noreply@oursitterlistnashville.com');
+				mail('sethcriedel@gmail.com', 'Failed to send email', $mail->Debugoutput, 'From: oursitterlist@gmail.com');
 				return 'Email failure to sent.' . $mail->ErrorInfo;
 			}
 		}
@@ -231,7 +231,7 @@ class Notification {
 					$mail = MailUtil::getMailer();
 
 					$mail->Debugoutput = 'html';
-					$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+					$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 					$mail->addAddress($sitter_user_email, $sitter_user_complete_name);
 					$mail->Subject = $subject;
 					$mail->msgHTML($message);
@@ -355,7 +355,7 @@ class Notification {
 				$mail = MailUtil::getMailer();
 				
 				$mail->Debugoutput = 'html';
-				$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+				$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 				$mail->addAddress($family_user_email, $family_user_complete_name);
 				$mail->Subject = $subject;
 				$mail->msgHTML($message);
@@ -464,7 +464,7 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 			$mail->Debugoutput = 'html';
-			$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+			$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 			$mail->addAddress($recipient_email, $recipient_name);
 			$mail->Subject = $sender_name.' sent you a message.';
 			$mail->msgHTML($message);
@@ -503,7 +503,7 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 			$mail->Debugoutput = 'html';
-			$mail->setFrom('noreply@oursitterlistnashville.com', $name);
+			$mail->setFrom('oursitterlist@gmail.com', $name);
 			$mail->addAddress($recipient_email, $recipient_name);
 			$mail->Subject = $name.' inquiry - Contact Us Form.';
 			$mail->msgHTML($message);
@@ -604,7 +604,7 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 			$mail->Debugoutput = 'html';
-			$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+			$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 			$mail->addAddress($recipient_email, $recipient_name);
 			$mail->Subject = "{$recipient_name} {$user_type} registration form.";
 			$mail->msgHTML($message);
@@ -638,7 +638,7 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 			$mail->Debugoutput = 'html';
-			$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+			$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 			$mail->addAddress($recipient_email, $recipient_name);
 			$mail->Subject = "{$sender_name} {$user_type} registration form.";
 			$mail->msgHTML($message);
@@ -732,7 +732,7 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 			$mail->Debugoutput = 'html';
-			$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+			$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 			$mail->addAddress($recipient_email, $recipient_name);
 			$mail->Subject = "{$recipient_name} {$user_type} registration form.";
 			$mail->msgHTML($message);
@@ -766,7 +766,7 @@ class Notification {
 
 			$mail = MailUtil::getMailer();
 			$mail->Debugoutput = 'html';
-			$mail->setFrom('noreply@oursitterlistnashville.com', $sender_name);
+			$mail->setFrom('oursitterlist@gmail.com', $sender_name);
 			$mail->addAddress($recipient_email, $recipient_name);
 			$mail->Subject = "{$sender_name} {$user_type} registration form.";
 			$mail->msgHTML($message);

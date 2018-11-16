@@ -20,7 +20,7 @@ $search_query = mysql_query($usql);
 if (mysql_num_rows($search_query) < 1)
 {
 //    die('FROM User not found. ' . $usql);
-//    mail('sethcriedel@gmail.com', 'Contact user issue', 'FROM User not found. ' . $usql, 'From: noreply@oursitterlistnashville.com');
+//    mail('sethcriedel@gmail.com', 'Contact user issue', 'FROM User not found. ' . $usql, 'From: oursitterlist@gmail.com');
     header('Location:/');
     exit;
 }
@@ -36,7 +36,7 @@ WHERE i.user_id = '" . $_SESSION['user_id'] . "'";
 $search_query = mysql_query($usql);
 if (mysql_num_rows($search_query) < 1)
 {
-    mail('sethcriedel@gmail.com', 'Contact user issue', 'User not found. ' . $usql, 'From: noreply@oursitterlistnashville.com');
+    mail('sethcriedel@gmail.com', 'Contact user issue', 'User not found. ' . $usql, 'From: oursitterlist@gmail.com');
     header('Location:/');
     exit;
 }
@@ -73,7 +73,7 @@ require_once 'class.MailUtil.php';
 $mail = MailUtil::getMailer();
 
 $mail->Debugoutput = 'html';
-$mail->setFrom('noreply@oursitterlistnashville.com', 'Our Sitter List');
+$mail->setFrom('oursitterlist@gmail.com', 'Our Sitter List');
 
 $mail->addAddress($user_to->user_email, $user_to->user_first_name . ' ' . $user_to->user_last_name);
 //$mail->addBCC('sethcriedel@gmail.com', 'Seth Riedel');

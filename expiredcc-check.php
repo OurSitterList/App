@@ -2,7 +2,7 @@
 
 if (count($argv) < 2 || $argv[1] !== 'fromcli')
 {
-    mail('sethcriedel@gmail.com', 'expiredcc-check called incorrectly', $msg, 'From: noreply@oursitterlistnashville.com');
+    mail('sethcriedel@gmail.com', 'expiredcc-check called incorrectly', $msg, 'From: oursitterlist@gmail.com');
     die('Forbidden');
 }
 

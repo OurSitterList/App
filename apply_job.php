@@ -8,7 +8,7 @@ require_once 'class.MailUtil.php';
 
 if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user_type']!='sitter')
 {
-	mail('sethcriedel@gmail.com', 'APPLY JOB INVALID USER', 'Someone applied to a job, but no user id specified. ' . print_r($_REQUEST, true), 'From: noreply@oursitterlistnashville.com');
+	mail('sethcriedel@gmail.com', 'APPLY JOB INVALID USER', 'Someone applied to a job, but no user id specified. ' . print_r($_REQUEST, true), 'From: oursitterlist@gmail.com');
 	header('Location:/');
 	exit;
 }
@@ -21,7 +21,7 @@ if((!isset($_SESSION['user_id']) && $_SESSION['user_id']=='') || $_SESSION['user
 
 	if ($err)
 	{
-		mail('sethcriedel@gmail.com', 'APPLY JOB MySQL Error', 'Someone applied to a job, but a MySQL error occurred:' . $err . "\n\nSQL: \n" . $sql, 'From: noreply@oursitterlistnashville.com');
+		mail('sethcriedel@gmail.com', 'APPLY JOB MySQL Error', 'Someone applied to a job, but a MySQL error occurred:' . $err . "\n\nSQL: \n" . $sql, 'From: oursitterlist@gmail.com');
 	}
 	$job_details = mysql_fetch_object(mysql_query("select * from job_management where set_code='".$_REQUEST['job_code_input']."'"));
 	$job_query = mysql_query("select * from `job_management` where set_code='".$_REQUEST['job_code_input']."'");
