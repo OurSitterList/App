@@ -7,13 +7,12 @@ class MailUtil
 {
     public static function addBCCs($mail)
     {
-        $mail->addBCC('oursitterlist@gmail.com', 'Admin');
-//         $mail->addBCC('admin@oursitterlistnashville.com', 'Administrator');
-// //        $mail->addBCC('sethcriedel@gmail.com', 'Webmaster');
-//         $mail->addBCC('cjohnson@furiae-interactive.com', 'Chris Johnson');
-//         $mail->addBCC('oursitterlistnashville@gmail.com', 'Webmaster');
-//         $mail->addBCC('karlyhart0@gmail.com', 'Karly Hart');
-//         $mail->addBCC('whitneyschickling@gmail.com', 'Whitney Schickling');
+        $mail->addBCC('admin@oursitterlistnashville.com', 'Administrator');
+//        $mail->addBCC('sethcriedel@gmail.com', 'Webmaster');
+        $mail->addBCC('cjohnson@furiae-interactive.com', 'Chris Johnson');
+        $mail->addBCC('oursitterlistnashville@gmail.com', 'Webmaster');
+        $mail->addBCC('karlyhart0@gmail.com', 'Karly Hart');
+        $mail->addBCC('whitneyschickling@gmail.com', 'Whitney Schickling');
     }
 
     public static function getMailer()
@@ -23,7 +22,9 @@ class MailUtil
 
 //        $mail->SMTPDebug  = 1;
         $mail->Host = "email-smtp.us-east-1.amazonaws.com";
-        $mail->Port = 587;
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPAuth = true;
         $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
         $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
 
@@ -39,7 +40,9 @@ class MailUtil
 
 //        $mail->SMTPDebug  = 1;
         $mail->Host = "email-smtp.us-east-1.amazonaws.com";
-        $mail->Port = 587;
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPAuth = true;
         $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
         $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
 
@@ -56,7 +59,9 @@ class MailUtil
         $mail->IsSMTP();
 
         $mail->Host = "email-smtp.us-east-1.amazonaws.com";
-        $mail->Port = 587;
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPAuth = true;
         $mail->Username = 'AKIAJOVIUPWNHBNDDSPQ';
         $mail->Password = 'AnWevWUs0NExzEpyBFDoJcPigp7n89cSmVmOLMEiUjVy';
 
