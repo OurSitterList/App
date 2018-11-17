@@ -1,10 +1,10 @@
 <?php
 /**
- * POST: (all required, even if empty)
+ * GET
  * 
- * $user_id
- * $location_id
- * $user_location_id
+ * user_id
+ * location_id
+ * user_location_id
  * 
  * */
 
@@ -13,12 +13,7 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-// var_dump($_POST);
-// exit;
-
-extract($_POST);
-
-$search_query = mysql_query("select * from  user_information where user_id='".$user_id."'");
+$search_query = mysql_query("select * from  user_information where user_id='".$_GET['user_id']."'");
 if(mysql_num_rows($search_query) > 0) {
 	$R = mysql_fetch_object($search_query);
 } else {
@@ -26,7 +21,7 @@ if(mysql_num_rows($search_query) > 0) {
   echo json_encode($response); exit;
 }
 $myaccount = new myAccount();
-$useLocationId = (isset($location_id) && preg_match('/^[1-9]+[0-9]*$/', $location_id) > -1) ? $location_id : $user_location_id;
+$useLocationId = (isset($_GET['location_id']) && preg_match('/^[1-9]+[0-9]*$/', $_GET['location_id']) > -1) ? $_GET['location_id'] : $_GET['user_location_id'];
 
 $sql = "SELECT
 	jm.job_id,
