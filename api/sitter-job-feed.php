@@ -17,7 +17,7 @@ $search_query = mysql_query("select * from  user_information where user_id='".$_
 if(mysql_num_rows($search_query) > 0) {
 	$R = mysql_fetch_object($search_query);
 } else {
-  $response = array('code' => 401, 'message' => 'Update Your Account Information.');
+  $response = array('code' => 401, 'message' => 'User does not exist.');
   echo json_encode($response); exit;
 }
 $myaccount = new myAccount();
