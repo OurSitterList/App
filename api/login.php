@@ -70,7 +70,7 @@ function processSitterLogin() {
       $_SESSION['user_zip'] = $R->zip;
       $_SESSION['user_location_id'] = getUserLocation($R->user_id, $R->zip, $R->location_id);
 
-      $response	= array('code' => 200, 'message' => 'Login successful!');
+      $response	= array('code' => 200, 'message' => $_SESSION);
       echo json_encode($response); exit;
     }
   } else {
@@ -184,7 +184,7 @@ function processFamilyLogin() {
         }
       }
 
-      $response	= array('code' => 200, 'message' => 'Login successful!');
+      $response	= array('code' => 200, 'message' => $_SESSION);
       echo json_encode($response); exit;
     }
   } else {
