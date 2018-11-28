@@ -100,12 +100,12 @@ if (!$response) {
 
   if ($response->success && isset($response->reason)) {
     if ($skipBilling) {
-      $notification = new Notification($user_id);
-      $notify = $notification->send_application_details($user_details);
+      // $notification = new Notification($user_id);
+      // $notify = $notification->send_application_details($user_details);
       $response = array('code' => 200, 'message' => 'You have successfully signed up.');
     } else {
-      $notification = new Notification($user_id);
-      $notify = $notification->send_application_details($user_details);
+      // $notification = new Notification($user_id);
+      // $notify = $notification->send_application_details($user_details);
       $response = array('code' => 200, 'message' => $response->reason . $notify);
     }
   } else {
