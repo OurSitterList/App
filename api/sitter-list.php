@@ -5,7 +5,10 @@
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-  $search_query_sql = "select *,UM.user_id 
+  $search_query_sql = "select user_first_name, user_last_name, user_description,
+    cpr_approve, background_approve, newborn_approve, 
+    user_college, user_college_name, user_high_school, user_high_school_name, 
+    user_image, UM.user_id 
     from user_management as UM
     JOIN user_information as UI ON UM.user_id=UI.user_id
     WHERE UM.user_type='sitter'
