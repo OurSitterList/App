@@ -9,7 +9,7 @@
     return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
   }
 
-  $sql = "SELECT * FROM messages WHERE user_id='" . $user_id . "' AND deleted_at IS NULL";
+  $sql = "SELECT * FROM messages WHERE user_id='" . $_REQUEST['user_id'] . "' AND deleted_at IS NULL";
 														
   $query = mysql_query($sql);
   $num = mysql_num_rows($query);
