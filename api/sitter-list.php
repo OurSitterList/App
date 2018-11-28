@@ -13,10 +13,10 @@
     order by UI.user_first_name";
 														
   $search_query = mysql_query($search_query_sql);
-  $num = mysql_num_rows($results);
+  $num = mysql_num_rows($search_query);
   $data = array();
   
-  while ($job = mysql_fetch_object($results)) {
+  while ($job = mysql_fetch_object($search_query)) {
       $data[] = $job;
   }
   
