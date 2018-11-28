@@ -7,31 +7,31 @@
 
  
   $searchArray = array();
-  if ($_REQUEST['user_firstaid_training']) {
+  if ($_REQUEST && $_REQUEST['user_firstaid_training']) {
     $searchArray['user_firstaid_training'] = $_REQUEST['user_firstaid_training'];
   }
-  if ($_REQUEST['user_cpr_training']) {
+  if ($_REQUEST && $_REQUEST['user_cpr_training']) {
     $searchArray['user_cpr_training'] = $_REQUEST['user_cpr_training'];
   }
-  if ($_REQUEST['user_newborn_cpr_training']) {
+  if ($_REQUEST && $_REQUEST['user_newborn_cpr_training']) {
     $searchArray['user_newborn_cpr_training'] = $_REQUEST['user_newborn_cpr_training'];
   }
-  if ($_REQUEST['user_food_allergies']) {
+  if ($_REQUEST && $_REQUEST['user_food_allergies']) {
     $searchArray['user_food_allergies'] = $_REQUEST['user_food_allergies'];
   }
-  if ($_REQUEST['user_overnight']) {
+  if ($_REQUEST && $_REQUEST['user_overnight']) {
     $searchArray['user_overnight'] = $_REQUEST['user_overnight'];
   }
-  if ($_REQUEST['user_travel']) {
+  if ($_REQUEST && $_REQUEST['user_travel']) {
     $searchArray['user_travel'] = $_REQUEST['user_travel'];
   }
-  if ($_REQUEST['user_permanent']) {
+  if ($_REQUEST && $_REQUEST['user_permanent']) {
     $searchArray['user_permanent'] = $_REQUEST['user_permanent'];
   }
-  if ($_REQUEST['user_newborn_exp']) {
+  if ($_REQUEST && $_REQUEST['user_newborn_exp']) {
     $searchArray['user_newborn_exp'] = $_REQUEST['user_newborn_exp'];
   }
-  if ($_REQUEST['user_sick_kids']) {
+  if ($_REQUEST && $_REQUEST['user_sick_kids']) {
     $searchArray['user_sick_kids'] = $_REQUEST['user_sick_kids'];
   }
   var_dump($searchArray);
