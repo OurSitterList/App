@@ -5,7 +5,7 @@
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-  $search_query = mysql_query("select * from user_information ui 
+  $sql = mysql_query("select * from user_information ui 
     left join user_management um ON ui.user_id = um.user_id
     where ui.user_id='".base64_decode($_REQUEST['user_id'])."' AND um.user_type='family' AND user_status=1");
 														
