@@ -8,7 +8,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 extract($_POST);
 
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
-  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date('D M d Y H:i:s O') . "')";
+  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . time() . "')";
 
 mysql_query($sql);
 
