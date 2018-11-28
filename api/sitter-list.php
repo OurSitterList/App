@@ -5,6 +5,12 @@
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
+  print_r($_REQUEST);
+  echo "request";
+
+  print_r($_GET);
+  echo "get";
+
   $search_query_sql = "select user_first_name, user_last_name, user_description,
     cpr_approve, background_approve, newborn_approve, 
     user_college, user_college_name, user_high_school, user_high_school_name, 
