@@ -9,9 +9,9 @@
     return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
   }
 
-  $sql = mysql_query("select * from user_information ui 
+  $sql = "select * from user_information ui 
     left join user_management um ON ui.user_id = um.user_id
-    where ui.user_id='".$_REQUEST['user_id']."' AND um.user_type='family' AND user_status=1");
+    where ui.user_id='".$_REQUEST['user_id']."' AND um.user_type='family' AND user_status=1";
 														
   $query = mysql_query($sql);
   $num = mysql_num_rows($query);
