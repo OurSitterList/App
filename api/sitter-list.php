@@ -33,7 +33,8 @@
   if (isset($_REQUEST['user_sick_kids'])) {
     $searchArray[] = 'user_sick_kids=' . $_REQUEST['user_sick_kids'];
   }
-  $search_string = !empty($searchArray) ? " " . implode(" AND ", $searchArray) . " " : '';
+  $and_string = " AND ";
+  $search_string = !empty($searchArray) ? $and_string . implode($and_string, $searchArray) . " " : '';
 
   $search_query_sql = "select user_first_name, user_last_name, user_description,
     cpr_approve, background_approve, newborn_approve, 
