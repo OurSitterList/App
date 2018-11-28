@@ -5,7 +5,6 @@
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
- 
   $searchArray = array();
   if (isset($_REQUEST['user_firstaid_training'])) {
     $searchArray[] = 'user_firstaid_training=' . $_REQUEST['user_firstaid_training'];
@@ -34,46 +33,7 @@
   if (isset($_REQUEST['user_sick_kids'])) {
     $searchArray[] = 'user_sick_kids=' . $_REQUEST['user_sick_kids'];
   }
-  $search_string = !empty($searchArray) ? implode("AND ", $searchArray) : '';
-  var_dump($search_string);
-  exit;
-
-
-
-  // const searchArr = {};
-  //   if (req.query && req.query.user_firstaid_training) {
-  //     searchArr.user_firstaid_training = req.query.user_firstaid_training;
-  //   }
-  //   if (req.query && req.query.user_cpr_training) {
-  //     searchArr.user_cpr_training = req.query.user_cpr_training;
-  //   }
-  //   if (req.query && req.query.user_newborn_cpr_training) {
-  //     searchArr.user_newborn_cpr_training = req.query.user_newborn_cpr_training;
-  //   }
-  //   if (req.query && req.query.user_food_allergies) {
-  //     searchArr.user_food_allergies = req.query.user_food_allergies;
-  //   }
-  //   if (req.query && req.query.user_overnight) {
-  //     searchArr.user_overnight = req.query.user_overnight;
-  //   }
-  //   if (req.query && req.query.user_travel) {
-  //     searchArr.user_travel = req.query.user_travel;
-  //   }
-  //   if (req.query && req.query.user_permanent) {
-  //     searchArr.user_permanent = req.query.user_permanent;
-  //   }
-  //   if (req.query && req.query.user_newborn_exp) {
-  //     searchArr.user_newborn_exp = req.query.user_newborn_exp;
-  //   }
-  //   if (req.query && req.query.user_sick_kids) {
-  //     searchArr.user_sick_kids = req.query.user_sick_kids;
-  //   }
-  //   if (searchArr && Object.keys(searchArr).length > 0) {
-  //     searchSql = searchSql + ' AND ' + Object.keys(searchArr).map((key) => {
-  //       const val = searchArr[key];
-  //       return `${key}='${val}'`;
-  //     }).join(' AND ');
-  //   }
+  $search_string = !empty($searchArray) ? implode(" AND ", $searchArray) : '';
 
   $search_query_sql = "select user_first_name, user_last_name, user_description,
     cpr_approve, background_approve, newborn_approve, 
@@ -82,7 +42,7 @@
     from user_management as UM
     JOIN user_information as UI ON UM.user_id=UI.user_id
     WHERE UM.user_type='sitter'
-    AND user_status=1
+    AND user_status=1" . $search_string . "
     order by UI.user_first_name";
 														
   $search_query = mysql_query($search_query_sql);
