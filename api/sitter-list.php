@@ -44,6 +44,8 @@
     WHERE UM.user_type='sitter'
     AND user_status=1" . $search_string . "
     order by UI.user_first_name";
+  var_dump($search_query_sql);
+  exit;
 														
   $search_query = mysql_query($search_query_sql);
   $num = mysql_num_rows($search_query);
