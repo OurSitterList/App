@@ -5,11 +5,74 @@
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-  print_r($_REQUEST);
-  echo "request";
+ 
+  $searchArray = array();
+  if ($_REQUEST['user_firstaid_training']) {
+    $searchArray['user_firstaid_training'] = $_REQUEST['user_firstaid_training'];
+  }
+  if ($_REQUEST['user_cpr_training']) {
+    $searchArray['user_cpr_training'] = $_REQUEST['user_cpr_training'];
+  }
+  if ($_REQUEST['user_newborn_cpr_training']) {
+    $searchArray['user_newborn_cpr_training'] = $_REQUEST['user_newborn_cpr_training'];
+  }
+  if ($_REQUEST['user_food_allergies']) {
+    $searchArray['user_food_allergies'] = $_REQUEST['user_food_allergies'];
+  }
+  if ($_REQUEST['user_overnight']) {
+    $searchArray['user_overnight'] = $_REQUEST['user_overnight'];
+  }
+  if ($_REQUEST['user_travel']) {
+    $searchArray['user_travel'] = $_REQUEST['user_travel'];
+  }
+  if ($_REQUEST['user_permanent']) {
+    $searchArray['user_permanent'] = $_REQUEST['user_permanent'];
+  }
+  if ($_REQUEST['user_newborn_exp']) {
+    $searchArray['user_newborn_exp'] = $_REQUEST['user_newborn_exp'];
+  }
+  if ($_REQUEST['user_sick_kids']) {
+    $searchArray['user_sick_kids'] = $_REQUEST['user_sick_kids'];
+  }
+  var_dump($searchArray);
+  exit;
 
-  print_r($_GET);
-  echo "get";
+
+
+  // const searchArr = {};
+  //   if (req.query && req.query.user_firstaid_training) {
+  //     searchArr.user_firstaid_training = req.query.user_firstaid_training;
+  //   }
+  //   if (req.query && req.query.user_cpr_training) {
+  //     searchArr.user_cpr_training = req.query.user_cpr_training;
+  //   }
+  //   if (req.query && req.query.user_newborn_cpr_training) {
+  //     searchArr.user_newborn_cpr_training = req.query.user_newborn_cpr_training;
+  //   }
+  //   if (req.query && req.query.user_food_allergies) {
+  //     searchArr.user_food_allergies = req.query.user_food_allergies;
+  //   }
+  //   if (req.query && req.query.user_overnight) {
+  //     searchArr.user_overnight = req.query.user_overnight;
+  //   }
+  //   if (req.query && req.query.user_travel) {
+  //     searchArr.user_travel = req.query.user_travel;
+  //   }
+  //   if (req.query && req.query.user_permanent) {
+  //     searchArr.user_permanent = req.query.user_permanent;
+  //   }
+  //   if (req.query && req.query.user_newborn_exp) {
+  //     searchArr.user_newborn_exp = req.query.user_newborn_exp;
+  //   }
+  //   if (req.query && req.query.user_sick_kids) {
+  //     searchArr.user_sick_kids = req.query.user_sick_kids;
+  //   }
+  //   if (searchArr && Object.keys(searchArr).length > 0) {
+  //     searchSql = searchSql + ' AND ' + Object.keys(searchArr).map((key) => {
+  //       const val = searchArr[key];
+  //       return `${key}='${val}'`;
+  //     }).join(' AND ');
+  //   }
 
   $search_query_sql = "select user_first_name, user_last_name, user_description,
     cpr_approve, background_approve, newborn_approve, 
