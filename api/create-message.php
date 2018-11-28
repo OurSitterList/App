@@ -11,7 +11,7 @@ var_dump($_POST);
 extract($_POST);
 
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
-  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date() . "');
+  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date() . "')";
 
-print_r($sql);
+var_dump($sql);
 exit;
