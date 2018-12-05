@@ -18,12 +18,7 @@
 
 	$sql = "insert into jobapply_management set job_id='".mysql_real_escape_string($job_code_input)."', sitter_user_id='".mysql_real_escape_string($user_id)."', remarks='".mysql_real_escape_string($job_remarks)."', applytime='".time()."'";
 	mysql_query($sql);
-	$err = mysql_error();
 
-	if ($err)
-	{
-		// mail('sethcriedel@gmail.com', 'APPLY JOB MySQL Error', 'Someone applied to a job, but a MySQL error occurred:' . $err . "\n\nSQL: \n" . $sql, 'From: oursitterlist@gmail.com');
-	}
 	$job_details = mysql_fetch_object(mysql_query("select * from job_management where set_code='".$job_code_input."'"));
 	$job_query = mysql_query("select * from `job_management` where set_code='".$job_code_input."'");
 	$show_msg='<table class="family-table"><tr><th><span>Appointment Date</span></th><th><span>Time</span></th></tr>';
