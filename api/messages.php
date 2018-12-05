@@ -5,7 +5,7 @@
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-  if (!isset($_REQUEST) || !$_REQUEST['user_id'])) {
+  if (!isset($_REQUEST) || !$_REQUEST['user_id']) {
     return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
   }
 
