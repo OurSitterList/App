@@ -6,9 +6,11 @@
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
   if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+    echo "wut"; exit;
     return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
   }
 
+  echo "wut2"; exit;
   $sql = "SELECT * FROM messages WHERE user_id='" . $_REQUEST['user_id'] . "' AND deleted_at IS NULL";
 														
   $query = mysql_query($sql);
