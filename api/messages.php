@@ -6,8 +6,8 @@
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
   if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
-    echo "wut"; exit;
-    return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    exit;
   }
 
   echo "wut2"; exit;
