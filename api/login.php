@@ -5,7 +5,7 @@
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 require_once($_SERVER["DOCUMENT_ROOT"] . "/AuthnetARB.class.php");
 
-
+$session = array();
 // process login
 $type = (isset($_POST['type'])) ? $_POST['type'] : null;
 switch ($type) {
@@ -64,13 +64,13 @@ function processSitterLogin() {
       $response	= array('code' => 400, 'message' => 'Your Account is Not Activated Yet.<br>An email has been sent and you are waiting for approval.');
       echo json_encode($response); exit;
     } else {
-      $_SESSION['user_id'] = $R->user_id;
-      $_SESSION['user_name'] = $R->user_name;
-      $_SESSION['user_type'] = 'sitter';
-      $_SESSION['user_zip'] = $R->zip;
-      $_SESSION['user_location_id'] = getUserLocation($R->user_id, $R->zip, $R->location_id);
+      $session['user_id'] = $R->user_id;
+      $session['user_name'] = $R->user_name;
+      $session['user_type'] = 'sitter';
+      $session['user_zip'] = $R->zip;
+      $session['user_location_id'] = getUserLocation($R->user_id, $R->zip, $R->location_id);
 
-      $response	= array('code' => 200, 'message' => $_SESSION);
+      $response	= array('code' => 200, 'message' => $session);
       echo json_encode($response); exit;
     }
   } else {
@@ -115,9 +115,9 @@ function processFamilyLogin() {
       echo json_encode($response); exit;
 
     } else if( $R->is_payment_status!=1 && !$R->promo_code) {
-      $_SESSION['user_id_member_choose'] = $R->user_id;
-      $_SESSION['user_name_member_choose'] = $R->user_name;
-      $_SESSION['user_type_member_choose'] = 'family';
+      $session['user_id_member_choose'] = $R->user_id;
+      $session['user_name_member_choose'] = $R->user_name;
+      $session['user_type_member_choose'] = 'family';
       $response	= array('code' => 200, 'message' => 'Login successful!');
       echo json_encode($response); exit;
 
@@ -126,25 +126,25 @@ function processFamilyLogin() {
       echo json_encode($response); exit;
 
     } else {
-      $_SESSION['user_id'] = $R->user_id;
-      $_SESSION['user_name'] = $R->user_name;
-      $_SESSION['user_type'] = 'family';
-      $_SESSION['user_zip'] = $R->zip;
-      $_SESSION['user_location_id'] = getUserLocation($R->user_id, $R->zip, $R->location_id);
+      $session['user_id'] = $R->user_id;
+      $session['user_name'] = $R->user_name;
+      $session['user_type'] = 'family';
+      $session['user_zip'] = $R->zip;
+      $session['user_location_id'] = getUserLocation($R->user_id, $R->zip, $R->location_id);
 
       if (!$R->user_subscriberid && !$R->promo_code) {
-        $_SESSION['user_id_member_choose'] = $R->user_id;
-        $_SESSION['user_name_member_choose'] = $R->user_name;
-        $_SESSION['user_type_member_choose'] = 'family';
-        $_SESSION['user_old_subscriberid'] = $R->user_subscriberid;
-        $_SESSION['_sub_expired'] = true;
+        $session['user_id_member_choose'] = $R->user_id;
+        $session['user_name_member_choose'] = $R->user_name;
+        $session['user_type_member_choose'] = 'family';
+        $session['user_old_subscriberid'] = $R->user_subscriberid;
+        $session['_sub_expired'] = true;
         $response	= array('code' => 200, 'message' => 'Login successful!');
         echo json_encode($response); exit;
       }
 
       // check subscription
       if ($R->promo_code) {
-        $_SESSION['_sub_expired'] = false;
+        $session['_sub_expired'] = false;
       } else {
         if ((int)$R->payment_error == 1) {
           redirectToFamilyError($R, 2);
@@ -170,21 +170,21 @@ function processFamilyLogin() {
                 } else if ($status === 'expired') {
                   redirectToFamilyError($R, 3);
                 } else {
-                  $_SESSION['_sub_expired'] = false;
+                  $session['_sub_expired'] = false;
                 }
               } else {
-                $_SESSION['_sub_expired'] = false;
+                $session['_sub_expired'] = false;
               }
             } else {
-              $_SESSION['_sub_expired'] = false;
+              $session['_sub_expired'] = false;
             }
           }
         } catch (Exception $terr) {
-          $_SESSION['_sub_expired'] = false;
+          $session['_sub_expired'] = false;
         }
       }
 
-      $response	= array('code' => 200, 'message' => $_SESSION);
+      $response	= array('code' => 200, 'message' => $session);
       echo json_encode($response); exit;
     }
   } else {
@@ -217,11 +217,11 @@ function getUserLocation($userId, $zip, $locationId) {
 }
 
 function redirectToFamilyError($R, $code=1) {
-  $_SESSION['_sub_expired'] = true;
-  $_SESSION['user_id_member_choose'] = $R->user_id;
-  $_SESSION['user_name_member_choose'] = $R->user_name;
-  $_SESSION['user_type_member_choose'] = 'family';
-  $_SESSION['user_old_subscriberid'] = $R->user_subscriberid;
+  $session['_sub_expired'] = true;
+  $session['user_id_member_choose'] = $R->user_id;
+  $session['user_name_member_choose'] = $R->user_name;
+  $session['user_type_member_choose'] = 'family';
+  $session['user_old_subscriberid'] = $R->user_subscriberid;
 
   if ($code === 3) {
     $response	= array('code' => 200, 'message' => 'Login successful! Please update CC.');

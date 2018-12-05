@@ -28,7 +28,7 @@
 	$admin_contact_email = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='1'"));
 	$admin_contact_name = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='4'"));
 	
-	$search_current_stat = mysql_fetch_array(mysql_query("select * from user_management where user_id='".$_SESSION['user_id']."'"));
+	$search_current_stat = mysql_fetch_array(mysql_query("select * from user_management where user_id='".$user_id."'"));
 	$search_current_stat_family = mysql_fetch_array(mysql_query("select * from user_management where user_id='".$job_details->family_user_id."'"));
 	
 	$message = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/apply-job.html');
