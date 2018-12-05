@@ -3,7 +3,16 @@
   // ini_set("display_errors", 1);
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
-  require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
+	require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
+	
+	/**
+ * POST
+ * 
+ * user_id
+ * job_code_input
+ * job_remarks
+ * 
+ * */
 
   extract($_POST);
 
