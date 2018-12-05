@@ -56,7 +56,7 @@ extract($_POST);
 
 try {
   if (!$user_id) {
-    return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    echo json_encode(array('code' => 401, 'message' => 'User ID is required.')); exit;
   }
 
   $firstName 				= trim($user_first_name);
