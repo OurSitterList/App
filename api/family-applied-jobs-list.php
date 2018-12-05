@@ -29,6 +29,7 @@
       $totaldate = implode(',',$datearr);
       $totaldate1 = implode(', ',$datearr1);
       $job_history = mysql_query("select * from `job_management` where set_code='".$R->job_id."'");
+      $data = array();
 
       while ($job = mysql_fetch_object($job_history)) {
         $data[] = $job;
