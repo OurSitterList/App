@@ -4,13 +4,13 @@
   ini_set("display_errors", 1);
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
-  $user_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
 
-  if (!$user_id) {
-    $response = array('code' => 401, 'message' => 'User ID is required.');
-    return json_encode($response);
+  if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+    echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    exit;
   }
 
+  $user_id = $_REQUEST['user_id'];
   $search_query_sql = "select * from jobapply_management WHERE sitter_user_id='".$user_id."' order by applytime;";
   $search_query = mysql_query($search_query_sql);
   $results = array();

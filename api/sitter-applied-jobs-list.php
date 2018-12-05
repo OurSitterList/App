@@ -3,11 +3,13 @@
   ini_set("display_errors", 1);
   
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
-  $user_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
-  if (!$user_id) {
-    $response = array('code' => 401, 'message' => 'User ID is required.');
-    echo json_encode($response); exit;
-  }
+
+  if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+    echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    exit;
+	}
+	
+	$user_id = $_REQUEST['user_id'];
   $sql = "SELECT
 	jm.job_id,
 	jm.set_code,
@@ -75,7 +77,7 @@
     ui.user_last_name
 FROM
 	job_management AS jm
-JOIN jobapply_management AS jam ON jm.set_code = jam.job_id AND jam.sitter_user_id = " . $_SESSION['user_id'] . "
+JOIN jobapply_management AS jam ON jm.set_code = jam.job_id AND jam.sitter_user_id = " . $user_id . "
 LEFT JOIN user_management AS um ON um.user_id = jm.family_user_id
 LEFT JOIN user_information AS ui ON ui.user_id = um.user_id
 WHERE
