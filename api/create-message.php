@@ -5,6 +5,16 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
+/*
+  * POST: (all required, even if empty)
+  * 
+  * $user_id
+  * $recipient_id
+  * $thread_id
+  * $message
+*/
+
+
 extract($_POST);
 
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)

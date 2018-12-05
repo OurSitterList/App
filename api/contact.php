@@ -5,6 +5,15 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
+/*
+  * POST: (all required, even if empty)
+  * 
+  * $contact_name
+  * $contact_email
+  * $contact_as
+  * $contact_comment
+*/
+
 extract($_POST);
 
 $notification 		= new Notification();

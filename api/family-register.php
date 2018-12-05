@@ -5,8 +5,28 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-// var_dump($_POST);
-// exit;
+/*
+  * POST: (all required, even if empty)
+  * 
+  * $user_first_name
+  * $user_last_name
+  * $cardNumber
+  * $expirationDate_month
+  * $expirationDate_year
+  * $cardCode
+  * $card_information
+  * $family_username
+  * $family_password
+  * $family_email
+  * $user_first_name
+  * $user_last_name
+  * $user_zip
+  * $user_current_address
+  * $user_cell_phone
+  * $user_contact_email
+  * $user_hear_about
+  * $user_contact_address
+*/
 
 extract($_POST);
 

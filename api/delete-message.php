@@ -5,6 +5,12 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
+/*
+  * POST: (all required, even if empty)
+  * 
+  * $message_id
+*/
+
 extract($_POST);
 
 $sql = "UPDATE messages SET deleted_at='" . date('Y-m-d H:i:s',time()) . "' WHERE id='" . $message_id . "';";
