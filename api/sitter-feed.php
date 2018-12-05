@@ -4,7 +4,12 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-$search_query = mysql_query("select * from  user_information where user_id='".$_GET['user_id']."'");
+if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+	echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+	exit;
+}
+
+$search_query = mysql_query("select * from  user_information where user_id='".$_REQUEST['user_id']."'");
 if(mysql_num_rows($search_query)>0) {
 	$R = mysql_fetch_object($search_query);
 } else {

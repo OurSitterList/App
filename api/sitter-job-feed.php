@@ -13,7 +13,12 @@
 
 include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
-$search_query = mysql_query("select * from  user_information where user_id='".$_GET['user_id']."'");
+if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+	echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+	exit;
+}
+
+$search_query = mysql_query("select * from  user_information where user_id='".$_REQUEST['user_id']."'");
 if(mysql_num_rows($search_query) > 0) {
 	$R = mysql_fetch_object($search_query);
 } else {
@@ -21,7 +26,7 @@ if(mysql_num_rows($search_query) > 0) {
   echo json_encode($response); exit;
 }
 $myaccount = new myAccount();
-$useLocationId = (isset($_GET['location_id']) && preg_match('/^[1-9]+[0-9]*$/', $_GET['location_id']) > -1) ? $_GET['location_id'] : $_GET['user_location_id'];
+$useLocationId = (isset($_REQUEST['location_id']) && preg_match('/^[1-9]+[0-9]*$/', $_REQUEST['location_id']) > -1) ? $_REQUEST['location_id'] : $_REQUEST['user_location_id'];
 
 $sql = "SELECT
 	jm.job_id,
