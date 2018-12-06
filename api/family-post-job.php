@@ -2,6 +2,16 @@
 
   include('includes/connection.php');
 
+  /**
+   * POST
+   * 
+   * #user_id
+   * $job_calender_val
+   * $job_no_of_kids
+   * $job_location_code
+   * $job_remarks
+   */
+
 	$code =  time().rand(0,100);
 	$calender_val_arr = explode(',',$job_calender_val);
 	$insertedId = null;
@@ -21,4 +31,4 @@
 	$notification->send_family_notification($_REQUEST, $insertedId);
 	$response = array('code' => 200, 'message' => 'Your job posting has been created.');
   echo json_encode($response); exit;
-  
+
