@@ -10,7 +10,7 @@
     exit;
   }
 
-  $sql = "SELECT * FROM messages WHERE user_id='" . $_REQUEST['user_id'] . "' AND deleted_at IS NULL";
+  $sql = "SELECT * FROM messages m JOIN user_information ui ON m.user_id = ui.user_id WHERE m.user_id='" . $_REQUEST['user_id'] . "' OR m.recipient_id = '" . $_REQUEST['user_id'] . "' AND m.deleted_at IS NULL";
 														
   $query = mysql_query($sql);
   $num = mysql_num_rows($query);
