@@ -10,7 +10,6 @@
     exit;
   }
 
-  echo "wut2"; exit;
   $sql = "SELECT * FROM messages WHERE user_id='" . $_REQUEST['user_id'] . "' AND deleted_at IS NULL";
 														
   $query = mysql_query($sql);
