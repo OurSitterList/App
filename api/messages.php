@@ -10,7 +10,7 @@
     exit;
   }
 
- $sql = "SELECT m.user_id as user_id, m.recipient_id as recipient_id, m.thread_id, m.message, ui.user_first_name as user_first_name, ui.user_last_name as user_last_name, uir.user_first_name as recipient_first_name, uir.user_last_name as recipient_last_name
+ $sql = "SELECT m.id, m.user_id as user_id, m.recipient_id as recipient_id, m.thread_id, m.message, ui.user_first_name as user_first_name, ui.user_last_name as user_last_name, uir.user_first_name as recipient_first_name, uir.user_last_name as recipient_last_name
   FROM messages m LEFT JOIN user_information ui ON m.user_id = ui.user_id LEFT JOIN user_information uir ON m.recipient_id = uir.user_id
   WHERE m.user_id='" . $_REQUEST['user_id'] . "' OR m.recipient_id = '" . $_REQUEST['user_id'] . "' AND m.deleted_at IS NULL;";
   
