@@ -17,8 +17,15 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
+$user_id = $data['user_id'];
+$recipient_id = $data['recipient_id'];
+$thread_id = $data['thread_id'];
+$message =  mysql_real_escape_string($data['message']);
+
+
+
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
-  VALUES ('" . $data['user_id'] . "', '" . $data['recipient_id'] . "', '" . $data['thread_id'] . "', '" . $data['message'] . "', '" . date('Y-m-d H:i:s',time()) . "')";
+  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . mysql_real_escape_string($message) . "', '" . date('Y-m-d H:i:s',time()) . "')";
 
 mysql_query($sql);
 
