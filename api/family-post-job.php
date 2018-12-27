@@ -12,12 +12,15 @@
    * $job_remarks
    */
 
+
+	$data = json_decode(file_get_contents('php://input'), true);
+
 	$code =  time().rand(0,100);
-	$calender_val_arr = explode(',',$job_calender_val);
+	$calender_val_arr = explode(',',$data['job_calender_val']);
 	$insertedId = null;
 	foreach($calender_val_arr as $CV) {
 		$make_id = str_replace('/','',trim($CV));
-		mysql_query("insert into job_management set set_code='".$code."',family_user_id='".$user_id."',booking_date='".trim($CV)."',booking_placed_date='".time()."',booking_status='1',start_time='".$_REQUEST['job_start_time'.$make_id]."',end_time='".$_REQUEST['job_end_time'.$make_id]."',no_of_kids='" . mysql_real_escape_string($_REQUEST['job_no_of_kids']) . "',location_code='".$_REQUEST['job_location_code']."',remarks='" . mysql_real_escape_string($_REQUEST['job_remarks']) . "', location_id = '" . $location_id . "'");
+		mysql_query("insert into job_management set set_code='".$code."',family_user_id='".$data['user_id']."',booking_date='".trim($CV)."',booking_placed_date='".time()."',booking_status='1',start_time='".$data['job_start_time'.$make_id]."',end_time='".$data['job_end_time'.$make_id]."',no_of_kids='" . mysql_real_escape_string($data['job_no_of_kids']) . "',location_code='".$data['job_location_code']."',remarks='" . mysql_real_escape_string($data['job_remarks']) . "', location_id = '" . $data['location_id'] . "'");
 
 		if (!$insertedId)
 		{
