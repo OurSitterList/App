@@ -15,6 +15,10 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 */
 
 
+$data = json_decode(file_get_contents('php://input'), true);
+print_r($data);
+exit;
+
 extract($_POST);
 
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
