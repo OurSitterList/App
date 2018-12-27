@@ -25,7 +25,7 @@ $message =  mysql_real_escape_string($data['message']);
 
 
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
-  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . mysql_real_escape_string($message) . "', '" . date('Y-m-d H:i:s',time()) . "')";
+  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date('Y-m-d H:i:s',time()) . "')";
 
 mysql_query($sql);
 
