@@ -16,13 +16,9 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 
 $data = json_decode(file_get_contents('php://input'), true);
-print_r($data);
-exit;
-
-extract($_POST);
 
 $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
-  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date('Y-m-d H:i:s',time()) . "')";
+  VALUES ('" . $data['user_id'] . "', '" . $data['recipient_id'] . "', '" . $data['thread_id'] . "', '" . $data['message'] . "', '" . date('Y-m-d H:i:s',time()) . "')";
 
 mysql_query($sql);
 
