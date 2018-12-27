@@ -22,5 +22,11 @@ $sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created
 
 mysql_query($sql);
 
+$err = mysql_error();
+if ($err)
+{
+	die('An error occurred trying to create the message: ' . $err);
+}
+
 $response	= array('code' => 200, 'message' => 'Success.');
 echo json_encode($response); exit;
