@@ -5,12 +5,12 @@
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 
-require_once '../tools/Expo/Expo.php';
-require_once '../tools/Expo/ExpoRegistrar.php';
-require_once '../tools/Expo/ExpoRepository.php';
-require_once '../tools/Expo/Repositories/ExpoFileDriver.php';
-require_once '../tools/Expo/Exceptions/ExpoException.php';
-require_once '../tools/Expo/Exceptions/ExpoRegistrarException.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Expo.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/ExpoRegistrar.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/ExpoRepository.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Repositories/ExpoFileDriver.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Exceptions/ExpoException.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Exceptions/ExpoRegistrarException.php';
 
 try {
     $instance = \ExponentPhpSDK\Expo::normalSetup();
