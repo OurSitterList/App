@@ -1,6 +1,14 @@
 <?php
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Expo.php';
+
+try {
+    $instance = Expo::normalSetup();
+    echo 'Succeeded! We have created an Expo instance successfully';
+} catch (Exception $e) {
+    echo 'Test Failed';
+}
 
 /**
  * POST
