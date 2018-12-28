@@ -67,7 +67,7 @@ class ExpoFileDriver implements ExpoRepository
 
         $storageInstance = $this->getRepository();
 
-        $token = $storageInstance->{$key}?? null;
+        $token = isset($storageInstance->{$key}) ? $storageInstance->{$key} : null;
 
         return $token;
     }
