@@ -40,7 +40,10 @@ if (mysql_num_rows($search_query) > 0) {
             'title' => 'Our Sitter List',
             'body' => 'New message',
             'badge' => 1,
-            'data' => 'type:message',
+            'data' => array(
+              'type' => 'message',
+              'from' => $user_id
+            ),
         );
         $json = json_encode($data);
         $curl = curl_init();
