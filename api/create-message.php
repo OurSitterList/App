@@ -40,6 +40,7 @@ if (mysql_num_rows($search_query) > 0) {
             'title' => 'Our Sitter List',
             'body' => 'New message',
             'badge' => 1,
+            'sound' => 'default',
             'data' => array(
               'type' => 'message',
               'from' => $user_id
