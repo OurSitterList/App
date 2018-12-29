@@ -19,8 +19,12 @@ if (!$user_id) {
     echo json_encode(array('code' => 500, 'message' => 'User ID is required.'));exit;
 }
 
-$search_query = mysql_query("select * from  user_information where user_id='" . $user_id . "'");
+$search_query = mysql_query("select * from user_information where user_id='" . $user_id . "'");
 if (mysql_num_rows($search_query) > 0) {
+    $search_query = mysql_query("select * from push_tokens where user_id='" . $user_id . "' and push_token='" . $push_token . "'");
+    if (mysql_num_rows($search_query) > 0) {
+        echo json_encode(array('code' => 200, 'message' => 'Record already exist for this user and device.'));exit;
+    }
     mysql_query("insert into push_tokens set user_id='" . $user_id . "', push_token='" . $push_token . "'");
     $response  = array('code' => 200, 'message' => 'Success.');
     echo json_encode($response);exit;
