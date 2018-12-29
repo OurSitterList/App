@@ -35,10 +35,10 @@ $search_query = mysql_query("select * from push_tokens where user_id='" . $user_
 if (mysql_num_rows($search_query) > 0) {
     $data = json_encode(array('to' => 'ExponentPushToken[IWwlmUPaI5KfMO3vCMs2ly]', 'title' => 'fromPHP', 'body' => 'PHP body', 'badge' => 1, 'data' => '{"name":"billy"}'));
     $curl = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://exp.host/--/api/v2/push/send");
-    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_URL, "https://exp.host/--/api/v2/push/send");
+    curl_setopt($curl, CURLOPT_POST, 1);
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
         'accept: application/json',
         'accept-encoding: gzip, deflate',
         'content-type: application/json',
