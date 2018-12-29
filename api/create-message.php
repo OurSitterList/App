@@ -31,29 +31,30 @@ if ($err) {
     die('An error occurred trying to create the message: ' . $err);
 }
 
-$search_query = mysql_query("select * from push_tokens where user_id='" . $user_id . "'");
+$search_query = mysql_query("select * from push_tokens where user_id='" . $recipient_id . "'");
 if (mysql_num_rows($search_query) > 0) {
-    $data = array(
-        'to' => 'ExponentPushToken[IWwlmUPaI5KfMO3vCMs2ly]',
-        'title' => 'fromPHP',
-        'body' => 'PHP body',
-        'badge' => 1,
-        'data' => array(
-            'name' => 'adam',
-        ),
-    );
-    $json = json_encode($data);
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, "https://exp.host/--/api/v2/push/send");
-    curl_setopt($curl, CURLOPT_POST, 1);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-        'accept: application/json',
-        'accept-encoding: gzip, deflate',
-        'content-type: application/json',
-    ));
-    $result = curl_exec($curl);
-    curl_close($curl);
+    while ($R = mysql_fetch_object($search_query)) {
+        $token = $R->push_token;
+        $data = array(
+            'to' => $token,
+            'title' => 'Our Sitter List',
+            'body' => 'New message',
+            'badge' => 1,
+            'data' => 'type:message',
+        );
+        $json = json_encode($data);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "https://exp.host/--/api/v2/push/send");
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'accept: application/json',
+            'accept-encoding: gzip, deflate',
+            'content-type: application/json',
+        ));
+        $result = curl_exec($curl);
+        curl_close($curl);
+    }
 }
 
 $response = array('code' => 200, 'message' => 'Success.');
