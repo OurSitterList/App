@@ -5,20 +5,6 @@ ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 
-require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Expo.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/ExpoRegistrar.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/ExpoRepository.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Repositories/ExpoFileDriver.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Exceptions/ExpoException.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/Expo/Exceptions/ExpoRegistrarException.php';
-
-try {
-    $instance = \ExponentPhpSDK\Expo::normalSetup();
-    echo 'Succeeded! We have created an Expo instance successfully';
-} catch (Exception $e) {
-    echo 'Test Failed';
-}
-
 /*
  * POST: (all required, even if empty)
  *
@@ -43,6 +29,22 @@ mysql_query($sql);
 $err = mysql_error();
 if ($err) {
     die('An error occurred trying to create the message: ' . $err);
+}
+
+$search_query = mysql_query("select * from push_tokens where user_id='" . $user_id . "'");
+if (mysql_num_rows($search_query) > 0) {
+    $data = json_encode(array('to' => 'ExponentPushToken[IWwlmUPaI5KfMO3vCMs2ly]', 'title' => 'fromPHP', 'body' => 'PHP body', 'badge' => 1, 'data' => '{"name":"billy"}'));
+    $curl = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://exp.host/--/api/v2/push/send");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'accept: application/json',
+        'accept-encoding: gzip, deflate',
+        'content-type: application/json',
+    ));
+    $result = curl_exec($curl);
+    curl_close($curl);
 }
 
 $response = array('code' => 200, 'message' => 'Success.');
