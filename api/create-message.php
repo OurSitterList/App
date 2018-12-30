@@ -43,7 +43,7 @@ if (mysql_num_rows($search_query) > 0) {
             'sound' => 'default',
             'data' => array(
               'type' => 'message',
-              'from' => $user_id
+              'thread_id' => $thread_id
             ),
         );
         $json = json_encode($data);
