@@ -10,7 +10,8 @@ if (!isset($_GET) || !array_key_exists('sitter_id', $_GET)) {
 }
 
 $data = array();
-$search_query_sql = mysql_query("select distinct family_user_id from book_management where sitter_user_id=".$_GET['sitter_id']." and booking_status=1");
+// $search_query_sql = mysql_query("select distinct family_user_id from book_management where sitter_user_id='".base64_decode($_GET['sitter_id'])."' and booking_status='1'");
+$search_query_sql = mysql_query("select * from `user_information` where user_id in (select distinct family_user_id from book_management where sitter_user_id='".$_GET['sitter_id']."' and booking_status='1')");
 if (mysql_num_rows($search_query_sql) > 0) {
 	while ($R = mysql_fetch_object($search_query_sql)) {
     $data[] = $R;
