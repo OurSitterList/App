@@ -13,8 +13,8 @@ $data = array();
 $search_query_sql = mysql_query("select distinct family_user_id from book_management where sitter_user_id='".base64_decode($_GET['sitter_id'])."' and booking_status='1'");
 if (mysql_num_rows($search_query_sql) > 0) {
 	while ($R = mysql_fetch_object($search_query_sql)) {
-    $sitter_dateils = mysql_fetch_object(mysql_query("select * from `user_information` where user_id='".$R->user_id."'"));
-    $data[] = $sitter_dateils;
+    // $sitter_dateils = mysql_fetch_object(mysql_query("select * from `user_information` where user_id='".$R->user_id."'"));
+    $data[] = $R;
   }
 }
 $num = mysql_num_rows($search_query_sql);
