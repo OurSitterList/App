@@ -6,10 +6,13 @@ class Booking {
 	protected	$tablename = 'book_management';
 	
 	
-	public function __construct() {
-		if(!isset($_SESSION['user_id'])) return false;
-		
-		$this->user_id 		= $_SESSION['user_id'];
+	public function __construct($user_id = null) {
+		if ($user_id !== null) {
+			$this->user_id 		= $user_id;
+		} else {
+			if(!isset($_SESSION['user_id'])) return false;
+			$this->user_id 		= $_SESSION['user_id'];
+		}
 	}
 
 	public function set_booking() {
