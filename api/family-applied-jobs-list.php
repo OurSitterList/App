@@ -11,13 +11,13 @@
   }
 
   $user_id = $_REQUEST['user_id'];
-  $search_query_sql = "select * from jobapply_management WHERE sitter_user_id='".$user_id."' order by applytime;";
+  $search_query_sql = "select * from jobapply_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC;";
   $search_query = mysql_query($search_query_sql);
   $results = array();
   if (mysql_num_rows($search_query) > 0) {
     $available = 1;
     while($R = mysql_fetch_object($search_query)) {
-      $job_query = mysql_query("select * from `job_management` where set_code='".$R->job_id."'");
+      $job_query = mysql_query("select * from `job_management` where set_code='".$R->job_id."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
       $datearr =array();
       $datearr1 =array();
 
