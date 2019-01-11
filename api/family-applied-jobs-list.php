@@ -11,7 +11,7 @@
   }
 
   $user_id = $_REQUEST['user_id'];
-  $search_query_sql = "select * from job_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC;";
+  $search_query_sql = "select jm.*, ui.user_last_name from job_management jm JOIN user_information ui ON ui.user_id = jm.family_user_id WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC;";
   $search_query = mysql_query($search_query_sql);
   $results = array();
   if (mysql_num_rows($search_query) > 0) {
