@@ -11,7 +11,7 @@
   }
 
   $user_id = $_REQUEST['user_id'];
-  $search_query_sql = "select * from jobapply_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC;";
+  $search_query_sql = "select * from job_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC;";
   $search_query = mysql_query($search_query_sql);
   $results = array();
   if (mysql_num_rows($search_query) > 0) {
