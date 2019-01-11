@@ -27,7 +27,8 @@
 
       $totaldate = implode(',',$datearr);
       $totaldate1 = implode(', ',$datearr1);
-      $job_history = mysql_query("select * from `job_management` where set_code='".$R->set_code."'");
+      // $job_history = mysql_query("select * from `job_management` where set_code='".$R->set_code."'");
+      $job_history = mysql_query("select jm.*, ui.user_last_name as sitter_last_name from `job_management` jm left join `jobapply_management` jam on jam.job_id = jm.set_code join user_information ui on ui.user_id = jam.sitter_user_id where jm.set_code='".$R->set_code."';");
       $data = array();
 
       while ($job = mysql_fetch_object($job_history)) {
