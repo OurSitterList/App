@@ -11,13 +11,12 @@
   }
 
   $user_id = $_REQUEST['user_id'];
-  $search_query_sql = "select jm.*, ui.user_last_name from job_management jm JOIN user_information ui ON ui.user_id = jm.family_user_id WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC;";
+  $search_query_sql = "select DISTINCT set_code from job_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC";
   $search_query = mysql_query($search_query_sql);
   $results = array();
   if (mysql_num_rows($search_query) > 0) {
-    $available = 1;
     while($R = mysql_fetch_object($search_query)) {
-      $job_query = mysql_query("select * from `job_management` where set_code='".$R->job_id."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
+      $job_query = mysql_query("select * from `job_management` where set_code='".$R->set_code."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
       $datearr =array();
       $datearr1 =array();
 
@@ -28,7 +27,7 @@
 
       $totaldate = implode(',',$datearr);
       $totaldate1 = implode(', ',$datearr1);
-      $job_history = mysql_query("select * from `job_management` where set_code='".$R->job_id."'");
+      $job_history = mysql_query("select * from `job_management` where set_code='".$R->set_code."'");
       $data = array();
 
       while ($job = mysql_fetch_object($job_history)) {
