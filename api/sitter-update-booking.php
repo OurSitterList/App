@@ -5,10 +5,12 @@ ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 
-if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+extract($_POST);
+
+if (!$user_id) {
     echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
     exit;
-}
+  }
 
 /**
  * POST
