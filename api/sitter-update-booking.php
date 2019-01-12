@@ -23,11 +23,11 @@ if (!$user_id) {
 try {
     $search_query = mysql_query("select * from book_management where book_id=" . $book_id . "");
     if (mysql_num_rows($search_query) > 0) {
-        $update_query = "UPDATE book_management SET sitter_approval = ".$sitter_approval." WHERE book_id = ".$book_id;
+        $update_query = "UPDATE book_management SET sitter_approval='".$sitter_approval."' WHERE book_id=".$book_id;
 
         mysql_query($update_query);
 
-        $response = array('code' => 500, 'message' => $update_query);
+        $response = array('code' => 500, 'message' => 'success');
         echo json_encode($response);exit;
     } else {
         $response = array('code' => 500, 'message' => 'No booking found that matches the id: ' . $book_id);
