@@ -24,7 +24,7 @@ try {
         $response = array('code' => 500, 'message' => 'success');
         echo json_encode($response);exit;
     } else {
-        $response = array('code' => 500, 'message' => 'No booking found that matches the id.');
+        $response = array('code' => 500, 'message' => 'No booking found that matches the id: '.$book_id);
         echo json_encode($response);exit;
     }
 } catch (Exception $e) {
