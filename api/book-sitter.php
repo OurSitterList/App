@@ -18,9 +18,10 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 extract($_POST);
 
-$booking 			= new Booking($user_id);
+$nonce 		        = $this->nonce;
+$booking 			    = new Booking($user_id);
 $notification 		= new Notification();
-$booking_details = $booking->set_booking();
+$booking_details  = $booking->set_booking();
 
 if ($booking_details != false)
 {
