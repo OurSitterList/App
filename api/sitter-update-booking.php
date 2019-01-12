@@ -19,12 +19,12 @@ if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
  */
 
 try {
-    $search_query = mysql_query("select * from book_management where book_id='" . $book_id . "'");
+    $search_query = mysql_query("select * from book_management where book_id=" . $book_id . "");
     if (mysql_num_rows($search_query) > 0) {
         $response = array('code' => 500, 'message' => 'success');
         echo json_encode($response);exit;
     } else {
-        $response = array('code' => 500, 'message' => 'No booking found that matches the id: '.$book_id);
+        $response = array('code' => 500, 'message' => 'No booking found that matches the id: ' . $book_id);
         echo json_encode($response);exit;
     }
 } catch (Exception $e) {
