@@ -22,8 +22,8 @@ class Booking {
 		$booking_status				= 1;
 		$calender_val_arr 			= explode(',',$_POST['calender_val']);
 		$cryptography				= uniqid(time());
-		$nonce						= base64_encode($cryptography->encrypt());
 		$cryptography				= new Cryptography(array('decrypted' => $nonce));
+		$nonce						= base64_encode($cryptography->encrypt());
 		$sql						= "INSERT INTO
 										$this->tablename (sitter_user_id, family_user_id, booking_date, booking_placed_date, booking_status, start_time, end_time, no_of_kids, location_code, remarks, nonce)
 										VALUES ";
