@@ -24,7 +24,7 @@ class Booking {
 		$remarks					= $_POST['remarks'];
 		$booking_status				= 1;
 		$calender_val_arr 			= explode(',',$_POST['calender_val']);
-		$nonce						= base64_encode('sdfgjkasdfknljasdfklnjasdfknlj');
+		$nonce						= base64_encode('boopitydobopshoop'.$sitter_user_id.'and'.$family_user_id);
 		$sql						= "INSERT INTO
 										$this->tablename (sitter_user_id, family_user_id, booking_date, booking_placed_date, booking_status, start_time, end_time, no_of_kids, location_code, remarks, nonce)
 										VALUES ";
