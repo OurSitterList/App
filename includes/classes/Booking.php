@@ -25,7 +25,7 @@ class Booking {
 		$booking_status				= 1;
 		$calender_val_arr 			= explode(',',$_POST['calender_val']);
 		$cryptography				= uniqid(time());
-		$cryptography				= new Cryptography(array('decrypted' => $nonce));
+		$cryptography				= new Cryptography(array('decrypted' => 'sdfkgjnadfgknaSD'));
 		$nonce						= base64_encode($cryptography->encrypt());
 		$sql						= "INSERT INTO
 										$this->tablename (sitter_user_id, family_user_id, booking_date, booking_placed_date, booking_status, start_time, end_time, no_of_kids, location_code, remarks, nonce)
@@ -40,7 +40,7 @@ class Booking {
 				$booking_date	= trim($k);
 				$start_time		= $_POST['start_time'.$make_id];
 				$end_time		= $_POST['end_time'.$make_id];
-				$sql_insert[]	= "('$sitter_user_id', '$family_user_id', '$booking_date', '$booking_placed_date', '$booking_status', '$start_time', '$end_time', '$no_of_kids', '$location_code', '$remarks', '')";
+				$sql_insert[]	= "('$sitter_user_id', '$family_user_id', '$booking_date', '$booking_placed_date', '$booking_status', '$start_time', '$end_time', '$no_of_kids', '$location_code', '$remarks', '$nonce')";
 
 				$data->booking_details[] ='<tr><td><span>'.trim($k).'</span></td><td><span>'.date("h:i a",mktime($start_time,0,0,0,0,0)).' - '.date("h:i a",mktime($end_time,0,0,0,0,0)).'</span></td></tr>';
 			}
