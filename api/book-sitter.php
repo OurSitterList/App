@@ -18,7 +18,6 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 extract($_POST);
 
-$nonce 		        = base64_encode('boogymanwashere');
 $booking 			    = new Booking($user_id);
 $notification 		= new Notification();
 $booking_details  = $booking->set_booking();
