@@ -23,8 +23,9 @@ if (!$user_id) {
 try {
     $search_query = mysql_query("select * from book_management where book_id=" . $book_id . "");
     if (mysql_num_rows($search_query) > 0) {
+        $approval = (int) $sitter_approval;
         $update_query = "UPDATE book_management
-                         SET sitter_approval = ".mysql_real_escape_string($sitter_approval)."
+                         SET sitter_approval = ".$approval."
                          WHERE book_id = ".$book_id;
 
         mysql_query($update_query);
