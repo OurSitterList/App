@@ -56,7 +56,7 @@ extract($_POST);
 
 try {
   if (!$user_id) {
-    return json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    echo json_encode(array('code' => 401, 'message' => 'User ID is required.')); exit;
   }
 
   $firstName 				= trim($user_first_name);
@@ -138,8 +138,8 @@ try {
   $response = $auth->register($user_details, $payment_details);
 
   if ($response->success && isset($response->reason)) {
-    $notification	= new Notification($user_id);
-    $notify	= $notification->send_application_details($user_details);
+    // $notification	= new Notification($user_id);
+    // $notify	= $notification->send_application_details($user_details);
     $response	= array('code' => 200, 'message' => $response->reason.$notify);
   } else {
     $response	= array('code' => 400, 'message' => $response->reason);

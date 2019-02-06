@@ -1,23 +1,22 @@
 <?php
 
-  error_reporting(E_ALL);
-  ini_set("display_errors", 1);
+  // error_reporting(E_ALL);
+  // ini_set("display_errors", 1);
 
   include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
-  $user_id = (isset($_GET['user_id'])) ? trim($_GET['user_id']) : NULL;
 
-  if (!$user_id) {
-    $response = array('code' => 401, 'message' => 'User ID is required.');
-    return json_encode($response);
+  if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
+    echo json_encode(array('code' => 401, 'message' => 'User ID is required.'));
+    exit;
   }
 
-  $search_query_sql = "select * from jobapply_management WHERE sitter_user_id='".$user_id."' order by applytime;";
+  $user_id = $_REQUEST['user_id'];
+  $search_query_sql = "select * from job_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC";
   $search_query = mysql_query($search_query_sql);
   $results = array();
   if (mysql_num_rows($search_query) > 0) {
-    $available = 1;
     while($R = mysql_fetch_object($search_query)) {
-      $job_query = mysql_query("select * from `job_management` where set_code='".$R->job_id."'");
+      $job_query = mysql_query("select * from `job_management` where set_code='".$R->set_code."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
       $datearr =array();
       $datearr1 =array();
 
@@ -28,7 +27,9 @@
 
       $totaldate = implode(',',$datearr);
       $totaldate1 = implode(', ',$datearr1);
-      $job_history = mysql_query("select * from `job_management` where set_code='".$R->job_id."'");
+      // $job_history = mysql_query("select * from `job_management` where set_code='".$R->set_code."'");
+      $job_history = mysql_query("select jm.*, ui.user_last_name as sitter_last_name from `job_management` jm left join `jobapply_management` jam on jam.job_id = jm.set_code join user_information ui on ui.user_id = jam.sitter_user_id where jm.set_code='".$R->set_code."';");
+      $data = array();
 
       while ($job = mysql_fetch_object($job_history)) {
         $data[] = $job;
