@@ -118,11 +118,11 @@ function processFamilyLogin() {
       $session['user_id_member_choose'] = $R->user_id;
       $session['user_name_member_choose'] = $R->user_name;
       $session['user_type_member_choose'] = 'family';
-      $response	= array('code' => 200, 'message' => 'Login successful!');
+      $response	= array('code' => 200, 'message' => $session);
       echo json_encode($response); exit;
 
     } else if ( $R->user_expierydate && $R->user_expierydate < strtotime('now')) {
-      $response	= array('code' => 400, 'message' => 'Your Account is expired. Please contact us to renew your subscription.');
+      $response	= array('code' => 400, 'message' => $session);
       echo json_encode($response); exit;
 
     } else {
@@ -138,7 +138,7 @@ function processFamilyLogin() {
         $session['user_type_member_choose'] = 'family';
         $session['user_old_subscriberid'] = $R->user_subscriberid;
         $session['_sub_expired'] = true;
-        $response	= array('code' => 200, 'message' => 'Login successful!');
+        $response	= array('code' => 200, 'message' => $session);
         echo json_encode($response); exit;
       }
 
@@ -224,10 +224,10 @@ function redirectToFamilyError($R, $code=1) {
   $session['user_old_subscriberid'] = $R->user_subscriberid;
 
   if ($code === 3) {
-    $response	= array('code' => 200, 'message' => 'Login successful! Please update CC.');
+    $response	= array('code' => 200, 'message' => $session);
     echo json_encode($response); exit;
   } else {
-    $response	= array('code' => 200, 'message' => 'Login successful! Subscription expired.');
+    $response	= array('code' => 200, 'message' => $session);
     echo json_encode($response); exit;
   }
 }
