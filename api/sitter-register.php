@@ -135,7 +135,7 @@ try {
   );
 
   $auth	= new Auth();
-  $response = $auth->register($user_details, $payment_details);
+  $response = $auth->register($user_details, $payment_details, true);
 
   if ($response->success && isset($response->reason)) {
     // $notification	= new Notification($user_id);
