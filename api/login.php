@@ -98,6 +98,7 @@ function processFamilyLogin()
         $session['user_type'] = 'family';
         $session['user_zip'] = $R->zip;
         $session['user_location_id'] = getUserLocation($R->user_id, $R->zip, $R->location_id);
+        $session['_sub_expired'] = true;
 
         if ($R->user_status != 1) {
             try {
