@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "4.16.4",
     "firebase": "5.9.2",
     "google-auth-library": "3.1.2",
-    "googleapis": "39.0.0",
-    "serve": "^10.1.2"
+    "googleapis": "39.0.0"
   }
 }
