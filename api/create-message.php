@@ -48,7 +48,7 @@ if (mysql_num_rows($search_query) > 0) {
         );
         $json = json_encode($data);
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "https://exp.host/--/api/v2/push/send");
+        curl_setopt($curl, CURLOPT_URL, "http://ec2-34-228-190-15.compute-1.amazonaws.com:3000/message");
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
