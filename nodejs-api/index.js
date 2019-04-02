@@ -47,7 +47,23 @@ app.post("/message", (req, res) => {
               title,
               body
             },
-            data
+            data,
+            apns: {
+              headers: {
+                "apns-priority": "10"
+              },
+              payload: {
+                aps: {
+                  sound: "default"
+                }
+              }
+            },
+            android: {
+              priority: "high",
+              notification: {
+                sound: "default"
+              }
+            }
           }
         })
       );
