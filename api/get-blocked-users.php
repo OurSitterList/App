@@ -11,7 +11,7 @@ if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
 }
 
 $sql = "SELECT b.blocked_id as id, b.user_id as user_id, b.blocked_user_id as blocked_user_id
-  FROM blocked_users b WHERE m.user_id='" . $_REQUEST['user_id'] . "'";
+  FROM blocked_users b WHERE b.user_id='" . $_REQUEST['user_id'] . "'";
 
 $query = mysql_query($sql);
 $data = array();
