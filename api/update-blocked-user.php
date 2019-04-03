@@ -30,9 +30,12 @@ if ($block_state === 'unblock') {
         $sql_InsertNew = "INSERT INTO blocked_users ('user_id', 'blocked_user_id')
                           VALUES ('" . $user_id . "'', '" . $blocked_user_id . "')";
         mysql_query($sql_InsertNew);
+        $response = array('code' => 200, 'message' => 'Blocked');
+        echo json_encode($response);
+        exit;
     }
 }
 
-$response = array('code' => 200, 'message' => 'Success');
+$response = array('code' => 200, 'message' => 'No Update Needed');
 echo json_encode($response);
 exit;
