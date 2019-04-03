@@ -15,8 +15,8 @@ $blocked_user_id = $_REQUEST['blocked_user_id'];
 $block_state = $_REQUEST['block_state'];
 
 if ($block_state === 'unblock') {
-    $sql_DeleteExisting = "DELETE FROM blocked_users b
-                           WHERE b.user_id='" . $user_id . "' AND b.blocked_user_id='" . $blocked_user_id . "'";
+    $sql_DeleteExisting = "DELETE FROM blocked_users
+                           WHERE user_id='" . $user_id . "' AND blocked_user_id='" . $blocked_user_id . "'";
     mysql_query($sql_DeleteExisting);
     $response = array('code' => 200, 'message' => 'Unblocked');
     echo json_encode($response);
