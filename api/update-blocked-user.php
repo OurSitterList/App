@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 
@@ -18,6 +18,9 @@ if ($block_state === 'unblock') {
     $sql_DeleteExisting = "DELETE FROM blocked_users
                            WHERE b.user_id='" . $user_id . "' AND b.blocked_user_id='" . $blocked_user_id . "'";
     mysql_query($sql_DeleteExisting);
+    $response = array('code' => 200, 'message' => 'Unblocked');
+    echo json_encode($response);
+    exit;
 } else {
     $sql_SearchForExisting = "SELECT b.blocked_id as id, b.user_id as user_id, b.blocked_user_id as blocked_user_id
                               FROM blocked_users b
