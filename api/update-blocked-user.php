@@ -27,8 +27,8 @@ if ($block_state === 'unblock') {
                               WHERE b.user_id='" . $user_id . "' AND b.blocked_user_id='" . $blocked_user_id . "'";
     $query_results = mysql_query($sql_SearchForExisting);
     if (mysql_num_rows($query_results) === 0) {
-        $sql_InsertNew = "INSERT INTO blocked_users ('user_id', 'blocked_user_id')
-                          VALUES ('" . $user_id . "'', '" . $blocked_user_id . "')";
+        $sql_InsertNew = "INSERT INTO blocked_users (user_id, blocked_user_id)
+                          VALUES ('" . $user_id . "', '" . $blocked_user_id . "')";
         mysql_query($sql_InsertNew);
         $response = array('code' => 200, 'message' => 'Blocked');
         echo json_encode($response);
