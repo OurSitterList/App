@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -59,6 +60,8 @@ if (mysql_num_rows($search_query) > 0) {
         );
         $json = json_encode($data);
         $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_VERBOSE, false);
         curl_setopt($curl, CURLOPT_URL, "http://ec2-34-228-190-15.compute-1.amazonaws.com:3000/message");
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
@@ -67,7 +70,7 @@ if (mysql_num_rows($search_query) > 0) {
             'accept-encoding: gzip, deflate',
             'content-type: application/json',
         ));
-        curl_exec($curl);
+        $curl_response = curl_exec($curl);
         curl_close($curl);
     }
 }
