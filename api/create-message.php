@@ -31,6 +31,16 @@ if ($err) {
     die('An error occurred trying to create the message: ' . $err);
 }
 
+// Did the recipient block messages from this User?
+$sql_SearchForExisting = "SELECT b.blocked_id as id, b.user_id as user_id, b.blocked_user_id as blocked_user_id
+                          FROM blocked_users b
+                          WHERE b.user_id='" . $recipient_id . "' AND b.blocked_user_id='" . $user_id . "'";
+if (mysql_num_rows($sql_SearchForExisting) > 0) {
+    $response = array('code' => 200, 'message' => 'Success.');
+    echo json_encode($response);
+    exit;
+}
+
 $search_query = mysql_query("select * from push_tokens where user_id='" . $recipient_id . "'");
 if (mysql_num_rows($search_query) > 0) {
     while ($R = mysql_fetch_object($search_query)) {
@@ -42,8 +52,8 @@ if (mysql_num_rows($search_query) > 0) {
             'badge' => 1,
             'sound' => 'default',
             'data' => array(
-              'type' => 'message',
-              'thread_id' => $thread_id
+                'type' => 'message',
+                'thread_id' => $thread_id,
             ),
         );
         $json = json_encode($data);
