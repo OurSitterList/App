@@ -67,7 +67,7 @@ if (mysql_num_rows($search_query) > 0) {
             'accept-encoding: gzip, deflate',
             'content-type: application/json',
         ));
-        $result = curl_exec($curl);
+        curl_exec($curl);
         curl_close($curl);
     }
 }
