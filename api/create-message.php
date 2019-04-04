@@ -21,16 +21,6 @@ $recipient_id = $data['recipient_id'];
 $thread_id = $data['thread_id'];
 $message = mysql_real_escape_string($data['message']);
 
-$sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
-  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date('Y-m-d H:i:s', time()) . "')";
-
-mysql_query($sql);
-
-$err = mysql_error();
-if ($err) {
-    die('An error occurred trying to create the message: ' . $err);
-}
-
 // Did the recipient block messages from this User?
 $sql_SearchForExisting = mysql_query(
     "SELECT b.blocked_id as id, b.user_id as user_id, b.blocked_user_id as blocked_user_id
@@ -38,9 +28,18 @@ $sql_SearchForExisting = mysql_query(
      WHERE b.user_id='" . $recipient_id . "' AND b.blocked_user_id='" . $user_id . "'"
 );
 if (mysql_num_rows($sql_SearchForExisting) > 0) {
-    $response = array('code' => 200, 'message' => 'Message sent, but blocked.');
+    $response = array('code' => 200, 'message' => 'Blocked');
     echo json_encode($response);
     exit;
+}
+
+$sql = "INSERT INTO messages (user_id, recipient_id, thread_id, message, created_at)
+  VALUES ('" . $user_id . "', '" . $recipient_id . "', '" . $thread_id . "', '" . $message . "', '" . date('Y-m-d H:i:s', time()) . "')";
+mysql_query($sql);
+
+$err = mysql_error();
+if ($err) {
+    die('An error occurred trying to create the message: ' . $err);
 }
 
 $search_query = mysql_query("select * from push_tokens where user_id='" . $recipient_id . "'");
