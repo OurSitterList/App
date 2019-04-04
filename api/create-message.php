@@ -43,7 +43,10 @@ if ($err) {
     die('An error occurred trying to create the message: ' . $err);
 }
 
-$search_query = mysql_query("select * from push_tokens where user_id='" . $recipient_id . "'");
+$search_query = mysql_query("SELECT p.push_token, u.user_first_name, u.user_last_name
+                             FROM push_tokens p
+                             INNER JOIN user_information u ON p.user_id = u.user_id
+                             WHERE p.user_id='" . $recipient_id . "'");
 if (mysql_num_rows($search_query) > 0) {
     while ($R = mysql_fetch_object($search_query)) {
         $token = $R->push_token;
@@ -56,6 +59,8 @@ if (mysql_num_rows($search_query) > 0) {
             'data' => array(
                 'type' => 'message',
                 'thread_id' => $thread_id,
+                'first_name' => $R->user_first_name,
+                'last_name' => $R->user_last_name,
             ),
         );
         $json = json_encode($data);
