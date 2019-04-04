@@ -32,9 +32,11 @@ if ($err) {
 }
 
 // Did the recipient block messages from this User?
-$sql_SearchForExisting = "SELECT b.blocked_id as id, b.user_id as user_id, b.blocked_user_id as blocked_user_id
-                          FROM blocked_users b
-                          WHERE b.user_id='" . $recipient_id . "' AND b.blocked_user_id='" . $user_id . "'";
+$sql_SearchForExisting = mysql_query(
+    "SELECT b.blocked_id as id, b.user_id as user_id, b.blocked_user_id as blocked_user_id
+     FROM blocked_users b
+     WHERE b.user_id='" . $recipient_id . "' AND b.blocked_user_id='" . $user_id . "'"
+);
 if (mysql_num_rows($sql_SearchForExisting) > 0) {
     $response = array('code' => 200, 'message' => 'Message sent, but blocked.');
     echo json_encode($response);
