@@ -44,9 +44,9 @@ if ($err) {
 }
 
 $search_query = mysql_query("SELECT p.push_token, u.user_first_name, u.user_last_name
-                             FROM push_tokens p
-                             INNER JOIN user_information u ON p.user_id = u.user_id
-                             WHERE p.user_id='" . $recipient_id . "'");
+                             FROM push_tokens p, user_information u
+                             WHERE p.user_id = '" . $recipient_id . "'
+                             AND u.user_id = '" . $user_id . "'");
 if (mysql_num_rows($search_query) > 0) {
     while ($R = mysql_fetch_object($search_query)) {
         $token = $R->push_token;
