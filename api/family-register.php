@@ -108,29 +108,23 @@ if (strlen($user_contact_email) < 4) {
   }
 }
 
-if (!$response) {
-  $skipBilling = false;
-  if (isset($familypromo) && (int)$familypromo === 1) {
-    // skip billing
-    $skipBilling = true;
-  }
+$skipBilling = true;
 
-  $auth = new Auth();
-  $response = $auth->register($user_details, $payment_details, $skipBilling);
+$auth = new Auth();
+$response = $auth->register($user_details, $payment_details, $skipBilling);
 
-  if ($response->success && isset($response->reason)) {
-    if ($skipBilling) {
-      // $notification = new Notification($user_id);
-      // $notify = $notification->send_application_details($user_details);
-      $response = array('code' => 200, 'message' => 'You have successfully signed up.');
-    } else {
-      // $notification = new Notification($user_id);
-      // $notify = $notification->send_application_details($user_details);
-      $response = array('code' => 200, 'message' => $response->reason . $notify);
-    }
+if ($response->success && isset($response->reason)) {
+  if ($skipBilling) {
+    // $notification = new Notification($user_id);
+    // $notify = $notification->send_application_details($user_details);
+    $response = array('code' => 200, 'message' => 'You have successfully signed up.');
   } else {
-    $response = array('code' => 400, 'message' => $response->reason);
+    // $notification = new Notification($user_id);
+    // $notify = $notification->send_application_details($user_details);
+    $response = array('code' => 200, 'message' => $response->reason . $notify);
   }
+} else {
+  $response = array('code' => 400, 'message' => $response->reason);
 }
 
 echo json_encode($response); exit;

@@ -1,3 +1,10 @@
 .ftpquota
 constants.php
 .idea/
+
+node-modules
+node_modules/**/*
+nodejs-api/node_modules/
+nodejs-api/node-modules/**/*
+
+service-account.json
