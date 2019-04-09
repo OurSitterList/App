@@ -11,12 +11,12 @@
   }
 
   $user_id = $_REQUEST['user_id'];
-  $search_query_sql = "select * from job_management WHERE family_user_id='".$user_id."' order by `booking_placed_date` DESC";
+  $search_query_sql = "select * from job_management WHERE family_user_id='".$user_id."' order by STR_TO_DATE(booking_date, '%m/%d/%Y') desc, start_time asc";
   $search_query = mysql_query($search_query_sql);
   $results = array();
   if (mysql_num_rows($search_query) > 0) {
     while($R = mysql_fetch_object($search_query)) {
-      $job_query = mysql_query("select * from `job_management` where set_code='".$R->set_code."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
+      $job_query = mysql_query("select * from `job_management` where set_code='".$R->set_code."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y') desc, start_time asc");
       $datearr =array();
       $datearr1 =array();
 
