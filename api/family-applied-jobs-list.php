@@ -42,6 +42,8 @@ if (mysql_num_rows($search_query) > 0) {
             $data[] = $job;
         }
 
+        $R->test = 'test';
+
         $results[] = array(
             'totalDate' => $totaldate,
             'totalDate1' => $totaldate1,
