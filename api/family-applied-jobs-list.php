@@ -42,7 +42,13 @@ if (mysql_num_rows($search_query) > 0) {
             $data[] = $job;
         }
 
-        $R->test = 'test';
+        $sitter_query = "SELECT user_first_name as sitter_first_name, user_last_name as sitter_last_name
+                         FROM user_information
+                         WHERE user_id = '" . $R->sitter_user_id . "'";
+        while ($S = mysql_fetch_object($sitter_query)) {
+            $R->sitter_first_name = $S->sitter_first_name;
+            $R->sitter_last_name = $S->sitter_last_name;
+        }
 
         $results[] = array(
             'totalDate' => $totaldate,
