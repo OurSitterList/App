@@ -10,7 +10,7 @@ if (!isset($_REQUEST) || !array_key_exists('user_id', $_REQUEST)) {
     exit;
 }
 
-mysql_query("DELETE FROM job_management WHERE set_code='" . $_REQUEST['job_id'] . "' AND family_user_id='" . $_REQUEST['user_id'] . "'");
+mysql_query("DELETE FROM job_management WHERE job_id='" . $_REQUEST['job_id'] . "' AND family_user_id='" . $_REQUEST['user_id'] . "'");
 
 $response = array('code' => 200, 'message' => 'Success');
 echo json_encode($response);exit;
