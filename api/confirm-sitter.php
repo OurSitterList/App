@@ -15,7 +15,7 @@ $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.use
            LIMIT 1";
 $jobresult = mysql_query($jobsql);
 if (mysql_num_rows($jobresult) < 1) {
-    $response = array('code' => 400, 'message' => 'Job does not exist');
+    $response = array('code' => 400, 'message' => $jobsql);
     echo json_encode($response);
     exit;
 }
