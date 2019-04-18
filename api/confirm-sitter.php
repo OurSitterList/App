@@ -1,4 +1,5 @@
 <?php include('includes/connection.php');?>
+<?php include('includes/header.php');?>
 <?php
 
 error_reporting(E_ALL);
