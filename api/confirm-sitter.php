@@ -3,8 +3,6 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-// require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
-
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 
 // get job application instance
@@ -133,6 +131,7 @@ function sendJobEmail($msgTo, $msgToName, $subject, $show_msg, $confirmMsg, $job
     ///sitter_details.php?sitter_id=
 
     // get mailer
+    require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
     $mailer = MailUtil::getMailerWhitney();
     $mailer->Debugoutput = 'html';
     $mailer->addAddress($msgTo, $msgToName);
