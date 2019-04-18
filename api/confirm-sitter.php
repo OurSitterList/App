@@ -1,11 +1,9 @@
-<?php include('includes/connection.php');?>
-<?php include('includes/header.php');?>
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
 
-require_once 'class.MailUtil.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
 // get job application instance
 $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.user_name AS sitter_user_name, umf.user_email AS family_email, umf.user_name AS family_user_name
