@@ -11,7 +11,7 @@ $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.use
            JOIN job_management j ON j.set_code = m.job_id
            LEFT JOIN user_management ums ON ums.user_id = m.sitter_user_id
            LEFT JOIN user_management umf ON umf.user_id = j.family_user_id
-           WHERE m.jobapply_id = '" . mysql_real_escape_string(base64_decode($_REQUEST['apply_id'])) . "'
+           WHERE m.jobapply_id = '" . $_REQUEST['apply_id'] . "'
            LIMIT 1";
 $jobresult = mysql_query($jobsql);
 if (mysql_num_rows($jobresult) < 1) {
