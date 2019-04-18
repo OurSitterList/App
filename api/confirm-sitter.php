@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutoload.php';
 
 // get job application instance
 $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.user_name AS sitter_user_name, umf.user_email AS family_email, umf.user_name AS family_user_name
@@ -53,7 +55,6 @@ $show_msg .= '</table>';
 
 global $admin_contact_email, $admin_contact_name;
 
-require_once 'tools/PHPMailer-master/PHPMailerAutoload.php';
 $admin_contact_email = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='1'"));
 $admin_contact_name = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='4'"));
 
@@ -131,7 +132,6 @@ function sendJobEmail($msgTo, $msgToName, $subject, $show_msg, $confirmMsg, $job
     ///sitter_details.php?sitter_id=
 
     // get mailer
-    require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
     $mailer = MailUtil::getMailerWhitney();
     $mailer->Debugoutput = 'html';
     $mailer->addAddress($msgTo, $msgToName);
