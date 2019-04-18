@@ -66,7 +66,7 @@ sendJobEmail(
     $show_msg,
     $msg,
     $jobdetails,
-    file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-sitter.html')
+    $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-sitter.html'
 );
 
 // send copy to family
@@ -77,7 +77,7 @@ sendJobEmail(
     $show_msg,
     $msg,
     $jobdetails,
-    file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-family.html')
+    $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-family.html'
 );
 
 // send notifications for sitters that were not approved
@@ -102,7 +102,7 @@ if ($isConfirmed) {
                 $show_msg,
                 $msg,
                 $jobdetails,
-                file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-sitter-notapproved.html')
+                $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-sitter-notapproved.html'
             );
         }
     }
