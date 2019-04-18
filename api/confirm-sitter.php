@@ -5,6 +5,8 @@
 
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
+include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
+
 // get job application instance
 $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.user_name AS sitter_user_name, umf.user_email AS family_email, umf.user_name AS family_user_name
            FROM jobapply_management m
@@ -15,7 +17,7 @@ $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.use
            LIMIT 1";
 $jobresult = mysql_query($jobsql);
 if (mysql_num_rows($jobresult) < 1) {
-    $response = array('code' => 400, 'message' => mysql_num_rows($jobresult));
+    $response = array('code' => 400, 'message' => 'Job not found');
     echo json_encode($response);
     exit;
 }
