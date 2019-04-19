@@ -8,7 +8,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutoload.php';
 
 // get job application instance
-$jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.user_name AS sitter_user_name, umf.user_email AS family_email, umf.user_name AS family_user_name, , j.no_of_kids AS no_of_kids, j.location_code AS location_code
+$jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.user_name AS sitter_user_name, umf.user_email AS family_email, umf.user_name AS family_user_name, j.no_of_kids AS no_of_kids, j.location_code AS location_code
            FROM jobapply_management m
            JOIN job_management j ON j.set_code = m.job_id
            LEFT JOIN user_management ums ON ums.user_id = m.sitter_user_id
