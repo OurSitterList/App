@@ -40,7 +40,7 @@ if ($_REQUEST['mode'] == 'confirm') {
     }
     $msg = 'Confirm';
 } elseif ($_REQUEST['mode'] == 'cancel') {
-    mysql_query("delete from  jobapply_management where jobapply_id='" . base64_decode($_REQUEST['apply_id']) . "'");
+    mysql_query("delete from jobapply_management where jobapply_id='" . $_REQUEST['apply_id'] . "'");
     $msg = 'Cancel';
 }
 
