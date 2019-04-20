@@ -56,6 +56,6 @@ function sendJobEmail($msgTo, $msgToName, $subject, $show_msg, $confirmMsg, $job
     $mailer->send();
 }
 
-$response = array('code' => 200, 'message' => $msg);
+$response = array('code' => 200, 'message' => 'sent');
 echo json_encode($response);
 exit;
