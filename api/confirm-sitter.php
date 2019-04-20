@@ -29,8 +29,8 @@ if ($_REQUEST['mode'] == 'confirm') {
     $isConfirmed = true;
 
     // set to approved
-    mysql_query("update jobapply_management set family_approval='1' where jobapply_id='" . base64_decode($_REQUEST['apply_id']) . "'");
-    mysql_query("update jobapply_management set family_approval='2' where jobapply_id!='" . base64_decode($_REQUEST['apply_id']) . "' and job_id='" . $jobdetails->job_id . "'");
+    mysql_query("update jobapply_management set family_approval='1' where jobapply_id='" . $_REQUEST['apply_id'] . "'");
+    mysql_query("update jobapply_management set family_approval='2' where jobapply_id!='" . $_REQUEST['apply_id'] . "' and job_id='" . $jobdetails->job_id . "'");
     $job_query = mysql_query("select * from `job_management` where set_code='" . $jobdetails->job_id . "'");
 
     while ($JD = mysql_fetch_object($job_query)) {
@@ -127,7 +127,7 @@ function sendJobEmail($msgTo, $msgToName, $subject, $show_msg, $confirmMsg, $job
     $msg = str_replace('%APPDATE%', date('m/d/Y', $jobdetails->applytime), $msg);
     $msg = str_replace('%ACCOUNT_STATUS%', $show_msg, $msg);
     $msg = str_replace('%CSTATUS%', $confirmMsg, $msg);
-    $msg = str_replace('%CONTACTLINKFAMILY%', '<a href="' . HTTPS . '/sitter_details.php?sitter_id=' . base64_encode($jobdetails->sitter_user_id) . '">Click here to view or contact Sitter</a>', $msg);
+    $msg = str_replace('%CONTACTLINKFAMILY%', '<a href="' . HTTPS . '/sitter_details.php?sitter_id=' . $jobdetails->sitter_user_id . '">Click here to view or contact Sitter</a>', $msg);
     $msg = str_replace('%CONTACTLINKSITTER%', '<a href="' . HTTPS . '/family.php?fid=' . $jobdetails->family_user_id . '">Click here to view or contact Family</a>', $msg);
     ///sitter_details.php?sitter_id=
 
