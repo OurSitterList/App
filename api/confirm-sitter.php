@@ -44,6 +44,8 @@ if ($_REQUEST['mode'] == 'confirm') {
     $msg = 'Cancel';
 }
 
+// TODO: send push notification to the Sitter
+
 $job_details = mysql_fetch_object(mysql_query("select * from job_management where set_code='" . $jobdetails->job_id . "'"));
 $job_query = mysql_query("select * from `job_management` where set_code='" . $jobdetails->job_id . "'");
 $show_msg = '<table class="family-table"><tr><th><span>Appointment Date</span></th><th><span>Time</span></th></tr>';
