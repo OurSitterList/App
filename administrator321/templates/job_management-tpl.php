@@ -195,7 +195,7 @@ date_default_timezone_set ( 'America/Chicago' );
 										?></td>
 
 									<td><?=$R->family_name; ?></td>
-									<td><?=urldecode($R->remarks); ?></td>
+									<td><?=rawurldecode($R->remarks); ?></td>
 									<td><?php
 										//$R->sitter_name;
 
