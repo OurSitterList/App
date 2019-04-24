@@ -34,6 +34,15 @@ class NotificationUtil
         $this->send($recipient_id, $user_id, 'Accepted Job Application', 'A family has accepted your job application!', $payload);
     }
 
+    public function sendApplicationDeclined($recipient_id, $user_id, $job_id)
+    {
+        $payload = array(
+            'type' => 'jobApplicationDeclined',
+            'job_id' => $job_id,
+        );
+        $this->send($recipient_id, $user_id, 'Declined Job Application', 'A family has declined your job application', $payload);
+    }
+
     private function send($recipient_id, $user_id, $title, $body, $payload)
     {
         $result = $this->mysqlCon->query("SELECT p.push_token, u.user_first_name, u.user_last_name

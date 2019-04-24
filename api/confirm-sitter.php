@@ -1,11 +1,12 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutoload.php';
+include $_SERVER["DOCUMENT_ROOT"] . "/api/classes/class.NotificationUtil.php";
 
 // get job application instance
 $jobsql = "SELECT m.*, j.family_user_id, ums.user_email AS sitter_email, ums.user_name AS sitter_user_name, umf.user_email AS family_email, umf.user_name AS family_user_name, j.no_of_kids AS no_of_kids, j.location_code AS location_code
@@ -24,6 +25,10 @@ if (mysql_num_rows($jobresult) < 1) {
 
 $jobdetails = mysql_fetch_object($jobresult);
 
+$mysqli = new mysqli(host, user, pass, db);
+$mysqli->query("set character_set_results='utf8'");
+$notificationUtil = new NotificationUtil($mysqli);
+
 $isConfirmed = false;
 if ($_REQUEST['mode'] == 'confirm') {
     $isConfirmed = true;
@@ -39,12 +44,16 @@ if ($_REQUEST['mode'] == 'confirm') {
         mysql_query("insert into message_management set book_id='" . $booking_id . "',send_by='S',message='" . $jobdetails->remarks . "',send_time='" . time() . "'");
     }
     $msg = 'Confirm';
+
+    // Send push notification to the sitter
+    $notificationUtil->sendApplicationAccepted($jobdetails->family_user_id, $jobdetails->sitter_user_id, $jobdetails->job_id);
 } elseif ($_REQUEST['mode'] == 'cancel') {
     mysql_query("delete from jobapply_management where jobapply_id='" . $_REQUEST['apply_id'] . "'");
     $msg = 'Cancel';
-}
 
-// TODO: send push notification to the Sitter
+    // Send push notification to the sitter
+    $notificationUtil->sendApplicationDeclined($jobdetails->family_user_id, $jobdetails->sitter_user_id, $jobdetails->job_id);
+}
 
 $job_details = mysql_fetch_object(mysql_query("select * from job_management where set_code='" . $jobdetails->job_id . "'"));
 $job_query = mysql_query("select * from `job_management` where set_code='" . $jobdetails->job_id . "'");
@@ -106,6 +115,9 @@ if ($isConfirmed) {
                 $jobdetails,
                 $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/confirm-job-sitter-notapproved.html'
             );
+
+            // Send push notification to the sitter
+            $notificationUtil->sendApplicationDeclined($jobdetails->family_user_id, $jobdetails->sitter_user_id, $jobdetails->job_id);
         }
     }
 }

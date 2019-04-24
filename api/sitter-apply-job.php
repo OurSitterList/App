@@ -4,6 +4,7 @@
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
+include $_SERVER["DOCUMENT_ROOT"] . "/api/classes/class.NotificationUtil.php";
 
 /**
  * POST
@@ -19,9 +20,14 @@ extract($_POST);
 $sql = "insert into jobapply_management set job_id='" . mysql_real_escape_string($job_code_input) . "', sitter_user_id='" . mysql_real_escape_string($user_id) . "', remarks='" . mysql_real_escape_string($job_remarks) . "', applytime='" . time() . "'";
 mysql_query($sql);
 
-// TODO: send push notification to family
-
 $job_details = mysql_fetch_object(mysql_query("select * from job_management where set_code='" . $job_code_input . "'"));
+
+// Send push notification to family
+$mysqli = new mysqli(host, user, pass, db);
+$mysqli->query("set character_set_results='utf8'");
+$notificationUtil = new NotificationUtil($mysqli);
+$notificationUtil->sendJobApplication($job_details->family_user_id, $user_id, $job_details->job_id);
+
 $job_query = mysql_query("select * from `job_management` where set_code='" . $job_code_input . "'");
 $show_msg = '<table class="family-table"><tr><th><span>Appointment Date</span></th><th><span>Time</span></th></tr>';
 
