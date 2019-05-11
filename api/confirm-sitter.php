@@ -135,7 +135,7 @@ function sendJobEmail($msgTo, $msgToName, $subject, $show_msg, $confirmMsg, $job
     $msg = str_replace('%JOBID%', $jobdetails->job_id, $msg);
 
     $msg = str_replace('%NOOFKIDS%', $jobdetails->no_of_kids, $msg);
-    $msg = str_replace('%REMARKS%', $jobdetails->remarks, $msg);
+    $msg = str_replace('%REMARKS%', urldecode($jobdetails->remarks), $msg);
     $msg = str_replace('%ZIPCODE%', $jobdetails->location_code, $msg);
     //print_r($jobdetails);die('BOOKING DATE...');
     $msg = str_replace('%APPDATE%', date('m/d/Y', $jobdetails->applytime), $msg);
