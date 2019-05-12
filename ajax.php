@@ -262,7 +262,7 @@ switch($mode)
 
 	$family_details = mysql_fetch_object(mysql_query("select * from user_information where user_id='".$S->family_user_id."'"));
 
-	$msg= '<p><span>Name:</span><a href="family_details.php?family_user_id='.base64_encode($family_details->user_id).'">'.$family_details->user_first_name.' '.$family_details->user_middle_name.' '.$family_details->user_last_name.'<a/></p><p><span>Address:</span>'.$family_details->user_current_address.'</p><p><span>Time:</span>'.date("h:i a",mktime($S->start_time,0,0,0,0,0)).' - '.date("h:i a",mktime($S->end_time,0,0,0,0,0)).'</p><p><span>No Of Kids:</span>'.$S->no_of_kids.'</p><p><span>Zipcode:</span>'.$S->location_code.'</p><p><span>Remarks:</span>'.$S->remarks.'</p><p><span>Appointment Date:</span>'.$S->booking_date.'</p><p><span>Booking Date:</span>'.date('m/d/Y',$S->booking_placed_date);
+	$msg= '<p><span>Name:</span><a href="family_details.php?family_user_id='.base64_encode($family_details->user_id).'">'.$family_details->user_first_name.' '.$family_details->user_middle_name.' '.$family_details->user_last_name.'<a/></p><p><span>Address:</span>'.$family_details->user_current_address.'</p><p><span>Time:</span>'.date("h:i a",mktime($S->start_time,0,0,0,0,0)).' - '.date("h:i a",mktime($S->end_time,0,0,0,0,0)).'</p><p><span>No Of Kids:</span>'.$S->no_of_kids.'</p><p><span>Zipcode:</span>'.$S->location_code.'</p><p><span>Remarks:</span>'.urldecode($S->remarks).'</p><p><span>Appointment Date:</span>'.$S->booking_date.'</p><p><span>Booking Date:</span>'.date('m/d/Y',$S->booking_placed_date);
 
 
 	echo $msg;
@@ -337,7 +337,7 @@ switch($mode)
 
 		$sitter_details = mysql_fetch_object(mysql_query("select * from user_information where user_id='".$S->sitter_user_id."'"));
 
-		$msg= '<p><span>Name:</span>'.$sitter_details->user_first_name.' '.$sitter_details->user_middle_name.' '.$sitter_details->user_last_name.'</p><p><span>Phone No:</span>'.$sitter_details->user_cell_phone.'</p><p><span>Email Address:</span>'.$sitter_details->user_contact_email.'</p><p><span>Address:</span>'.$sitter_details->user_current_address.'</p><p><span>Time:</span>'.date("h:i a",mktime($S->start_time,0,0,0,0,0)).' - '.date("h:i a",mktime($S->end_time,0,0,0,0,0)).'</p><p><span>No Of Kids:</span>'.$S->no_of_kids.'</p><p><span>Zipcode:</span>'.$S->location_code.'</p><p><span>Remarks:</span>'.$S->remarks.'</p><p><span>Appointment Date:</span>'.$S->booking_date.'</p><p><span>Booking Date:</span>'.date('m/d/Y',$S->booking_placed_date);
+		$msg= '<p><span>Name:</span>'.$sitter_details->user_first_name.' '.$sitter_details->user_middle_name.' '.$sitter_details->user_last_name.'</p><p><span>Phone No:</span>'.$sitter_details->user_cell_phone.'</p><p><span>Email Address:</span>'.$sitter_details->user_contact_email.'</p><p><span>Address:</span>'.$sitter_details->user_current_address.'</p><p><span>Time:</span>'.date("h:i a",mktime($S->start_time,0,0,0,0,0)).' - '.date("h:i a",mktime($S->end_time,0,0,0,0,0)).'</p><p><span>No Of Kids:</span>'.$S->no_of_kids.'</p><p><span>Zipcode:</span>'.$S->location_code.'</p><p><span>Remarks:</span>'.urldecode($S->remarks).'</p><p><span>Appointment Date:</span>'.$S->booking_date.'</p><p><span>Booking Date:</span>'.date('m/d/Y',$S->booking_placed_date);
 
 
 		echo $msg;
