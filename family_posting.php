@@ -11,25 +11,25 @@
 		header('Location:'.$base_path.'/family_app_member.php?expired=1');
 		exit;
 	}
-			
+
 		?>
 <section class="sitter_list_outer">
 	<div class="container">
     	<div class="sitter_list_inner clearfix">
-        	
-                	<?php 
-					
+
+                	<?php
+
 					$msg = getPostMSG();
 					if ($msg)
 					{
 						$msgType = getPostMSGType();
 						echo '<div class="alert alert-' . $msgType . '">' . $msg . '</div>';
 					}
-					
-					 $search_query_sql = "select  DISTINCT  set_code from job_management 
-														WHERE 
+
+					 $search_query_sql = "select  DISTINCT  set_code from job_management
+														WHERE
 														family_user_id='".$_SESSION['user_id']."' order by `booking_placed_date` DESC";
-														
+
 					$search_query = mysql_query($search_query_sql);
 if(mysql_num_rows($search_query)>0)
 {
@@ -41,7 +41,7 @@ if(mysql_num_rows($search_query)>0)
 		$datearr1_start =array();
 		$datearr1_end =array();
 		$datearr2 =array();
-	
+
 		$show_msg='';
 		$is_expired  =array();
 		$last = null;
@@ -54,14 +54,14 @@ if(mysql_num_rows($search_query)>0)
 			$datearr1_end[] = trim($JD->end_time);
 			//$show_msg.='<tr><td><span>'.trim($JD->booking_date).'</span></td><td><span>'.str_pad($JD->start_time, 2, '0', STR_PAD_LEFT).':00 - '.str_pad($JD->end_time, 2, '0', STR_PAD_LEFT).':00</span></td></tr>';
 			$show_msg.='<tr><td><span>'.trim($JD->booking_date).'</span></td><td><span>'.date("h:i a",mktime($JD->start_time,0,0,0,0,0)).' - '.date("h:i a",mktime($JD->end_time,0,0,0,0,0)).'</span></td></tr>';
-			
+
 			$last = $JD;
 		}
-		
+
 		// check expired
 		if ($last)
 		{
-			if ( strtotime(trim($last->booking_date) . ' ' . $last->start_time . ':00-0500') < strtotime('now') ) 
+			if ( strtotime(trim($last->booking_date) . ' ' . $last->start_time . ':00-0500') < strtotime('now') )
 			{
 				$is_expired[] = 1;
 			}
@@ -69,7 +69,7 @@ if(mysql_num_rows($search_query)>0)
 				$is_expired[] = 0;
 			}
 		}
-		
+
 		$totaldate = implode(',',$datearr);
 		$totaldate1 = implode(', ',$datearr1);
 		$totaldate2 = implode(',',$datearr1);
@@ -89,11 +89,11 @@ if(mysql_num_rows($search_query)>0)
         		<div class="overlay-two"></div>
             	<div class="sitter_left_cont">
                 	<div class="sitters_list">
-                    	
+
                         	<div class="sitter_details">
-                             
+
                                  <div id='job_management<?=$job_history->set_code?>'></div>
-                                       
+
                                 </div>
                           <script>
 						  $(function() {
@@ -113,15 +113,15 @@ if(mysql_num_rows($search_query)>0)
                           <p><span>Time:</span><?=$job_history->start_time?> - <?=$job_history->end_time?></p>
                           <p><span>No Of Kids:</span><?=$job_history->no_of_kids?></p>
                           <p><span>Zipcode:</span><?=$job_history->location_code?></p>
-                          <p><span>Remarks:</span><?=$job_history->remarks?></p>
+                          <p><span>Remarks:</span><?=urldecode($job_history->remarks)?></p>
                             <p><table class="family-table"><tr><th><span>Appointment Date</span></th><th><span>Time</span></th></tr>
                             <?=$show_msg?>
 							</table>
 							</p>
                           <p><span>Job Posted Date:</span><?=date('m/d/Y',$job_history->booking_placed_date)?>
                         </div>
-                        	
-                        
+
+
                     </div>
                      </div>
             </div>
@@ -130,22 +130,22 @@ if(mysql_num_rows($search_query)>0)
               <?php if(!$class == 'expired_job')
 			  {
 				  ?>
-               <?php $search_query_app_sql = mysql_query("select  * from jobapply_management 
-														WHERE 
+               <?php $search_query_app_sql = mysql_query("select  * from jobapply_management
+														WHERE
 														job_id='".$R->set_code."' and family_approval='1' ");
 						if(mysql_num_rows($search_query_app_sql)>0)
 						{
 							echo ' <span>Job Is Confirmed</span>';
 						}
 						?>
-                	<?php $search_query_sql = mysql_query("select  * from jobapply_management 
-														WHERE 
+                	<?php $search_query_sql = mysql_query("select  * from jobapply_management
+														WHERE
 														job_id='".$R->set_code."' order by applytime ");
 						if(mysql_num_rows($search_query_sql)>0)
 						{
 							echo '<span>Apply By - '.mysql_num_rows($search_query_sql).'Sitter</span>';
 							?>
-                           
+
                            <a href="family_posting_details.php?set_code=<?=$R->set_code?>">Check Details</a>
                            <?php
 						}
@@ -153,7 +153,7 @@ if(mysql_num_rows($search_query)>0)
 						{
 							?>
 							 <a  class="md-trigger" data-modal="modal-edit-job" onClick="call_edit(<?=$R->set_code?>,<?=$job_history->no_of_kids?>,'<?=$job_history->location_code?>','<?=$job_history->remarks?>','<?=$totaldate2?>','<?=$totaldate2_start?>','<?=$totaldate2_end?>')">Edit This Job</a>
-                             <?php 
+                             <?php
 						}
 						?>
                  <?php
@@ -161,19 +161,19 @@ if(mysql_num_rows($search_query)>0)
 			  ?>
                         <a href="family_jobposting_delete.php?job_id=<?=$R->set_code?>">Delete This Job</a>
                 </div>
-                
+
             </div>
         <?php
-	
+
 	}
 }
 else{
-?> 
+?>
 	<div class="sitters_list"><div class="sitter_app_heading"><h3>You have not posted any jobs</h3></div></div>
-<?php 
+<?php
 }
 ?>
-               
+
         </div>
     </div>
 </section>
