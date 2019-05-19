@@ -31,7 +31,7 @@ $sql = "SELECT
   LEFT JOIN user_management AS um ON um.user_id = bm.family_user_id
   LEFT JOIN user_information AS ui ON ui.user_id = um.user_id
   WHERE bm.sitter_user_id = " . $user_id . "
-  AND DATEDIFF(STR_TO_DATE(bm.booking_date, '%m/%d/%Y'), NOW()) > 0
+  AND DATEDIFF(STR_TO_DATE(bm.booking_date, '%m/%d/%Y'), NOW()) >= 0
   ORDER BY
       bm.book_id DESC;";
 
