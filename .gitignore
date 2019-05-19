@@ -8,3 +8,5 @@ nodejs-api/node_modules/
 nodejs-api/node-modules/**/*
 
 service-account.json
+
+.vscode
