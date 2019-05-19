@@ -164,7 +164,7 @@ if( $num > 0) :
                   <?=$job_available->location_code?>
                 </p>
                 <p><span>Remarks:</span>
-                  <?=$job_available->remarks?>
+                  <?=urldecode($job_available->remarks)?>
                 </p>
                 <p><span>Family:</span>
                   <?='<a href="family.php?fid=' . $job_available->family_user_id . '&fh=' . md5($job_available->family_user_id) . '">' . $job_available->user_first_name . ' ' . $job_available->user_last_name . '</a>';?>
