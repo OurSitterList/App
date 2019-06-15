@@ -50,7 +50,7 @@ if (mysql_num_rows($user_search) > 0) {
         $response = array('code' => 500, 'message' => 'An email has been sent to your registered account');
     }
 } else {
-    $response = array('code' => 500, 'message' => array('userType' => $userType, 'username' => $username, 'isSitter' => $isSitter));
+    $response = array('code' => 500, 'message' => array('userType' => $userType, 'username' => $username, 'isSitter' => $_REQUEST['is_sitter']));
 }
 
 echo json_encode($response);
