@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutoload.php';
 
 $username = $_REQUEST['user_name'];
 $isSitter = $_REQUEST['is_sitter'];
@@ -15,13 +17,12 @@ if (mysql_num_rows($user_search) > 0) {
     $R = mysql_fetch_object($user_search);
     $generate_code = time() . rand(0, 100000000);
     mysql_query("update user_management set user_code='" . $generate_code . "' where user_name='" . mysql_real_escape_string($username) . "' AND user_type = 'sitter' AND user_status = '1'");
-    $message = file_get_contents('contact-form.html');
+    $message = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/templates/notification/contact-form.html');
     $message = str_replace('%FULL_NAME%', $R->user_name, $message);
     $message = str_replace('%EMAIL%', $R->user_email, $message);
     $message = str_replace('%AS%', 'Sitter', $message);
     $message = str_replace('%COMMENT%', 'To Reset Your Password <a href="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
 
-    require_once BASEPATH . 'class.MailUtil.php';
     $mail = MailUtil::getMailerWhitney();
     $mail->Debugoutput = 'html';
     $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
