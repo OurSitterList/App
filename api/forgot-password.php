@@ -10,7 +10,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutol
 $username = $_REQUEST['user_name'];
 $isSitter = $_REQUEST['is_sitter'];
 
-if ($isSitter === false || $isSitter === 'false') {
+if ($isSitter === true || $isSitter === 'true') {
     $userType = 'sitter';
 } else {
     $userType = 'family';
@@ -50,7 +50,7 @@ if (mysql_num_rows($user_search) > 0) {
         $response = array('code' => 500, 'message' => 'An email has been sent to your registered account');
     }
 } else {
-    $response = array('code' => 500, 'message' => array('userType' => $userType, 'username' => $username, 'isSitter' => $_REQUEST['is_sitter']));
+    $response = array('code' => 500, 'message' => 'Username not found');
 }
 
 echo json_encode($response);
