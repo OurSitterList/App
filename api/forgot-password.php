@@ -12,11 +12,13 @@ $isSitter = $_REQUEST['is_sitter'];
 
 $admin_contact_email = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='1'"));
 $admin_contact_name = mysql_fetch_array(mysql_query("SELECT `settingValue` FROM `setting` WHERE `id`='4'"));
-$user_search = mysql_query("SELECT * FROM user_management WHERE user_name='" . mysql_real_escape_string($username) . "' AND user_type = 'sitter' AND user_status = '1'");
+// $user_search = mysql_query("SELECT * FROM user_management WHERE user_name='" . mysql_real_escape_string($username) . "' AND user_type = 'sitter' AND user_status = '1'");
+$user_search = mysql_query("SELECT * FROM user_management WHERE user_name='" . mysql_real_escape_string($username) . "'");
 if (mysql_num_rows($user_search) > 0) {
     $R = mysql_fetch_object($user_search);
     $generate_code = time() . rand(0, 100000000);
-    mysql_query("update user_management set user_code='" . $generate_code . "' where user_name='" . mysql_real_escape_string($username) . "' AND user_type = 'sitter' AND user_status = '1'");
+    // mysql_query("update user_management set user_code='" . $generate_code . "' where user_name='" . mysql_real_escape_string($username) . "' AND user_type = 'sitter' AND user_status = '1'");
+    mysql_query("update user_management set user_code='" . $generate_code . "' where user_name='" . mysql_real_escape_string($username) . "'");
     $message = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/templates/notification/contact-form.html');
     $message = str_replace('%FULL_NAME%', $R->user_name, $message);
     $message = str_replace('%EMAIL%', $R->user_email, $message);
