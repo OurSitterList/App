@@ -42,7 +42,7 @@ if (mysql_num_rows($user_search) > 0) {
         $response = array('code' => 500, 'message' => 'An email has been sent to your registered account');
     }
 } else {
-    $response = array('code' => 500, 'message' => 'Username not found');
+    $response = array('code' => 500, 'message' => $username);
 }
 
 echo json_encode($response);
