@@ -26,7 +26,7 @@ if (mysql_num_rows($user_search) > 0) {
     $message = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/templates/notification/contact-form.html');
     $message = str_replace('%FULL_NAME%', $R->user_name, $message);
     $message = str_replace('%EMAIL%', $R->user_email, $message);
-    if ($isSitter) {
+    if ($isSitter === true || $isSitter === 'true') {
         $message = str_replace('%AS%', 'Sitter', $message);
     } else {
         $message = str_replace('%AS%', 'Family', $message);
@@ -37,7 +37,7 @@ if (mysql_num_rows($user_search) > 0) {
     $mail->Debugoutput = 'html';
     // $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
     $mail->addAddress($R->user_email, $R->user_name);
-    if ($isSitter) {
+    if ($isSitter === true || $isSitter === 'true') {
         $mail->Subject = 'Reset - Sitter Account Password';
     } else {
         $mail->Subject = 'Reset - Family Account Password';
