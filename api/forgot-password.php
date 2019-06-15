@@ -25,7 +25,7 @@ if (mysql_num_rows($user_search) > 0) {
 
     $mail = MailUtil::getMailerWhitney();
     $mail->Debugoutput = 'html';
-    $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+    // $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
     $mail->addAddress($R->user_email, $R->user_name);
     $mail->Subject = 'Reset - Sitter Account Password';
     $mail->msgHTML($message);
