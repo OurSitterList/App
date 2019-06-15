@@ -10,7 +10,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/tools/PHPMailer-master/PHPMailerAutol
 $username = $_REQUEST['user_name'];
 $isSitter = $_REQUEST['is_sitter'];
 
-if ($isSitter) {
+if ($isSitter === false || $isSitter === 'false') {
     $userType = 'sitter';
 } else {
     $userType = 'family';
