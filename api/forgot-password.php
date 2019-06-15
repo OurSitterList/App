@@ -1,16 +1,9 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
-
-/**
- * POST
- *
- * username
- * isSitter
- */
 
 $username = $_REQUEST['user_name'];
 $isSitter = $_REQUEST['is_sitter'];
@@ -42,7 +35,7 @@ if (mysql_num_rows($user_search) > 0) {
         $response = array('code' => 500, 'message' => 'An email has been sent to your registered account');
     }
 } else {
-    $response = array('code' => 500, 'message' => $username);
+    $response = array('code' => 500, 'message' => 'Username not found');
 }
 
 echo json_encode($response);
