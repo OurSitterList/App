@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -47,7 +48,7 @@ if (mysql_num_rows($user_search) > 0) {
     if (!$mail->send()) {
         $response = array('code' => 500, 'message' => $mail->ErrorInfo);
     } else {
-        $response = array('code' => 500, 'message' => 'An email has been sent to your registered account');
+        $response = array('code' => 200, 'message' => 'An email has been sent to your registered account');
     }
 } else {
     $response = array('code' => 500, 'message' => 'Username not found');
