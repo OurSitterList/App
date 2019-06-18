@@ -7,7 +7,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 
 /*
   * POST: (all required, even if empty)
-  * 
+  *
   * $user_first_name
   * $user_last_name
   * $cardNumber
@@ -86,7 +86,7 @@ $payment_details = array(
   "x_first_name" => $firstName,
   "x_last_name" => $lastName,
   "x_response_format"	=> "1",
-  "is_payment_test"	=> 0
+  "is_payment_test"	=> 1
 );
 
 if ($user_contact_email === 'cjohnson2242@mailinator.com') {
@@ -115,12 +115,8 @@ $response = $auth->register($user_details, $payment_details, $skipBilling);
 
 if ($response->success && isset($response->reason)) {
   if ($skipBilling) {
-    // $notification = new Notification($user_id);
-    // $notify = $notification->send_application_details($user_details);
     $response = array('code' => 200, 'message' => 'You have successfully signed up.');
   } else {
-    // $notification = new Notification($user_id);
-    // $notify = $notification->send_application_details($user_details);
     $response = array('code' => 200, 'message' => $response->reason . $notify);
   }
 } else {

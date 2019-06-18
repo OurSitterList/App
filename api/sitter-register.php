@@ -2,7 +2,7 @@
 
 /**
  * POST: (all required, even if empty)
- * 
+ *
  * $user_id
  * $user_first_name
  * $user_last_name
@@ -12,7 +12,7 @@
  * $expirationDate_year
  * $expDateYear
  * $cardCode
- * 
+ *
  * $sitter_username
  * $sitter_password
  * $sitter_email
@@ -55,10 +55,6 @@ include($_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php');
 extract($_POST);
 
 try {
-  if (!$user_id) {
-    echo json_encode(array('code' => 401, 'message' => 'User ID is required.')); exit;
-  }
-
   $firstName 				= trim($user_first_name);
   $lastName 				= trim($user_last_name);
   $creditCardNumber 		= trim($cardNumber);
@@ -131,15 +127,13 @@ try {
     "x_first_name"		=> $firstName,
     "x_last_name"		=> $lastName,
     "x_response_format"	=> "1",
-    "is_payment_test"	=> 0
+    "is_payment_test"	=> 1
   );
 
   $auth	= new Auth();
   $response = $auth->register($user_details, $payment_details, true);
 
   if ($response->success && isset($response->reason)) {
-    // $notification	= new Notification($user_id);
-    // $notify	= $notification->send_application_details($user_details);
     $response	= array('code' => 200, 'message' => $response->reason.$notify);
   } else {
     $response	= array('code' => 400, 'message' => $response->reason);
