@@ -130,20 +130,16 @@ try {
         "is_payment_test" => 1,
     );
 
-    header('Content-Type: application/json');
-    $response = array('code' => 200, 'message' => $user_details);
-    echo json_encode($response);exit;
+    $auth    = new Auth();
+    $response = $auth->register($user_details, $payment_details, true);
 
-    // $auth    = new Auth();
-    // $response = $auth->register($user_details, $payment_details, true);
+    if ($response->success && isset($response->reason)) {
+      $response    = array('code' => 200, 'message' => $response->reason.$notify);
+    } else {
+      $response    = array('code' => 400, 'message' => $response->reason);
+    }
 
-    // if ($response->success && isset($response->reason)) {
-    //   $response    = array('code' => 200, 'message' => $response->reason.$notify);
-    // } else {
-    //   $response    = array('code' => 400, 'message' => $response->reason);
-    // }
-
-    // echo json_encode($response); exit;
+    echo json_encode($response); exit;
 
 } catch (Exception $e) {
     $response = array('code' => 400, 'message' => $e->getMessage());
