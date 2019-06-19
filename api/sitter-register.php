@@ -134,7 +134,8 @@ try {
   $response = $auth->register($user_details, $payment_details, true);
 
   if ($response->success && isset($response->reason)) {
-    $response	= array('code' => 200, 'message' => $response->reason.$notify);
+    // $response	= array('code' => 200, 'message' => $response->reason.$notify);
+    $response	= array('code' => 200, 'message' => $user_details);
   } else {
     $response	= array('code' => 400, 'message' => $response->reason);
   }

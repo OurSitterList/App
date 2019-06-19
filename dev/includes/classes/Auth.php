@@ -87,8 +87,7 @@ class Auth {
 
 				case 'sitter':
 					self::_sitter_register();
-					// $result->reason		= "Our Sitter List Founders are working hard at processing your application and we will respond your application within 36 hours.";
-					$result->reason		= $user_details;
+					$result->reason		= "Our Sitter List Founders are working hard at processing your application and we will respond your application within 36 hours.";
 				break;
 
 				default:
