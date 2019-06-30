@@ -45,7 +45,9 @@ app.post("/message", (req, res) => {
             token: to,
             notification: {
               title,
-              body
+              body,
+              badge,
+              sound
             },
             data,
             apns: {
