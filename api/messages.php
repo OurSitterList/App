@@ -31,6 +31,5 @@ while ($R = mysql_fetch_object($query2)) {
 
 header('Content-Type:application/json');
 http_response_code(200);
-// $response = array('code' => 200, 'message' => array('results' => $data));
-$reponse = array('results' => $data);
+$response = array('code' => 200, 'message' => array('results' => $data));
 echo json_encode($response);exit;
