@@ -23,13 +23,14 @@ $query2 = mysql_query($sql2);
 $data = array();
 
 while ($R = mysql_fetch_object($query1)) {
-  $data[] = $R;
+    $data[] = $R;
 }
 while ($R = mysql_fetch_object($query2)) {
-  $data[] = $R;
+    $data[] = $R;
 }
 
 header('Content-Type:application/json');
 http_response_code(200);
-$response = array('code' => 200, 'message' => array('results' => $data));
+// $response = array('code' => 200, 'message' => array('results' => $data));
+$reponse = array('results' => $data);
 echo json_encode($response);exit;
