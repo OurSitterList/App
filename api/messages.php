@@ -33,6 +33,18 @@ while ($R = mysql_fetch_object($query2)) {
     $data[] = $R;
 }
 
+function cmp($a, $b)
+{
+    $intA = (int) $a['id'];
+    $intB = (int) $b['id'];
+    if ($intA == $intB) {
+        return 0;
+    }
+    return ($intA < $intA) ? -1 : 1;
+}
+
+usort($data, "cmp");
+
 header('Content-Type:application/json');
 http_response_code(200);
 $response = array('code' => 200, 'message' => array('results' => $data));
