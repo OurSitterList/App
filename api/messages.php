@@ -27,11 +27,9 @@ $query2 = mysql_query($sql2);
 $data = array();
 
 while ($R = mysql_fetch_object($query1)) {
-    $R['id'] = (int) $R['id'];
     $data[] = $R;
 }
 while ($R = mysql_fetch_object($query2)) {
-    $R['id'] = (int) $R['id'];
     $data[] = $R;
 }
 
