@@ -48,6 +48,7 @@
 // ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
 // var_dump($_POST);
 // exit;
@@ -130,16 +131,24 @@ try {
         "is_payment_test" => 1,
     );
 
-    $auth    = new Auth();
+    $auth = new Auth();
     $response = $auth->register($user_details, $payment_details, true);
 
     if ($response->success && isset($response->reason)) {
-      $response    = array('code' => 200, 'message' => $response->reason.$notify);
+        // $mail = MailUtil::getMailerWhitney();
+        // $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
+        // $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+        // $mail->Subject = 'New Sitter Registration';
+        // $mail->msgHTML('Hi');
+        // $mail->AltBody = 'This is a plain-text message body';
+        // $mail->send();
+
+        $response = array('code' => 200, 'message' => $response->reason . $notify);
     } else {
-      $response    = array('code' => 400, 'message' => $response->reason);
+        $response = array('code' => 400, 'message' => $response->reason);
     }
 
-    echo json_encode($response); exit;
+    echo json_encode($response);exit;
 
 } catch (Exception $e) {
     $response = array('code' => 400, 'message' => $e->getMessage());
