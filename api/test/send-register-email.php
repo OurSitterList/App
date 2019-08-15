@@ -6,22 +6,24 @@ ini_set("display_errors", 1);
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
+$template = $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/registered-sitter.html';
+
 $mail = MailUtil::getMailerWhitney();
 // $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
 // $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
 $mail->addAddress('adam.horky06@gmail.com', 'Adam');
-$mail->isHTML(false);
 $mail->Subject = 'New Sitter Registration';
-$mail->Body = 'Hi!';
+
+$msg = file_get_contents($template);
+$mail->isHTML(true);
+$mail->msgHTML($msg);
+$mail->Debugoutput = 'html';
 $mail->AltBody = 'This is a plain-text message body';
 
+$mail->send();
+
 header('Content-Type:application/json');
-if (!$mail->send()) {
-    http_response_code(200);
-    $response = array('message' => 'EMail Sent!');
-} else {
-    http_response_code(500);
-    $response = array('message' => 'Failure!');
-}
+http_response_code(200);
+$response = array('message' => 'Email Sent!');
 echo json_encode($response);
 exit;
