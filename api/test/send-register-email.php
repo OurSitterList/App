@@ -9,9 +9,10 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 $mail = MailUtil::getMailerWhitney();
 // $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
 // $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
-$mail->addAddress('adam.horky06@gmail.com', 'Webmaster');
+$mail->addAddress('adam.horky06@gmail.com', 'Adam');
+$mail->isHTML(false);
 $mail->Subject = 'New Sitter Registration';
-$mail->msgHTML('Hi');
+$mail->Body = 'Hi!';
 $mail->AltBody = 'This is a plain-text message body';
 
 header('Content-Type:application/json');
