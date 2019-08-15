@@ -1,7 +1,7 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
@@ -18,10 +18,10 @@ $mail->AltBody = 'This is a plain-text message body';
 header('Content-Type:application/json');
 if (!$mail->send()) {
     http_response_code(200);
-    $response = array('message' => 'Success');
+    $response = array('message' => 'EMail Sent!');
 } else {
     http_response_code(500);
-    $response = array('message' => 'Failure');
+    $response = array('message' => 'Failure!');
 }
 echo json_encode($response);
 exit;
