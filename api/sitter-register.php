@@ -50,6 +50,8 @@
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
+$template = $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/registered-sitter-or-family.html';
+
 // var_dump($_POST);
 // exit;
 
@@ -135,13 +137,21 @@ try {
     $response = $auth->register($user_details, $payment_details, true);
 
     if ($response->success && isset($response->reason)) {
-        // $mail = MailUtil::getMailerWhitney();
-        // $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
-        // $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
-        // $mail->Subject = 'New Sitter Registration';
-        // $mail->msgHTML('Hi');
-        // $mail->AltBody = 'This is a plain-text message body';
-        // $mail->send();
+        $mail = MailUtil::getMailerWhitney();
+        $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
+        $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+        $mail->Subject = 'New Sitter Registration';
+
+        $msg = file_get_contents($template);
+        $msg = str_replace('%TYPE%', 'Sitter', $msg);
+        $msg = str_replace('%FIRSTNAME%', $firstName, $msg);
+        $msg = str_replace('%LASTNAME%', $lastName, $msg);
+        $mail->isHTML(true);
+        $mail->msgHTML($msg);
+        $mail->Debugoutput = 'html';
+        $mail->AltBody = 'This is a plain-text message body';
+
+        $mail->send();
 
         $response = array('code' => 200, 'message' => $response->reason . $notify);
     } else {
