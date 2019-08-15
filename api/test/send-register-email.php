@@ -13,10 +13,14 @@ $mail->addAddress('adam.horky06@gmail.com', 'Webmaster');
 $mail->Subject = 'New Sitter Registration';
 $mail->msgHTML('Hi');
 $mail->AltBody = 'This is a plain-text message body';
-$mail->send();
 
 header('Content-Type:application/json');
-http_response_code(200);
-$response = array('message' => 'Success');
+if (!$mail->send()) {
+    http_response_code(200);
+    $response = array('message' => 'Success');
+} else {
+    http_response_code(500);
+    $response = array('message' => 'Failure');
+}
 echo json_encode($response);
 exit;
