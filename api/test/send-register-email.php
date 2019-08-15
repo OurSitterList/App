@@ -6,7 +6,7 @@ ini_set("display_errors", 1);
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
-$template = $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/registered-sitter.html';
+$template = $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/registered-sitter-or-family.html';
 
 $mail = MailUtil::getMailerWhitney();
 // $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
@@ -15,6 +15,9 @@ $mail->addAddress('adam.horky06@gmail.com', 'Adam');
 $mail->Subject = 'New Sitter Registration';
 
 $msg = file_get_contents($template);
+$msg = str_replace('%TYPE%', 'Sitter', $msg);
+$msg = str_replace('%FIRSTNAME%', 'Adam', $msg);
+$msg = str_replace('%LASTNAME%', 'Horky', $msg);
 $mail->isHTML(true);
 $mail->msgHTML($msg);
 $mail->Debugoutput = 'html';
