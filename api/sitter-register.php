@@ -171,9 +171,8 @@ try {
         $msg = str_replace('%ADDITONAL_MESSAGE%', 'We are working hard in processing your application and will respond within 36 hours.', $msg);
 
         $mail = MailUtil::getMailerWhitney();
-        // $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
-        $mail->addAddress('adam.horky06@gmail.com', 'Webmaster');
-        // $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+        $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
+        $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
         $mail->Subject = 'New Sitter Registration';
         $mail->isHTML(true);
         $mail->msgHTML($msg);
