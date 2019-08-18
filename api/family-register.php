@@ -6,7 +6,7 @@
 include $_SERVER["DOCUMENT_ROOT"] . '/includes/connection.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/class.MailUtil.php';
 
-$template = $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/registered-sitter-or-family.html';
+$template = $_SERVER["DOCUMENT_ROOT"] . '/templates/notification/family-application.html';
 
 /*
  * POST: (all required, even if empty)
@@ -117,14 +117,21 @@ $auth = new Auth();
 $response = $auth->register($user_details, $payment_details, $skipBilling);
 
 if ($response->success && isset($response->reason)) {
+    $msg = file_get_contents($template);
+    $msg = str_replace('%FULL_NAME%', $firstName . " " . $lastName, $msg);
+    $msg = str_replace('%CURRENT_ZIP%', $user_zip, $msg);
+    $msg = str_replace('%CURRENT_ADDRESS%', $user_current_address, $msg);
+    $msg = str_replace('%EMAIL_ADDRESS%', $user_contact_email, $msg);
+    $msg = str_replace('%PHONE_NUMBER%', $user_cell_phone, $msg);
+    $msg = str_replace('%NEEDS%', $user_contact_address, $msg);
+    $msg = str_replace('%HEAR_ABOUT_US%', $user_hear_about, $msg);
+    $msg = str_replace('%DATE%', date('F j, Y'), $msg);
+    $msg = str_replace('%ADDITONAL_MESSAGE%', 'We are working hard in processing your application and will respond within 36 hours.', $msg);
+
     $mail = MailUtil::getMailerWhitney();
     $mail->addAddress('oursitterlist@gmail.com', 'Webmaster');
     $mail->addAddress($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
     $mail->Subject = 'New Family Registration';
-    $msg = file_get_contents($template);
-    $msg = str_replace('%TYPE%', 'Family', $msg);
-    $msg = str_replace('%FIRSTNAME%', $firstName, $msg);
-    $msg = str_replace('%LASTNAME%', $lastName, $msg);
     $mail->isHTML(true);
     $mail->msgHTML($msg);
     $mail->Debugoutput = 'html';
