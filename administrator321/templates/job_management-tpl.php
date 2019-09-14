@@ -126,7 +126,7 @@ date_default_timezone_set ( 'America/Chicago' );
 							echo $out;
 						?>
 						<script language="javascript" type="text/javascript">
-							var blob = new Blob(["\ufeff", <?= $out ?>]);
+							var blob = new Blob(["\ufeff", `<?= $out ?>`]);
 							var url = URL.createObjectURL(blob);
 							document.getElementById('CsvDownload').href = url;
 						</script>
