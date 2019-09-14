@@ -94,7 +94,7 @@ date_default_timezone_set ( 'America/Chicago' );
 
 			<div class="box grid_8">
 				<div style="display: flex; flex: 1; justify-content: flex-end; align-items: center; padding-bottom: 10px; padding-right: 10px;">
-					<div style="display: hidden">
+					<div style="display: none">
 						<?php
 							$wallerQuery = "SELECT um.user_id as FamilyUserId,
 												   um.user_name as FamilyUsername,
