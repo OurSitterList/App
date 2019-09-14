@@ -126,8 +126,10 @@ date_default_timezone_set ( 'America/Chicago' );
 							echo $out;
 						?>
 						<script language="javascript" type="text/javascript">
-							var url = "data:text/csv;charset=utf-8," + encodeURIComponent(`<?= $out ?>`);
-							document.getElementById('CsvDownload').href = url;
+							setTimeout(function() {
+								var url = "data:text/csv;charset=utf-8," + encodeURIComponent(`<?= $out ?>`);
+								document.getElementById('CsvDownload').href = url;
+							});
 						</script>
 					</div>
 					<a id="CsvDownload" href="data:text/csv;charset=utf-8," download="report.csv">Download Waller Report</a>
