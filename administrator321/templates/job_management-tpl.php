@@ -75,31 +75,59 @@ date_default_timezone_set ( 'America/Chicago' );
 
 			</script>
 
-			<!--<script language="javascript" type="text/javascript" src="js/MyFunctions.js"></script>-->
 			<?php
+				$hour = date('H');
+				$curdate = date('Y-m-d');
 
+				$pageID = (isset($_REQUEST['page']) && $_REQUEST['page']) ? $_REQUEST['page'] : '0';
 
-//			$now = date('Y-m-d H:m:s');
-//			die('Now: ' . $now);
-			$hour = date('H');
-			$curdate = date('Y-m-d');
-
-			$pageID = (isset($_REQUEST['page']) && $_REQUEST['page']) ? $_REQUEST['page'] : '0';
-
-			$Q = "SELECT j.*, CONCAT(ufam.user_first_name, ' ', ufam.user_last_name) AS family_name
-			FROM `job_management` j
-			LEFT JOIN user_information ufam ON ufam.user_id = j.family_user_id
-			WHERE STR_TO_DATE(j.booking_date, '%m/%d/%Y') >= '" . $curdate . "'
-			AND (
-				STR_TO_DATE(j.booking_date, '%m/%d/%Y') > '" . $curdate . "'
-				OR end_time >= " . $hour . "
-			)
-			ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y'), j.start_time, j.end_time";
-//die($Q);
-
+				$Q = "SELECT j.*, CONCAT(ufam.user_first_name, ' ', ufam.user_last_name) AS family_name
+				FROM `job_management` j
+				LEFT JOIN user_information ufam ON ufam.user_id = j.family_user_id
+				WHERE STR_TO_DATE(j.booking_date, '%m/%d/%Y') >= '" . $curdate . "'
+				AND (
+					STR_TO_DATE(j.booking_date, '%m/%d/%Y') > '" . $curdate . "'
+					OR end_time >= " . $hour . "
+				)
+				ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y'), j.start_time, j.end_time";
 			?>
 
 			<div class="box grid_8">
+				<div style="display: flex; flex: 1; justify-content: flex-end; align-items: center; padding-bottom: 10px; padding-right: 10px;">
+					<div style="display: hidden">
+						<?php
+							$wallerQuery = "SELECT um.user_id as FamilyUserId,
+												   um.user_name as FamilyUsername,
+												   um.user_email as FamilyEmail,
+												   j.job_id as JobId,
+												   j.set_code as JobSetCode,
+												   j.booking_date as BookingDate,
+												   j.booking_placed_date as BookingDateInSeconds,
+												   j.start_time as StartTime,
+												   j.end_time as EndTime,
+												   j.no_of_kids as NumberOfKids,
+												   j.location_code as LocationCode,
+												   j.remarks as Remarks
+											FROM job_management j
+											LEFT JOIN user_management um ON um.user_id = j.family_user_id
+											WHERE um.user_email LIKE '%waller%'
+											AND um.user_type = 'family'
+											AND um.promo_code = 1
+											AND STR_TO_DATE(j.booking_date, '%m/%d/%Y') > DATE('2018-12-31')
+											ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y') DESC, j.start_time, j.end_time;";
+							$rsSearchResults = mysql_query($wallerQuery, $conObj) or die(mysql_error());
+							$out = '';
+							while ($l = mysql_fetch_array($rsSearchResults)) {
+								for ($i = 0; $i < 12; $i++) {
+									$out .='"'.$l["$i"].'",';
+								}
+								$out .="\n";
+							}
+							echo $out;
+						?>
+					</div>
+					<a id="CsvDownload" href="data:text/csv;charset=utf-8,'csv.goes.here'" download="report.csv">Download Waller Report</a>
+				</div>
 				<div class="box-head">
 					<h2>Job List</h2>
 				</div>
