@@ -92,46 +92,43 @@ date_default_timezone_set ( 'America/Chicago' );
 				ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y'), j.start_time, j.end_time";
 			?>
 
+			<?php
+				$wallerQuery = "SELECT um.user_id as FamilyUserId,
+										um.user_name as FamilyUsername,
+										um.user_email as FamilyEmail,
+										j.job_id as JobId,
+										j.set_code as JobSetCode,
+										j.booking_date as BookingDate,
+										j.start_time as StartTime,
+										j.end_time as EndTime,
+										j.no_of_kids as NumberOfKids,
+										j.location_code as LocationCode,
+										j.remarks as Remarks
+								FROM job_management j
+								LEFT JOIN user_management um ON um.user_id = j.family_user_id
+								WHERE um.user_email LIKE '%waller%'
+								AND um.user_type = 'family'
+								AND um.promo_code = 1
+								AND STR_TO_DATE(j.booking_date, '%m/%d/%Y') > DATE('2018-12-31')
+								ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y') DESC, j.start_time, j.end_time;";
+				$rsSearchResults = mysql_query($wallerQuery, $conObj) or die(mysql_error());
+				$out = '"FamilyUserId","FamilyUsername","FamilyEmail","JobId","JobSetCode","BookingDate","StartTime","EndTime","NumberOfKids","LocationCode","Remarks"\n';
+				while ($l = mysql_fetch_array($rsSearchResults)) {
+					for ($i = 0; $i < 12; $i++) {
+						$out .='"'.$l["$i"].'",';
+					}
+					$out .="\n";
+				}
+			?>
+			<script language="javascript" type="text/javascript">
+				setTimeout(function() {
+					var url = "data:text/csv;charset=utf-8," + encodeURIComponent(`<?= $out ?>`);
+					document.getElementById('CsvDownload').href = url;
+				});
+			</script>
+
 			<div class="box grid_8">
 				<div style="display: flex; flex: 1; justify-content: flex-end; align-items: center; padding-bottom: 10px; padding-right: 10px;">
-					<div style="display: none">
-						<?php
-							$wallerQuery = "SELECT um.user_id as FamilyUserId,
-												   um.user_name as FamilyUsername,
-												   um.user_email as FamilyEmail,
-												   j.job_id as JobId,
-												   j.set_code as JobSetCode,
-												   j.booking_date as BookingDate,
-												   j.booking_placed_date as BookingDateInSeconds,
-												   j.start_time as StartTime,
-												   j.end_time as EndTime,
-												   j.no_of_kids as NumberOfKids,
-												   j.location_code as LocationCode,
-												   j.remarks as Remarks
-											FROM job_management j
-											LEFT JOIN user_management um ON um.user_id = j.family_user_id
-											WHERE um.user_email LIKE '%waller%'
-											AND um.user_type = 'family'
-											AND um.promo_code = 1
-											AND STR_TO_DATE(j.booking_date, '%m/%d/%Y') > DATE('2018-12-31')
-											ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y') DESC, j.start_time, j.end_time;";
-							$rsSearchResults = mysql_query($wallerQuery, $conObj) or die(mysql_error());
-							$out = '"FamilyUserId,","FamilyUsername","FamilyEmail","JobId","JobSetCode","BookingDate","BookingDateInSeconds","StartTime"."EndTime","NumberOfKids","LocationCode","Remarks"\n';
-							while ($l = mysql_fetch_array($rsSearchResults)) {
-								for ($i = 0; $i < 12; $i++) {
-									$out .='"'.$l["$i"].'",';
-								}
-								$out .="\n";
-							}
-							echo $out;
-						?>
-						<script language="javascript" type="text/javascript">
-							setTimeout(function() {
-								var url = "data:text/csv;charset=utf-8," + encodeURIComponent(`<?= $out ?>`);
-								document.getElementById('CsvDownload').href = url;
-							});
-						</script>
-					</div>
 					<a id="CsvDownload" href="data:text/csv;charset=utf-8," download="report.csv">Download Waller Report</a>
 				</div>
 				<div class="box-head">
