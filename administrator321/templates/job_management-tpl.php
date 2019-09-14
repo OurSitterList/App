@@ -116,7 +116,7 @@ date_default_timezone_set ( 'America/Chicago' );
 											AND STR_TO_DATE(j.booking_date, '%m/%d/%Y') > DATE('2018-12-31')
 											ORDER BY STR_TO_DATE(j.booking_date, '%m/%d/%Y') DESC, j.start_time, j.end_time;";
 							$rsSearchResults = mysql_query($wallerQuery, $conObj) or die(mysql_error());
-							$out = '';
+							$out = '"FamilyUserId,","FamilyUsername","FamilyEmail","JobId","JobSetCode","BookingDate","BookingDateInSeconds","StartTime"."EndTime","NumberOfKids","LocationCode","Remarks"\n';
 							while ($l = mysql_fetch_array($rsSearchResults)) {
 								for ($i = 0; $i < 12; $i++) {
 									$out .='"'.$l["$i"].'",';
