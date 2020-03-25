@@ -50,7 +50,7 @@
 
                         </div>-->
 
-                        <p>If you have any questions or comments, you may contact them at <a href="mailto:oursitterlist@gmail.com">oursitterlist@gmail.com</a></p>
+                        <p>If you have any questions or comments, you may contact them at <a href="mailto:oursitterlistnashville@gmail.com">oursitterlistnashville@gmail.com</a></p>
 
                     </div>
 
