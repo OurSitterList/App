@@ -26,16 +26,14 @@
 						echo '<div class="alert alert-' . $msgType . '">' . $msg . '</div>';
 					}
 
-					 $search_query_sql = "select  DISTINCT  set_code from job_management
+					 $results = $db->get("select  DISTINCT  set_code from job_management
 														WHERE
-														family_user_id='".$_SESSION['user_id']."' order by `booking_placed_date` DESC";
-
-					$search_query = mysql_query($search_query_sql);
-if(mysql_num_rows($search_query)>0)
+														family_user_id='".$_SESSION['user_id']."' order by `booking_placed_date` DESC");
+if(count($results) > 0)
 {
-	while($R = mysql_fetch_object($search_query))
+	foreach($results as $R)
 	{
-		$job_query = mysql_query("select * from `job_management` where set_code='".$R->set_code."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
+		$job_query = $db->get("select * from `job_management` where set_code='".$R->set_code."' ORDER BY STR_TO_DATE(booking_date, '%m/%d/%Y'), start_time");
 		$datearr =array();
 		$datearr1 =array();
 		$datearr1_start =array();
@@ -45,7 +43,7 @@ if(mysql_num_rows($search_query)>0)
 		$show_msg='';
 		$is_expired  =array();
 		$last = null;
-		while($JD = mysql_fetch_object($job_query))
+		foreach($job_query as $JD)
 		{
 			$datearr[] = "'".trim($JD->booking_date)."'";
 			$datearr2[] = "*".trim($JD->booking_date)."*";
@@ -75,7 +73,7 @@ if(mysql_num_rows($search_query)>0)
 		$totaldate2 = implode(',',$datearr1);
 		$totaldate2_start = implode(',',$datearr1_start);
 		$totaldate2_end = implode(',',$datearr1_end);
-		$job_history =  mysql_fetch_object(mysql_query("select * from `job_management` where set_code='".$R->set_code."'"));
+		$job_history =  $db->first("select * from `job_management` where set_code='".$R->set_code."'");
 		if(in_array(1,$is_expired))
 		{
 			$class = 'expired_job';
@@ -130,20 +128,20 @@ if(mysql_num_rows($search_query)>0)
               <?php if(!$class == 'expired_job')
 			  {
 				  ?>
-               <?php $search_query_app_sql = mysql_query("select  * from jobapply_management
+               <?php $search_query_app_sql = $db->get("select  * from jobapply_management
 														WHERE
 														job_id='".$R->set_code."' and family_approval='1' ");
-						if(mysql_num_rows($search_query_app_sql)>0)
+						if(count($search_query_app_sql)>0)
 						{
 							echo ' <span>Job Is Confirmed</span>';
 						}
 						?>
-                	<?php $search_query_sql = mysql_query("select  * from jobapply_management
+                	<?php $search_query_sql = $db->get("select  * from jobapply_management
 														WHERE
 														job_id='".$R->set_code."' order by applytime ");
-						if(mysql_num_rows($search_query_sql)>0)
+						if(count($search_query_sql)>0)
 						{
-							echo '<span>Apply By - '.mysql_num_rows($search_query_sql).'Sitter</span>';
+							echo '<span>Apply By - '.count($search_query_sql).'Sitter</span>';
 							?>
 
                            <a href="family_posting_details.php?set_code=<?=$R->set_code?>">Check Details</a>

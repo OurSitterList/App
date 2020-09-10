@@ -8,46 +8,67 @@
 			}
 			
 			$criteria = array();
+            $executable = [];
 			
 			if(isset($_REQUEST['search_user_firstaid_training'])) {
-				$criteria['user_firstaid_training'] = $_REQUEST['search_user_firstaid_training'];
+				$criteria['user_firstaid_training'] = ':user_firstaid_training';
+                $executable['user_firstaid_training'] = $_REQUEST['search_user_firstaid_training'];
 			}
 			if(isset($_REQUEST['search_user_cpr_training_yes'])) {
-				$criteria['user_cpr_training'] = $_REQUEST['search_user_cpr_training'];
+				$criteria['user_cpr_training'] = ':user_cpr_training';
+				$executable['user_cpr_training'] = $_REQUEST['search_user_cpr_training'];
 			}
 			if(isset($_REQUEST['search_user_newborn_cpr_training'])) {
-				$criteria['user_newborn_cpr_training'] = $_REQUEST['search_user_newborn_cpr_training'];
+				$criteria['user_newborn_cpr_training'] = ':user_newborn_cpr_training';
+				$executable['user_newborn_cpr_training'] = $_REQUEST['search_user_newborn_cpr_training'];
 			}
 			if(isset($_REQUEST['search_user_food_allergies'])) {
-				$criteria['user_food_allergies'] = $_REQUEST['search_user_food_allergies'];
+				$criteria['user_food_allergies'] = ':user_food_allergies';
+				$executable['user_food_allergies'] = $_REQUEST['search_user_food_allergies'];
 			}
 			if(isset($_REQUEST['search_user_overnight'])) {
-				$criteria['user_overnight'] = $_REQUEST['search_user_overnight'];
+				$criteria['user_overnight'] = ':user_overnight';
+				$executable['user_overnight'] = $_REQUEST['search_user_overnight'];
 			}
 			if(isset($_REQUEST['search_user_travel'])) {
-				$criteria['user_travel'] = $_REQUEST['search_user_travel'];
+				$criteria['user_travel'] = ':user_travel';
+				$executable['user_travel'] = $_REQUEST['search_user_travel'];
 			}
 			if(isset($_REQUEST['search_user_permanent'])) {
-				$criteria['user_permanent'] = $_REQUEST['search_user_permanent'];
+				$criteria['user_permanent'] = ':user_permanent';
+				$executable['user_permanent'] = $_REQUEST['search_user_permanent'];
 			}
 			if(isset($_REQUEST['search_user_newborn_exp'])) {
-				$criteria['user_newborn_exp'] = $_REQUEST['search_user_newborn_exp'];
+				$criteria['user_newborn_exp'] = ':user_newborn_exp';
+				$executable['user_newborn_exp'] = $_REQUEST['search_user_newborn_exp'];
 			}
 			if(isset($_REQUEST['search_user_sick_kids'])) {
-				$criteria['user_sick_kids'] = $_REQUEST['search_user_sick_kids'];
+				$criteria['user_sick_kids'] = ':user_sick_kids';
+				$executable['user_sick_kids'] = $_REQUEST['search_user_sick_kids'];
 			}
 			
 			$sql_criteria = "";
-			foreach($criteria as $c => $k) {
-				if($k == 'Yes') $sql_criteria .= ' AND UI.'.$c.' = "'.$k.'" ';
+			$executable_criteria = [];
+			foreach($executable as $c => $k) {
+				if($k == 'Yes') {
+				    $sql_criteria .= ' AND UI.'.$c.' ='.$criteria[$c].' ';
+                    $executable_criteria[$c] = $k;
+                }
 			}
 
             // free text search
             if (isset($_REQUEST['search_name']) && $_REQUEST['search_name'])
             {
-                $sql_criteria .= " AND (UI.user_first_name LIKE '%" . mysql_real_escape_string($_REQUEST['search_name']) . "%'" .
-                "OR UI.user_last_name LIKE '%" . mysql_real_escape_string($_REQUEST['search_name']) . "%')";
+                $sql_criteria .= " AND (UI.user_first_name LIKE :search_name " .
+                "OR UI.user_last_name LIKE :search_name_last)";
+                $executable_criteria['search_name'] = '%'.$_REQUEST['search_name'].'%';
+                $executable_criteria['search_name_last'] = '%'.$_REQUEST['search_name'].'%';
             }
+
+        if($_REQUEST['search_location_code']!='' || $_REQUEST['search_location_code']!=0) {
+            $sql_criteria.=" AND UI.`location_code`=:location_code";
+            $executable_criteria['location_code'] = $_REQUEST['search_location_code'];
+        }
 		?>
 
 <section class="sitter_list_outer">
@@ -55,7 +76,7 @@
     <div class="sitter_list_inner clearfix">
       <div class="sitter_list_leftarea col-lg-10 col-md-10 col-sm-8 col-xs-12">
         <div class="sitter_left_cont">
-          <?php 
+          <?php
 					 $search_query_sql = "select *,UM.user_id  from user_management as UM
 														LEFT JOIN
 														user_information as UI 
@@ -63,29 +84,29 @@
 														UM.user_id=UI.user_id 
 														WHERE 
 														UM.user_type='sitter' AND UM.user_status='1'";
-														if($_REQUEST['search_location_code']!='' || $_REQUEST['search_location_code']!=0)
-														{
-															$search_query_sql.=" AND UI.`location_code`='".$_REQUEST['search_location_code']."'";
-														}
 					$search_query_sql.= $sql_criteria;
 
 //          die($search_query_sql);
-					$search_query = mysql_query($search_query_sql);
-if(mysql_num_rows($search_query)>0)
+					$search_query = $db->get($search_query_sql,$executable_criteria);
+if(count($search_query)>0)
 {
-	while($R = mysql_fetch_object($search_query))
+	foreach($search_query as $R)
 	{
 		 $search_booking_date_query =  "select * from book_management where 
 		 sitter_user_id='".$R->user_id."' and 
-		 sitter_approval!='2' 
-		 and `booking_date` between '".$_REQUEST['search_from_date']."' and '".$_REQUEST['search_to_date']."' 
-		 ";
-		$search_booking_date = mysql_query($search_booking_date_query);
-		if(mysql_num_rows($search_booking_date)>0)
+		 sitter_approval!='2'";
+		 $executable = null;
+		 if(isset($_REQUEST['search_from_date'])) {
+		     $executable['search_from_date'] = $_REQUEST['search_from_date'];
+             $executable['search_to_date'] = $_REQUEST['search_to_date'];
+             $search_booking_date_query .= 'AND `booking_date` between :search_from_date and :search_to_date';
+         }
+		$search_booking_date = $db->query($search_booking_date_query,$executable);
+		if($search_booking_date->rowCount() > 0)
 		{
 			
 			$flag_arr_exist  =array();
-			while($S=mysql_fetch_object($search_booking_date))
+			while($S = $search_booking_date->fetch())
 			{
 				$allocation_arr	=array();
 			for($i = $S->start_time;$i<$S->end_time;$i++)

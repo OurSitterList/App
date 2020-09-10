@@ -20,29 +20,26 @@ if (isset($_POST['user_email']) && isset($_POST['user_email2'])) {
     $msg = 'Email addresses do not match.';
   } else {
 
-    $result = mysql_query("SELECT user_id
+    $result = $db->first("SELECT user_id
     FROM user_management
-    WHERE user_email = '" . mysql_real_escape_string($_POST['user_email']) . "'
-    AND user_id != '" . $_SESSION['user_id'] . "'");
-    $user = mysql_fetch_assoc($result);
-    $numrows = mysql_num_rows($result);
+    WHERE user_email =:user_email
+    AND user_id !=:user_id",[
+            'user_email' => $_POST['user_email'],
+            'user_id' => $_SESSION['user_id']
+    ]);
 
-    if (mysql_error()) {
-      $msg = 'An unexpected error has occurred.';
-    } else if (mysql_num_rows($result) > 0) {
+    if ($result) {
       $msg = 'That email address is already in use.';
     } else {
-      $sql = "UPDATE user_management SET user_email = '" . mysql_real_escape_string($_POST['user_email']) . "'
-      WHERE user_id = '" . $_SESSION['user_id'] . "'";
-      $result = mysql_query($sql);
+      $sql = $db->update("user_management SET user_email =:user_email
+      WHERE user_id =:user_id",[
+              'user_email' => $_POST['user_email'],
+              'user_id' => $_SESSION['user_id']
+      ]);
 
-      if (mysql_error()) {
-        $msg = 'An unexpected error has occurred.';
-      } else {
         setPostMSG('Your email address has been updated successfully.', 'success');
         header("Location: " . $backHref);
         exit();
-      }
     }
   }
 }

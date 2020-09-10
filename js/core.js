@@ -73,12 +73,14 @@ function getLoginBtnHandler(type)
                 }
                 else
                 {
+                    console.log(data);
                     hideLoginLoader(type);
                     loginError(type, 'An unexpected error has occurred. Please try again.');
                 }
             },
-            error: function()
+            error: function(data)
             {
+                console.log(data);
                 hideLoginLoader(type);
                 loginError(type, 'An unexpected error has occurred. Please try again.');
             }

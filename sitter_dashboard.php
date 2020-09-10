@@ -6,14 +6,10 @@
 				header('Location:/');
 
 			}
-			$search_query = mysql_query("select * from  user_information where user_id='".$_SESSION['user_id']."'");
-if(mysql_num_rows($search_query)>0)
-{
-	$R = mysql_fetch_object($search_query);
-
-}
-else
-{
+			$R = $db->first("select * from  user_information where user_id=:user_id",[
+			        'user_id' => $_SESSION['user_id']
+            ]);
+if(!$R){
 	header('Location:'.$base_path.'/sitter_application.php');
 	$changemsg = '<div class="msg-txt">Update Your Account Information <a href="sitter_application.php">click here</a></div>';
 }
@@ -31,7 +27,7 @@ $myaccount = new myAccount();
 
 $useLocationId = (isset($_REQUEST['location_id']) && preg_match('/^[1-9]+[0-9]*$/', $_REQUEST['location_id']) > -1) ? $_REQUEST['location_id'] : $_SESSION['user_location_id'];
 
-		$sql = "SELECT
+		$query = $db->get("SELECT
 	jm.job_id,
 	jm.set_code,
 	jm.family_user_id,
@@ -99,14 +95,14 @@ FROM job_management AS jm
 LEFT JOIN jobapply_management AS jam ON jm.set_code = jam.job_id AND jam.family_approval = '1'
 LEFT JOIN user_management AS um ON um.user_id = jm.family_user_id
 LEFT JOIN user_information AS ui ON ui.user_id = um.user_id
-WHERE jm.location_id = " . $useLocationId . "
+WHERE jm.location_id =:location_id
 AND jm.booking_status = 1
 AND jm.sitter_approval = '0'
 AND DATEDIFF(STR_TO_DATE(jm.booking_date, '%m/%d/%Y'), NOW()) >= 0
 GROUP BY jm.set_code
-ORDER BY jam.family_approval, jm.job_id DESC";
-$query	= mysql_query($sql);
-$num 	= mysql_num_rows($query);
+ORDER BY jam.family_approval, jm.job_id DESC",[
+            'location_id' => $useLocationId
+        ]);
 
 $msg = getPostMSG();
 if ($msg)
@@ -116,11 +112,11 @@ if ($msg)
 }
 
 
-if( $num > 0) :
+if( count($query) > 0) :
 
   $now = time();
 //  $now -= 18000;
-  while($job_available = mysql_fetch_object($query)):
+  foreach($query as $job_available):
     $tsplit = explode('/', $job_available->booking_date);
 
 //    echo $tsplit[2] . '-' . $tsplit[0] . '-' . $tsplit[1] . ' ' . $job_available->start_time;
@@ -272,7 +268,7 @@ if( $num > 0) :
             ?>
            </div>
         </div>
-        <?php endwhile; else : ?>
+        <?php endforeach; else : ?>
         <div class="message">No Result Found for <?= $locations[$useLocationId]; ?></div>
         <?php endif; ?>
       </div>

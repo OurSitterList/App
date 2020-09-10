@@ -14,20 +14,25 @@ class Setting {
 		
 	public static  function get_setting()
 	{
-		$sql		= "SELECT * FROM setting";
-		$results	= mysql_query($sql);
-		$num_rows 	= mysql_num_rows($results);
-		$data		= array();
-		
-		if( $num_rows > 0) {
-			while ($row = mysql_fetch_object($results)) {
-				$data[$row->id] = array ($row->id, $row->updtime, $row->settingName, $row->settingValue);
-			}
-			
-			self::$_config = $data;
-		}
-		
-		return $data;
+
+        $con = new DBConnection(host,user,pass,db);
+        $results = $con->get('SELECT * FROM setting');
+        $data = [];
+
+        if(count($results) > 0) {
+            foreach($results as $result) {
+                $data[$result->id] = [
+                    $result->id,
+                    $result->updtime,
+                    $result->settingName,
+                    $result->settingValue
+                ];
+            }
+        }
+
+        self::$_config = $data;
+
+        return $data;
 	}
 	
 	public static function get_setting_item() {

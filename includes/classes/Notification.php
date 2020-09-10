@@ -32,6 +32,7 @@ class Notification {
 
 	public function send_family_notification($data, $job_id)
 	{
+		$db = new DBConnection(host,user,pass,db);
 //		echo 'SEND FAMILY NOTIFICATION: ' . $booking_id;
 		//print_r($data);die();
 		$sql	= "SELECT
@@ -61,14 +62,12 @@ class Notification {
 						WHERE
 							bm.job_id = ".$job_id;
 
-		$results	= mysql_query($sql);
-		$num_rows 	= mysql_num_rows($results);
+		$row = $db->first($sql);
 
 //		echo "NUMROWS: " . $num_rows;die();
 //		die;
-		if( $num_rows > 0) {
+		if( $row) {
 			$account 						= new MyAccount();
-			$row 							= mysql_fetch_object($results);
 
 			$this->book_id 					= $row->book_id;
 			$nonce							= base64_encode($row->nonce);

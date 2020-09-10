@@ -28,7 +28,9 @@
 				
 				if($_SESSION['ATYPE']=='sub_admin')
 			{
-			 $access_val=mysql_fetch_object(mysql_query("SELECT * FROM user_management WHERE user_id=".$_SESSION['AID']));
+			 $access_val=$db->first("SELECT * FROM user_management WHERE user_id=:user_id",[
+			         'user_id' => $_SESSION['AID']
+             ]);
 			 // $access_val->user_access;
  			 $myaccess=explode(",",$access_val->user_access);
 			 if(in_array ($page_id , $myaccess )) 
@@ -41,7 +43,9 @@
 
 		{
 $page_id=13;
-$access_val=mysql_fetch_object(mysql_query("SELECT * FROM user_management WHERE user_id=".$_SESSION['AID']));
+            $access_val=$db->first("SELECT * FROM user_management WHERE user_id=:user_id",[
+                'user_id' => $_SESSION['AID']
+            ]);
 $child_action=explode(',',$access_val->child_action);
 			$con=new DBConnection(host,user,pass,db);
 
@@ -63,24 +67,33 @@ if($mode_table=='table_update')
 {	
 		
 						
-						$sql_case_insert = "update
-											case_registration
-											set
-											customer_type = '".mysql_real_escape_string($account_related)."',
-											org_com_name = '".mysql_real_escape_string($related_value)."',
-											first_name = '".mysql_real_escape_string($first_name)."',							
-											phone = '".mysql_real_escape_string($phone)."',
-											email = '".mysql_real_escape_string($email)."',
-											address = '".mysql_real_escape_string($address)."',
-											state_city = '".mysql_real_escape_string($city)."',
-											zipcode = '".mysql_real_escape_string($zipcode)."',
-											model = '".mysql_real_escape_string($model)."'
-											where id_case_registratioin  = '".mysql_real_escape_string($case_id)."'
-											";
+                                $db->update("case_registration
+											SET
+											customer_type =:account_related,
+											org_com_name =:related_value,
+											first_name =:first_name,							
+											phone =:phone,
+											email =:email,
+											address =:address,
+											state_city =:city,
+											zipcode =:zipcode,
+											model =:model
+											WHERE id_case_registratioin  =:case_id
+											",[
+											    'account_related' => $account_related,
+                                                'related_value' => $related_value,
+                                                'first_name' => $first_name,
+                                                'phone' => $phone,
+                                                'email' => $email,
+                                                'address' => $address,
+                                                'city' => $city,
+                                                'zipcode' => $zipcode,
+                                                'model' => $model,
+                                                'case_id' => $case_id
+
+                                            ]);
 									
-									//die($sql_case_insert);	
-								mysql_query($sql_case_insert) or die(mysql_error());	
-						
+
 								header("location:case_entry.php?mode=edit&case_id=".$case_id);
 								return;
 }
@@ -89,44 +102,64 @@ else
 
 {		
 
-						$is_exist = mysql_query("select * from users where id_users = '".mysql_real_escape_string($id_users)."'");
+						$is_exist = $db->get("select * from users where id_users =:id_users",[
+                                    'id_users' => $id_users
+                        ]);
 			
-						if(mysql_num_rows($is_exist) > 0){
-							$ll_id_user = mysql_fetch_object($is_exist)->id_users;
+						if(count($is_exist) > 0){
+							$ll_id_user = ($is_exist)->id_users;
 						}else{
 							header('Location:'.$_SERVER['PHP_SELF'].'?error=1');
 							return;
 						}
 
 						$case_id = time().rand(0,150);
-						$sql_case_insert = "insert
-											into
-											case_registration
-											set
-											id_case_registratioin  = '".mysql_real_escape_string($case_id)."',
-											customer_type = '".mysql_real_escape_string($account_related)."',
-											org_com_name = '".mysql_real_escape_string($related_value)."',
-											first_name = '".mysql_real_escape_string($first_name)."',							
-											phone = '".mysql_real_escape_string($phone)."',
-											email = '".mysql_real_escape_string($email)."',
-											address = '".mysql_real_escape_string($address)."',
-											country = '".mysql_real_escape_string($country)."',
-											state_city = '".mysql_real_escape_string($city)."',
-											zipcode = '".mysql_real_escape_string($zipcode)."',
-											media_type = '".mysql_real_escape_string($media_type)."',
-											manufacturer = '".mysql_real_escape_string($media_make)."',
-											storage_capacity = '".mysql_real_escape_string($media_capacity)."',
-											os_file_system = '".mysql_real_escape_string($media_os)."',
-											leading_failure = '".mysql_real_escape_string($steps_during_failure)."',
-											spcl_req_com = '".mysql_real_escape_string($spcl_req_comm)."',	
-											service_level = '".mysql_real_escape_string($priority_level)."',
-											return_data_via = '".mysql_real_escape_string($data_return_by)."',
-											id_users = '".mysql_real_escape_string($ll_id_user)."',
-											model = '".mysql_real_escape_string($model)."'
-											";
-									
-									//die($sql_case_insert);	
-								mysql_query($sql_case_insert) or die(mysql_error());	
+						$db->query("insert
+                                    into
+                                    case_registration
+                                    set
+                                    id_case_registratioin  =:case_id,
+                                    customer_type =:account_related,
+                                    org_com_name =:related_value,
+                                    first_name =:first_name,							
+                                    phone =:phone,
+                                    email =:email,
+                                    address =:address,
+                                    country =:country,
+                                    state_city =:city,
+                                    zipcode =:zipcode,
+                                    media_type =:media_type,
+                                    manufacturer =:media_make,
+                                    storage_capacity =:media_capacity,
+                                    os_file_system =:media_os,
+                                    leading_failure =:steps_during_failure,
+                                    spcl_req_com =:spcl_req_comm,	
+                                    service_level =:priority_level,
+                                    return_data_via =:data_return_by,
+                                    id_users =:ll_id_user,
+                                    model =:model
+                            ",[
+                                    'case_id' => $case_id,
+                            'account_related' => $account_related,
+                            'related_value' => $related_value,
+                            'first_name' => $first_name,
+                            'phone' => $phone,
+                            'email' => $email,
+                            'address' => $address,
+                            'country' => $country,
+                            'city' => $city,
+                            'zipcode' => $zipcode,
+                            'media_type' => $media_type,
+                            'media_make' => $media_make,
+                            'media_capacity' => $media_capacity,
+                            'media_os' => $media_os,
+                            'steps_during_failure' => $steps_during_failure,
+                            'spcl_req_comm' => $spcl_req_comm,
+                            'priority_level' => $priority_level,
+                            'data_return_by' => $data_return_by,
+                            'll_id_user' => $ll_id_user,
+                            'model' => $model
+                        ]);
 						
 								header("location:case-submission.php?case_id=".$case_id);
 								return;
@@ -367,7 +400,7 @@ var mf;
 
 {
 
-$result_row=mysql_fetch_object(mysql_query("select * from case_registration where id_case_registratioin=".$_GET['case_id']));
+$result_row=$db->get("select * from case_registration where id_case_registratioin=".$_GET['case_id']);
 
 
 

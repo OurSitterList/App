@@ -7,50 +7,30 @@
 		var $db;
 		var $DBLink;
 		
-		function DBConnection($host,$uname,$pass,$db)
+		function __construct($host,$uname,$pass,$db)
 		{
 			$this->host=$host;
 			$this->uname=$uname;
 			$this->pass=$pass;
 			$this->db=$db;
 			$this->DBLink=NULL;
+			$this->charset='utf8';
+			$this->pdo = null;
 		}
+
 		function connectDB(){
-			/*$ini = parse_ini_file('http://supercloudten.com/maintenence/connect.ini'); 
-				while(list($key,$value) = each($ini)){ 
-				  if($key == 'hostName'){ 
-					$hostName = $value; 
-				  } 
-				  else if($key == 'userName'){ 
-					$userName = $value; 
-				  } 
-				  else if($key == 'password'){ 
-					$password = $value; 
-				  } 
-				  else if($key == 'databaseName'){ 
-					$databaseName = $value; 
-				  } 
-				  else if($key == 'persistent'){ 
-					$persistent = $value; 
-				  } 
-				  else if($key == 'databaseCharset'){ 
-					$databaseCharset = $value; 
-				  } 
-				}
-				$conn = mysql_connect($hostName,$userName,$password);
-				mysql_select_db($databaseName,$conn);
-				$this->DBLink = $conn;
-				return $this->DBLink;*/
-		
-			$con=mysql_connect($this->host,$this->uname,$this->pass);
-			
-			if($con)
-			{
-				$this->DBLink=$con;
-				mysql_select_db($this->db,$this->DBLink);
+			$dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+			$options = [
+				PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+				PDO::ATTR_EMULATE_PREPARES   => false,
+			];
+			try {
+				return new PDO($dsn, $this->uname, $this->pass, $options);
+
+			} catch(PDOException $exception) {
+				throw new \PDOException($e->getMessage(), (int)$e->getCode());
 			}
-			return $this->DBLink;
-		
 		
 		
 	}
@@ -62,7 +42,62 @@
 		{
 			mysql_close($this->DBLink);
 		}
+
+		function first($sql,$execute = null) {
+			$result = $this->get($sql,$execute);
+			if(count($result) > 0) {
+				return $result[0];
+			}
+			return false;
+		}
+
+		function get($sql,$execute = null) {
+			$return = [];
+			$results = $this->query($sql,$execute);
+			if($results) {
+				while ($row = $results->fetch()) {
+					$return[] = $row;
+				}
+			}
+			return $return;
+		}
+
+		function update($sql,$execute = null) {
+			return $this->query('update '.$sql,$execute);
+		}
+
+		function delete($sql,$execute = null) {
+			return $this->query('delete '.$sql,$execute);
+		}
+
+		function insert($sql,$execute = null) {
+			$result = $this->query('insert '.$sql,$execute);
+			if($result) {
+				return $this->pdo->lastInsertId();
+			}
+			return false;
+		}
+
+		function query($sql,$execute = null) {
+			$dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+			$options = [
+				PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+				PDO::ATTR_EMULATE_PREPARES   => false,
+			];
+			try {
+				$this->pdo = new PDO($dsn, $this->uname, $this->pass, $options);
+				$statement = $this->pdo->prepare($sql);
+				$statement->execute($execute);
+				return $statement;
+
+			} catch(PDOException $e) {
+				throw new \PDOException($e->getMessage(), (int)$e->getCode());
+			}
+			return false;
+		}
 	}
+
 	class DBTools
 	{
 		var $con;
@@ -70,7 +105,7 @@
 		var $SQL;
 		var $errorMsg;
 		var $successMsg;
-		function DBTools($con)
+		function __construct($con)
 		{
 			$this->con=$con;
 			$this->recSet=NULL;
@@ -212,7 +247,7 @@ foreach ($conditionalArray as $field => $value)
 	class Authentication
 	{
 		var $dbObj;
-		function Authentication($con)
+		function __construct($con)
 		{
 			$this->dbObj=new DBTools($con);
 		}
@@ -271,7 +306,7 @@ foreach ($conditionalArray as $field => $value)
 		var $nextChar;
 		var $pageURL;
 		
-		function Pagination($selectedCSS,$numbersCSS,$nextPrevCSS)
+		function __construct($selectedCSS,$numbersCSS,$nextPrevCSS)
 		{
 			$this->selectedCSS=$selectedCSS;
 			$this->numbersCSS=$numbersCSS;
@@ -425,7 +460,7 @@ foreach ($conditionalArray as $field => $value)
 		var $nextChar;
 		var $pageURL;
 		
-		function Pagination1($selectedCSS,$numbersCSS,$nextPrevCSS)
+		function __construct($selectedCSS,$numbersCSS,$nextPrevCSS)
 		{
 			$this->selectedCSS=$selectedCSS;
 			$this->numbersCSS=$numbersCSS;
@@ -554,7 +589,7 @@ foreach ($conditionalArray as $field => $value)
 		
 		var $jsFunction;
 		
-		function AjaxPagination($selectedCSS,$numbersCSS,$nextPrevCSS)
+		function __construct($selectedCSS,$numbersCSS,$nextPrevCSS)
 		{
 			$this->selectedCSS=$selectedCSS;
 			$this->numbersCSS=$numbersCSS;
@@ -686,7 +721,7 @@ foreach ($conditionalArray as $field => $value)
 		
 		var $mail_boundary;
 		
-		function MailTools()
+		function __construct()
 		{
 			$this->to='';
 			$this->from='';
@@ -782,7 +817,7 @@ foreach ($conditionalArray as $field => $value)
 		var $sessQty;
 		var $qtyIncrease;
 		
-		function ShoppingCart($sessItem,$sessQty='',$qtyIncrease=false)
+		function __construct($sessItem,$sessQty='',$qtyIncrease=false)
 		{
 			$this->sessItem=$sessItem;
 			$this->sessQty=$sessQty;
@@ -961,7 +996,7 @@ foreach ($conditionalArray as $field => $value)
 		
 		var $flag;
 		
-		function DirectoryInfoTools()
+		function __construct()
 		{
 			$this->dirName="";
 			$this->filesInFolder=array();
