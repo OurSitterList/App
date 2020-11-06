@@ -18,7 +18,7 @@
 		function body()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q="SELECT
 
 				A.id AS id,

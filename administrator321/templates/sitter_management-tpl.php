@@ -42,7 +42,7 @@
 
 
 
-		$conObj=$con->connectDB();
+		$conObj=$con->connectDB(true);
 
 			if(!$_SESSION["AID"])
 
@@ -120,7 +120,7 @@ $view=0;
 
 
 
-		$conObj=$con->connectDB();
+		$conObj=$con->connectDB(true);
 
 		extract($_REQUEST);
 

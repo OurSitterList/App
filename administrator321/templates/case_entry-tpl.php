@@ -21,7 +21,7 @@
 		{$page_id=13;
 		$con=new DBConnection(host,user,pass,db);
 
-		$conObj=$con->connectDB();
+		$conObj=$con->connectDB(true);
 			if(!$_SESSION["AID"])
 
 				header("Location: ./");
@@ -49,7 +49,7 @@ $page_id=13;
 $child_action=explode(',',$access_val->child_action);
 			$con=new DBConnection(host,user,pass,db);
 
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 
 ?>
 

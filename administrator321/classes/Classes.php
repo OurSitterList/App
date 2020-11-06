@@ -18,18 +18,24 @@
 			$this->pdo = null;
 		}
 
-		function connectDB(){
-			$dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
-			$options = [
-				PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-				PDO::ATTR_EMULATE_PREPARES   => false,
-			];
-			try {
-				return new PDO($dsn, $this->uname, $this->pass, $options);
+		function connectDB($standard = false){
+			if($standard) {
+				$con = mysql_connect($this->host,$this->uname,$this->pass);
+				mysql_select_db($this->db);
+				return $con;
+			} else {
+				$dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+				$options = [
+					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+					PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+					PDO::ATTR_EMULATE_PREPARES => false,
+				];
+				try {
+					return new PDO($dsn, $this->uname, $this->pass, $options);
 
-			} catch(PDOException $exception) {
-				throw new \PDOException($e->getMessage(), (int)$e->getCode());
+				} catch (PDOException $exception) {
+					throw new \PDOException($e->getMessage(), (int)$e->getCode());
+				}
 			}
 		
 		

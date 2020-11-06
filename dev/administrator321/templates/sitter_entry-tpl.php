@@ -21,7 +21,7 @@
 		{$page_id=13;
 		$con=new DBConnection(host,user,pass,db);
 
-		$conObj=$con->connectDB();
+		$conObj=$con->connectDB(true);
 			if(!$_SESSION["AID"])
 
 				header("Location: ./");
@@ -45,7 +45,7 @@ $access_val=mysql_fetch_object(mysql_query("SELECT * FROM user_management WHERE 
 $child_action=explode(',',$access_val->child_action);
 			$con=new DBConnection(host,user,pass,db);
 
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 
 ?>
 

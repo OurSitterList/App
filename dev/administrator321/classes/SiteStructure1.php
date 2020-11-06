@@ -44,7 +44,7 @@
 		function bodytop()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q=mysql_fetch_object(mysql_query("select content from content_master where id='6'"));
 		?>
      <table width="902" border="0" cellspacing="0" cellpadding="0">
@@ -78,7 +78,7 @@
 		function Rightpanel()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
         ?>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0"  bgcolor="#282828">
                   <tr>
