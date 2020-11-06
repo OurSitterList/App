@@ -17,7 +17,7 @@
 		function head()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q="SELECT settingValue FROM ".DBPrefix."setting WHERE `id`=2";
 			$Rec=mysql_query($Q,$conObj) or die(mysql_error());
 			$R=mysql_fetch_object($Rec);
@@ -197,7 +197,7 @@
 		function footer()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q="SELECT settingValue FROM ".DBPrefix."setting WHERE `id`=5";
 			$Rec=mysql_query($Q,$conObj) or die(mysql_error());
 			$R=mysql_fetch_object($Rec);

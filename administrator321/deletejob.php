@@ -18,7 +18,7 @@ if ($_SESSION['ANAME'] !== 'admin')
 
 
 $con = new DBConnection(host, user, pass, db);
-$conObj = $con->connectDB();
+$conObj = $con->connectDB(true);
 
 
 $code = $_REQUEST['id'];

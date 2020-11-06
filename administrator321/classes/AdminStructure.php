@@ -36,7 +36,7 @@
 
 			$con=new DBConnection(host,user,pass,db);
 
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 
 			$Q="SELECT settingValue FROM ".DBPrefix."setting WHERE `id`=2";
 

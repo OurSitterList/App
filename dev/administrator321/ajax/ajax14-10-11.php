@@ -4,7 +4,7 @@
 	chdir("ajax");
 	
 	$con=new DBConnection(host,user,pass,db);
-	$conObj=$con->connectDB();
+	$conObj=$con->connectDB(true);
 	
 
 	if(isset($_POST['mode']))

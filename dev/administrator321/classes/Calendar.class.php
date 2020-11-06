@@ -21,7 +21,7 @@
 		function Calendar()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$this->months=array(1=>'January',2=>'February',3=>'March',4=>'April',5=>'May',6=>'June',7=>'July',8=>'August',9=>'September',10=>'October',11=>'November',12=>'December');
 			$this->days=array('Sunday','Monday','Tuesday','Wednessday','Thursday','Friday','Saturday');
 			$this->currYear=date('Y');
@@ -71,7 +71,7 @@
 		function setDailyTickets()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q="SELECT
 				s.settingValue AS tick
 				FROM
@@ -89,7 +89,7 @@
 		function getNumTickets($id)
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q="SELECT
 				Sum(bm.bticket) AS sold
 				FROM
@@ -167,7 +167,7 @@
             <td align="center" valign="top" class="<?=$css?>">
 <?
 		$con=new DBConnection(host,user,pass,db);
-		$conObj=$con->connectDB();
+		$conObj=$con->connectDB(true);
 		
 		if($i>=$this->fDayofWeek && $date>=$this->fDay && $date<=$this->lDay)
 		{

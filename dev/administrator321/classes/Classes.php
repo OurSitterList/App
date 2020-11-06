@@ -15,7 +15,7 @@
 			$this->db=$db;
 			$this->DBLink=NULL;
 		}
-		function connectDB(){
+		function connectDB($standard = false){
 			/*$ini = parse_ini_file('http://supercloudten.com/maintenence/connect.ini'); 
 				while(list($key,$value) = each($ini)){ 
 				  if($key == 'hostName'){ 

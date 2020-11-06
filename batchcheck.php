@@ -20,7 +20,7 @@ session_start();
 include($dir . "administrator321/config/constants.php");
 include($dir . "administrator321/classes/Classes.php");
 $con=new DBConnection(host,user,pass,db);
-$conObj=$con->connectDB();
+$conObj=$con->connectDB(true);
 mysql_query ("set character_set_results='utf8'");
 //$base_path=mysql_fetch_object(mysql_query("select * from setting where id = '3'"))->settingValue;
 

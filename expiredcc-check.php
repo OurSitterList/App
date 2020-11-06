@@ -100,7 +100,7 @@ if (count($queries) > 0) {
 
 // die;
     $con = new DBConnection(host,user,pass,db);
-    $conObj = $con->connectDB();
+    $conObj = $con->connectDB(true);
 
     echo "SELECT * FROM user_management WHERE user_subscriberid IN (" . implode(', ', $subids) . ')\n\n';
     echo "SELECT * FROM user_information WHERE user_id IN (SELECT user_id FROM user_management WHERE user_subscriberid IN (" . implode(', ', $subids) . "))";

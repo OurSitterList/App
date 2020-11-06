@@ -18,7 +18,7 @@
 		function head()
 		{
 			$con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 			$Q="SELECT settingValue FROM ".DBPrefix."setting WHERE `id`=2";
 			$Rec=mysql_query($Q,$conObj) or die(mysql_error());
 			$R=mysql_fetch_object($Rec);
@@ -161,7 +161,7 @@
 <!--<a href="#">Knowledgebase</a><br>-->
 <?php 
     $con=new DBConnection(host,user,pass,db);
-			$conObj=$con->connectDB();
+			$conObj=$con->connectDB(true);
 	$sql="select * from static_site_content";
 	$result=mysql_query($sql);
 	while($rows=mysql_fetch_array($result))

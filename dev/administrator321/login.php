@@ -3,7 +3,7 @@
 	include("classes/PageStructure.php");
 	
 	$con=new DBConnection(host,user,pass,db);
-	$conObj=$con->connectDB();
+	$conObj=$con->connectDB(true);
 	
 	$login=new PageStructure("Login");
 	$login->pageTop();

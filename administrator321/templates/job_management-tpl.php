@@ -17,7 +17,7 @@ date_default_timezone_set ( 'America/Chicago' );
 		{
 			$page_id = 18;
 			$con = new DBConnection(host, user, pass, db);
-			$conObj = $con->connectDB();
+			$conObj = $con->connectDB(true);
 
 			if ($_SESSION['ANAME'] !== 'admin') {
 				print_r($_SESSION);
@@ -52,7 +52,7 @@ date_default_timezone_set ( 'America/Chicago' );
 			$con = new DBConnection(host, user, pass, db);
 
 
-			$conObj = $con->connectDB();
+			$conObj = $con->connectDB(true);
 
 			extract($_REQUEST);
 
