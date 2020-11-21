@@ -1,11 +1,12 @@
 <?php
 	ini_set('display_errors', 1);
 error_reporting(E_ALL);
+echo "string";
 ?>
 
 <?php include('includes/connection.php');?>
 <?php include('includes/header-ajax.php');?>
-<?php if(isset($_SESSION['user_id']) && $_SESSION['user_id']!='')
+<?php  if(isset($_SESSION['user_id']) && $_SESSION['user_id']!='')
 			{
 				if($_SESSION['user_type']=='sitter')
 				{
