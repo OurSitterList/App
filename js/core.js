@@ -69,6 +69,7 @@ function getLoginBtnHandler(type)
                 }
                 else if (data && typeof data.red != 'undefined' && data.red)
                 {
+                    console.log(data);
                     alert(data.red);
                     document.location = data.red;
                 }
