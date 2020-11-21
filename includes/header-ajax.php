@@ -114,11 +114,11 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                                                                                                         alt=""/></a></div>
                 <div class="login col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <?php
-                    $open_modal = "	  <div class='md-modal md-show autohide' id='modal-book_details'>
-				            <div class='md-close book_details_close'></div>
-				            <div class='md-content' id='md-content'>";
+                    $open_modal = "   <div class='md-modal md-show autohide' id='modal-book_details'>
+                            <div class='md-close book_details_close'></div>
+                            <div class='md-content' id='md-content'>";
                     $close_modal = "</div>
-				</div>";
+                </div>";
                     ?>
 
                     <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
@@ -164,9 +164,9 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                         $user_password = (isset($_POST['user_password'])) ? $_POST['user_password'] : NULL;
 
                         $R = $db->first('select * from user_management where 
-			  			user_name=:user_name 
-						AND user_password=:user_password
-						AND user_type = "sitter"', [
+                        user_name=:user_name 
+                        AND user_password=:user_password
+                        AND user_type = "sitter"', [
                             'user_name' => $user_name,
                             'user_password' => md5($user_password)
                         ]);
@@ -174,12 +174,12 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                         if ($R) {
                             if ($R->user_status != 1) {
                                 echo "
-				<div class='md-modal md-effect-book_details md-show' id='modal-book_details'>
-				            <div class='md-close book_details_close'></div>
-				            <div class='md-content' id='md-content'>
-				                              <div class='error-login' style='box-shadow: none !important;'>Your Account is Not Activated Yet.<br>An email has been sent and you are waiting for approval.</div>
-				            </div>
-				</div>";
+                <div class='md-modal md-effect-book_details md-show' id='modal-book_details'>
+                            <div class='md-close book_details_close'></div>
+                            <div class='md-content' id='md-content'>
+                                              <div class='error-login' style='box-shadow: none !important;'>Your Account is Not Activated Yet.<br>An email has been sent and you are waiting for approval.</div>
+                            </div>
+                </div>";
 
                                 $message = file_get_contents('account-activation.html');
                                 $message = str_replace('%USERNAME%', $R->user_name, $message);
@@ -235,9 +235,9 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                         $user_password = (isset($_POST['user_password'])) ? $_POST['user_password'] : NULL;
 
                         $R = $db->first('select * from user_management where 
-									  user_name=:user_name  
-									  AND user_password=:user_password 
-									  AND user_type = "family"', [
+                                      user_name=:user_name  
+                                      AND user_password=:user_password 
+                                      AND user_type = "family"', [
                             'user_name' => $user_name,
                             'user_password' => md5($user_password)
                         ]);
@@ -246,12 +246,12 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             if ($R->user_status != 1) {
                                 // echo "<div class='error-login'>Your Account is Not Activated Yet</div>";
                                 echo "
-						<div class='md-modal md-effect-book_details md-show' id='modal-book_details'>
-						            <div class='md-close book_details_close'></div>
-						            <div class='md-content' id='md-content'>
-						                              <div class='error-login' style='box-shadow: none !important;'>Your Account is Not Activated Yet.<br>An email has been sent and you are waiting for approval.</div>
-						            </div>
-						</div>";
+                        <div class='md-modal md-effect-book_details md-show' id='modal-book_details'>
+                                    <div class='md-close book_details_close'></div>
+                                    <div class='md-content' id='md-content'>
+                                                      <div class='error-login' style='box-shadow: none !important;'>Your Account is Not Activated Yet.<br>An email has been sent and you are waiting for approval.</div>
+                                    </div>
+                        </div>";
                                 $message = file_get_contents('account-activation.html');
                                 $message = str_replace('%USERNAME%', $R->user_name, $message);
                                 $message = str_replace('%COMMENT%', 'Our Sitter List Founders are working hard at processing your application and we will respond your application within 36 hours.');
@@ -259,7 +259,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                                 require_once BASEPATH . 'class.MailUtil.php';
                                 $mail = MailUtil::getMailerWhitney();
                                 $mail->Debugoutput = 'html';
-//				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+//                $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
                                 $mail->addAddress($R->user_email, $R->user_name);
 
                                 //$mail->addAddress('chrisperando@gmail.com');
@@ -376,7 +376,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             require_once BASEPATH . 'class.MailUtil.php';
                             $mail = MailUtil::getMailerWhitney();
                             $mail->Debugoutput = 'html';
-//				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+//                $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
                             $mail->addAddress($R->user_email, $R->user_name);
                             //$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
 
@@ -411,12 +411,14 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             $message = str_replace('%FULL_NAME%', $R->user_name, $message);
                             $message = str_replace('%EMAIL%', $R->user_email, $message);
                             $message = str_replace('%AS%', 'Family', $message);
-                            $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
+                            $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="http://ec2-100-27-26-195.compute-1.amazonaws.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
+                            // $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
+
 
                             require_once BASEPATH . 'class.MailUtil.php';
                             $mail = MailUtil::getMailerWhitney();
                             $mail->Debugoutput = 'html';
-//				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+//                $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
                             $mail->addAddress($R->user_email, $R->user_name);
                             //$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
 
