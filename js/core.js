@@ -46,7 +46,7 @@ function getLoginBtnHandler(type)
 
         // make request
         $.ajax({
-            url: 'http://localhost/sitter/login-ajax.php',
+            url: '/login-ajax.php',
             method: 'post',
             dataType: 'json',
             data: {type: type, username: uname, password: pass, redirect: getUrlVars()['redirect']},
@@ -69,8 +69,12 @@ function getLoginBtnHandler(type)
                 }
                 else if (data && typeof data.red != 'undefined' && data.red)
                 {
-                   
-                    document.location = data.red;
+                    if (type == 'family'){
+                        document.location = 'family_dashboard.php';
+                    } else {
+                        document.location = 'sitter_dashboard.php';  
+                    }
+                    // document.location = data.red;
                 }
                 else
                 {
