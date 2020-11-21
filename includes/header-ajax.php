@@ -55,7 +55,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
         <link href="<?= $base_path ?>/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
         <link href="<?= $base_path; ?>/css/jquery.smartmarquee.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?= $base_path ?>/css/mdp.css">
-        <link rel="shortcut icon" type="image/x-icon" href="<?= $base_path ?>sitter/images/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="<?= $base_path ?>/images/favicon.ico">
         <strong></strong>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -163,8 +163,8 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                         $user_name = (isset($_POST['user_name'])) ? $_POST['user_name'] : NULL;
                         $user_password = (isset($_POST['user_password'])) ? $_POST['user_password'] : NULL;
 
-                        $R = $db->first('select * from user_management where 
-                        user_name=:user_name 
+                        $R = $db->first('select * from user_management where
+                        user_name=:user_name
                         AND user_password=:user_password
                         AND user_type = "sitter"', [
                             'user_name' => $user_name,
@@ -234,9 +234,9 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                         $user_name = (isset($_POST['user_name'])) ? $_POST['user_name'] : NULL;
                         $user_password = (isset($_POST['user_password'])) ? $_POST['user_password'] : NULL;
 
-                        $R = $db->first('select * from user_management where 
-                                      user_name=:user_name  
-                                      AND user_password=:user_password 
+                        $R = $db->first('select * from user_management where
+                                      user_name=:user_name
+                                      AND user_password=:user_password
                                       AND user_type = "family"', [
                             'user_name' => $user_name,
                             'user_password' => md5($user_password)
@@ -369,7 +369,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             $message = str_replace('%FULL_NAME%', $R->user_name, $message);
                             $message = str_replace('%EMAIL%', $R->user_email, $message);
                             $message = str_replace('%AS%', 'Sitter', $message);
-                            
+
 
                             $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
                             // echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
@@ -573,7 +573,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                                     <h3>Reset Password</h3>
                                 </div>
                                 <div class="sitter_form">
-                                    <form action="<?= $base_path ?>/sitter/reset_password.php" method="post" id="ResetpassForm">
+                                    <form action="<?= $base_path ?>/reset_password.php" method="post" id="ResetpassForm">
                                         <input type="hidden" name="hidden_code" id="hidden_code"
                                                value="<?php if (isset($_REQUEST['reset_code'])) echo $_REQUEST['reset_code']; ?>">
                                         <input type="password" name="sitter_new_password" id="sitter_new_password" placeholder="New Password"
