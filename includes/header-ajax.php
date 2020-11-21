@@ -44,24 +44,24 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
         <meta name="author" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0,"/>
         <title><?= $title ? $title->settingValue : 'Our Sitter List'; ?></title>
-        <link href="<?= $base_path ?>/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/fonts.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/modal.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/css/fullcalendar.css" rel='stylesheet'/>
-        <link href="<?= $base_path ?>/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
-        <link href="<?= $base_path; ?>/css/jquery.smartmarquee.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="<?= $base_path ?>/css/mdp.css">
-        <link rel="shortcut icon" type="image/x-icon" href="<?= $base_path ?>/images/favicon.ico">
+        <link href="<?= $base_path ?>/sitter/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/fonts.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/modal.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/sitter/css/fullcalendar.css" rel='stylesheet'/>
+        <link href="<?= $base_path ?>/sitter/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
+        <link href="<?= $base_path; ?>/sitter/css/jquery.smartmarquee.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="<?= $base_path ?>/sitter/css/mdp.css">
+        <link rel="shortcut icon" type="image/x-icon" href="<?= $base_path ?>sitter/images/favicon.ico">
         <strong></strong>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script language="JavaScript" type="text/javascript" src="/js/core.js"></script>
+        <script language="JavaScript" type="text/javascript" src="<?= $base_path ?>/sitter/js/core.js"></script>
         <script>
             $(function () {
                 var today = new Date();
@@ -343,7 +343,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                                 if (isset($_REQUEST['redirect']) && $_REQUEST['redirect']) {
                                     $redirect = urldecode($_REQUEST['redirect']);
                                 } else {
-                                    $redirect = '/family_dashboard.php';
+                                    $redirect = $base_path.'/family_dashboard.php';
                                 }
                                 header('Location:' . $base_path . $redirect);
                                 exit();
@@ -354,6 +354,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                     }
                     ?>
                     <?php if (isset($_POST['sitter_forgetForm']) && $_POST['sitter_forgetForm'] == 'yes') {
+                        // print_r($_POST); die;
                         $admin_contact_email = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='1'");
                         $admin_contact_name = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='4'");
                         $R = $db->first("select * from user_management where user_name=:user_name AND user_type = 'sitter' AND user_status = '1'", [
@@ -368,26 +369,29 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             $message = str_replace('%FULL_NAME%', $R->user_name, $message);
                             $message = str_replace('%EMAIL%', $R->user_email, $message);
                             $message = str_replace('%AS%', 'Sitter', $message);
+                            echo 'http://localhost/sitter/?reset_pass=1&reset_code=' . $generate_code;
+                            die;
+
                             $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
+                            echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
+//                             require_once BASEPATH . 'class.MailUtil.php';
+//                             $mail = MailUtil::getMailerWhitney();
+//                             $mail->Debugoutput = 'html';
+// //				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+//                             $mail->addAddress($R->user_email, $R->user_name);
+//                             //$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
 
-                            require_once BASEPATH . 'class.MailUtil.php';
-                            $mail = MailUtil::getMailerWhitney();
-                            $mail->Debugoutput = 'html';
-//				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
-                            $mail->addAddress($R->user_email, $R->user_name);
-                            //$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
+//                             //$mail->addAddress('chrisperando@gmail.com');
+//                             //$mail->addAddress('crisperando@yahoo.com');
+//                             $mail->Subject = 'Reset - Sitter Account Password';
+//                             $mail->msgHTML($message);
+//                             $mail->AltBody = 'This is a plain-text message body';
+//                             if (!$mail->send()) {
+//                                 echo "<div class='error-login'>" . $mail->ErrorInfo . "</div>";
 
-                            //$mail->addAddress('chrisperando@gmail.com');
-                            //$mail->addAddress('crisperando@yahoo.com');
-                            $mail->Subject = 'Reset - Sitter Account Password';
-                            $mail->msgHTML($message);
-                            $mail->AltBody = 'This is a plain-text message body';
-                            if (!$mail->send()) {
-                                echo "<div class='error-login'>" . $mail->ErrorInfo . "</div>";
-
-                            } else {
-                                echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
-                            }
+//                             } else {
+//                                 echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
+//                             }
                         } else {
                             echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>Username Doesn't exist</div>$close_modal";
                         }
@@ -568,7 +572,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                                     <h3>Reset Password</h3>
                                 </div>
                                 <div class="sitter_form">
-                                    <form action="<?= $base_path ?>/reset_password.php" method="post" id="ResetpassForm">
+                                    <form action="<?= $base_path ?>/sitter/reset_password.php" method="post" id="ResetpassForm">
                                         <input type="hidden" name="hidden_code" id="hidden_code"
                                                value="<?php if (isset($_REQUEST['reset_code'])) echo $_REQUEST['reset_code']; ?>">
                                         <input type="password" name="sitter_new_password" id="sitter_new_password" placeholder="New Password"
