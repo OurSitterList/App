@@ -1,7 +1,6 @@
 <?php
 	ini_set('display_errors', 1);
 error_reporting(E_ALL);
-echo "string";
 ?>
 
 <?php include('includes/connection.php');?>
@@ -23,12 +22,12 @@ echo "string";
     	<div class="body_cont clearfix" id="signuparea">
         	<!--<div class="get_sitter col-lg-6 col-md-6 col-sm-12 col-xs-12">
             	<div class="get_sitter_img">
-                
+
                 </div>
                 <div class="get_sitter_tag">
                 	<a href="#"  class="md-trigger" data-modal="modal-customer-signup"></a>
                 </div>
-                
+
             </div>-->
             <!--<div class="watch_child col-lg-6 col-md-6 col-sm-12 col-xs-12">
             	<div class="watch_child_img"></div>
@@ -36,7 +35,7 @@ echo "string";
                 	<a href="#"  class="md-trigger" data-modal="modal-sitter-signup"></a>
                 </div>
             </div>-->
-            
+
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             	<div class="img-box">
                 	<img src="<?=$base_path?>/images/home_cont_bg.png" alt="" />
@@ -45,7 +44,7 @@ echo "string";
                     <p>Get a Sitter</p>
                     <img src="<?=$base_path?>/images/get_sitter_tag.png" alt="" /></span>
                     </a>
-                </div>                
+                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             	<div class="img-box">
@@ -56,7 +55,7 @@ echo "string";
                     <img src="<?=$base_path?>/images/watch_child_tag.png" alt="" />
                     </span>
                     </a>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
