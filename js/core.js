@@ -69,12 +69,12 @@ function getLoginBtnHandler(type)
                 }
                 else if (data && typeof data.red != 'undefined' && data.red)
                 {
-                    if (type == 'family'){
-                        document.location = 'family_dashboard.php';
-                    } else {
-                        document.location = 'sitter_dashboard.php';  
-                    }
-                    // document.location = data.red;
+                    // if (type == 'family'){
+                    //     document.location = 'family_dashboard.php';
+                    // } else {
+                    //     document.location = 'sitter_dashboard.php';  
+                    // }
+                    document.location = data.red.replace('/var/www/html/', '');
                 }
                 else
                 {
