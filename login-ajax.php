@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 include('includes/connection.php');
 require_once("AuthnetARB.class.php");
 
