@@ -44,24 +44,24 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
         <meta name="author" content=""/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0,"/>
         <title><?= $title ? $title->settingValue : 'Our Sitter List'; ?></title>
-        <link href="<?= $base_path ?>/sitter/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/fonts.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/modal.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/custom.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $base_path ?>/sitter/css/fullcalendar.css" rel='stylesheet'/>
-        <link href="<?= $base_path ?>/sitter/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
-        <link href="<?= $base_path; ?>/sitter/css/jquery.smartmarquee.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="<?= $base_path ?>/sitter/css/mdp.css">
+        <link href="<?= $base_path ?>/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/fonts.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/modal.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= $base_path ?>/css/fullcalendar.css" rel='stylesheet'/>
+        <link href="<?= $base_path ?>/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
+        <link href="<?= $base_path; ?>/css/jquery.smartmarquee.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="<?= $base_path ?>/css/mdp.css">
         <link rel="shortcut icon" type="image/x-icon" href="<?= $base_path ?>sitter/images/favicon.ico">
         <strong></strong>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script language="JavaScript" type="text/javascript" src="<?= $base_path ?>/sitter/js/core.js"></script>
+        <script language="JavaScript" type="text/javascript" src="<?= $base_path ?>/js/core.js"></script>
         <script>
             $(function () {
                 var today = new Date();
