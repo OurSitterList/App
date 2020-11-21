@@ -369,29 +369,28 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             $message = str_replace('%FULL_NAME%', $R->user_name, $message);
                             $message = str_replace('%EMAIL%', $R->user_email, $message);
                             $message = str_replace('%AS%', 'Sitter', $message);
-                            echo 'http://localhost/sitter/?reset_pass=1&reset_code=' . $generate_code;
-                            die;
+                            
 
                             $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
-                            echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
-//                             require_once BASEPATH . 'class.MailUtil.php';
-//                             $mail = MailUtil::getMailerWhitney();
-//                             $mail->Debugoutput = 'html';
-// //				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
-//                             $mail->addAddress($R->user_email, $R->user_name);
-//                             //$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
+                            // echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
+                            require_once BASEPATH . 'class.MailUtil.php';
+                            $mail = MailUtil::getMailerWhitney();
+                            $mail->Debugoutput = 'html';
+//				  $mail->setFrom($admin_contact_email['settingValue'], $admin_contact_name['settingValue']);
+                            $mail->addAddress($R->user_email, $R->user_name);
+                            //$mail->addAddress('sethcriedel@gmail.com', 'Seth Riedel');
 
-//                             //$mail->addAddress('chrisperando@gmail.com');
-//                             //$mail->addAddress('crisperando@yahoo.com');
-//                             $mail->Subject = 'Reset - Sitter Account Password';
-//                             $mail->msgHTML($message);
-//                             $mail->AltBody = 'This is a plain-text message body';
-//                             if (!$mail->send()) {
-//                                 echo "<div class='error-login'>" . $mail->ErrorInfo . "</div>";
+                            //$mail->addAddress('chrisperando@gmail.com');
+                            //$mail->addAddress('crisperando@yahoo.com');
+                            $mail->Subject = 'Reset - Sitter Account Password';
+                            $mail->msgHTML($message);
+                            $mail->AltBody = 'This is a plain-text message body';
+                            if (!$mail->send()) {
+                                echo "<div class='error-login'>" . $mail->ErrorInfo . "</div>";
 
-//                             } else {
-//                                 echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
-//                             }
+                            } else {
+                                echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>A email has been sent to your registered account</div>$close_modal";
+                            }
                         } else {
                             echo "$open_modal<div class='error-login' style='box-shadow: none !important;'>Username Doesn't exist</div>$close_modal";
                         }
