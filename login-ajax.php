@@ -226,7 +226,7 @@ function processFamilyLogin()
                 $redirect = '/family_dashboard.php';
             }
 
-            dieJSONSuccess(BASEPATH . $redirect);
+            dieJSONSuccess($redirect);
         }
     } else {
         dieJSONError('Invalid or incorrect username/password. Please check your login credentials and try again.');
