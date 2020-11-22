@@ -411,8 +411,7 @@ $title = $db->first("SELECT `settingValue` FROM `setting` WHERE `id`='2'");
                             $message = str_replace('%FULL_NAME%', $R->user_name, $message);
                             $message = str_replace('%EMAIL%', $R->user_email, $message);
                             $message = str_replace('%AS%', 'Family', $message);
-                            $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="http://ec2-100-27-26-195.compute-1.amazonaws.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
-                            // $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
+                            $message = str_replace('%COMMENT%', 'To Reset Your Password <a href ="https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code . '">Click Here</a> or copy this link in your browser https://www.oursitterlist.com/?reset_pass=1&reset_code=' . $generate_code, $message);
 
 
                             require_once BASEPATH . 'class.MailUtil.php';
