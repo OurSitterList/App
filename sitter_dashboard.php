@@ -111,7 +111,7 @@ if ($msg)
   echo '<div class="alert alert-' . $msgType . '">' . $msg . '</div>';
 }
 
-
+echo '<pre/>';print_r($query);die;
 if( count($query) > 0) :
 
   $now = time();
